@@ -27,7 +27,7 @@ a:hover {
 	color: var(--main-highlight-colour);
 }
 
-i#main {
+#main {
 	background-color: var(--second-accent-colour);
 	margin: 2% auto 0 auto;
 	padding: 0;
@@ -40,12 +40,6 @@ i#main {
 
 ::selection {
 		background: var(--selection-colour);
-}
-
-/* responsive web design stuff */
-
-@media only screen and (max-device-width: 480px) {
-	body {font-size: 2.5rem;}
 }
 
 /*header*/
@@ -86,7 +80,7 @@ i#main {
 
 #nav li {
 	float: left;
-	
+	text-align: center;
 	margin:0 1%;
 	
 }
@@ -143,15 +137,13 @@ i#main {
 	padding: 1% .5%;
 	margin: 0;
 	
-	width: 12%;
+	width: 4%;
 	min-width: 64px;
 	
 	position: fixed;
 	top: 4%;
-	left: 84%;
-	
-	margin-left: 5px;
-	
+	left: 92%;
+		
 	text-align: center;
 }
 
@@ -160,13 +152,19 @@ i#main {
 }
 
 #sidebar img {
-	width: 42px;
-	height: 42px;
-	margin: 0 auto;
+	width: 64px;
+	height: 64px;
+	margin: 10% auto;
 	border-style: solid;
 	border-width: 3px;
 	border-color: black;
 	border-radius: 10px;
+	
+	transition: border-color .2s;
+}
+
+#sidebar img:hover {
+	border-color: var(--main-accent-colour);
 }
 
 /*footer*/
@@ -199,4 +197,12 @@ i#main {
 #copyright {
 	text-align: center;
 	color: #707070;
+}
+
+/* responsive web design stuff */
+
+@media only screen and (max-width: 480px) {
+	body {font-size: 2.5rem;}
+	#main {margin: 0; width: 100%;}
+	#nav li {float: none;}
 }
