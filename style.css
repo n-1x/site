@@ -46,7 +46,7 @@ div.main {
 div.header {
 	background: linear-gradient(to right, var(--main-accent-colour), var(--main-accent-colour-dark));
 	
-	font-size: 1.4em;	
+	font-size: 2em;	
 	
 	background-attachment: fixed;
 }
@@ -113,10 +113,12 @@ div.content {
 	border-bottom-style: solid;
 	border-bottom-color: black;
 	
-	padding: 2% 15% 60% 15%;
+	padding: 3% 15% 60% 5%;
 	background-color: var(--content-bg-colour);
 	
 	height: 66%;
+	
+	font-size: 1.5em;
 }
 
 /* sidebar */
