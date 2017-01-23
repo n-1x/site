@@ -29,7 +29,8 @@ a:hover {
 div.main {
 	background-color: var(--second-accent-colour);
 	margin: 2% auto 0 auto;
-	width: 66%;
+	padding: 0;
+	width: 95%;
 	border-style: solid;
 	border-width: 5px;
 	border-color: black;
@@ -123,20 +124,20 @@ div.content {
 	background-color: var(--page-bg-colour);
 	
 	border-style: solid;
-	border-width: 5px 5px 5px 0;
+	border-width: 5px 5px 5px 5px;
 	border-color: black;
-	border-radius: 0 15px 15px 0;
+	border-radius: 15px 15px 15px 15px;
 	box-shadow: 2px 2px 15px black;
 	
-	padding: 0;
+	padding: 1% .5%;
 	margin: 0;
 	
-	width: 6%;
+	width: 12%;
 	min-width: 64px;
 	
 	position: fixed;
-	top: 25%;
-	left: 83%;
+	top: 4%;
+	left: 84%;
 	
 	margin-left: 5px;
 	
@@ -144,7 +145,7 @@ div.content {
 }
 
 .sidebar h4 {
-	margin: 10% 0;
+	margin: 0 0 8% 0;
 }
 
 .sidebar img {
