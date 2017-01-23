@@ -15,6 +15,7 @@ body {
 	font-family: Arial;
 	margin: 0;
 	padding: 0;
+	
 }
 
 a {
@@ -39,6 +40,12 @@ div.main {
 
 ::selection {
 		background: var(--selection-colour);
+}
+
+/* responsive web design stuff */
+
+@media only screen and (max-device-width: 1080px) {
+	body {font-size: 2rem;}
 }
 
 /*header*/
@@ -92,8 +99,10 @@ ul.nav li a {
 	
 	border-style: solid;
 	border-color: black;
-	border-width: 5px 5px 0 5px;
+	border-width: 5px 5px 5px 5px;
 	border-radius: 15px 15px 0 0;
+	
+	margin-bottom: -5px;
 	
 	box-shadow: 2px 4px 10px black;
 	
@@ -189,6 +198,5 @@ div.footer p{
 
 .copyright {
 	text-align: center;
-	font-size: .8em;
 	color: #707070;
 }
