@@ -27,7 +27,7 @@ a:hover {
 	color: var(--main-highlight-colour);
 }
 
-div.main {
+i#main {
 	background-color: var(--second-accent-colour);
 	margin: 2% auto 0 auto;
 	padding: 0;
@@ -44,13 +44,13 @@ div.main {
 
 /* responsive web design stuff */
 
-@media only screen and (max-device-width: 1080px) {
+@media only screen and (max-device-width: 1500px) {
 	body {font-size: 2rem;}
 }
 
 /*header*/
 
-div.header {
+#header {
 	background: linear-gradient(to right, var(--main-accent-colour), var(--main-accent-colour-dark));
 	
 	font-size: 2em;	
@@ -58,13 +58,13 @@ div.header {
 	background-attachment: fixed;
 }
 
-h1.name {
+#name {
 	margin: 0;
 	padding: 2% 0 0 2%;
 	text-shadow: 5px 5px 10px black;
 }
 
-h4.job {
+#job {
 	margin: 0;
 	padding: 0 0 2% 4%;
 	text-shadow: 5px 5px 10px black;
@@ -72,7 +72,7 @@ h4.job {
 
 /* navigation */
 
-ul.nav {
+#nav {
 	border-bottom-style: solid;
 	border-bottom-width: 5px;
 	border-color: black;
@@ -84,14 +84,14 @@ ul.nav {
 	font-size: .9em;
 }
 
-ul.nav li {
+#nav li {
 	float: left;
 	
 	margin:0 1%;
 	
 }
 
-ul.nav li a {
+#nav li a {
 	display: block;
 	padding: 8px;
 	background-color: var(--main-highlight-colour);
@@ -112,13 +112,13 @@ ul.nav li a {
 	
 }
 
-ul.nav li a:hover {
+#nav li a:hover {
 	background-color: var(--main-highlight-colour-light);
 }
 
 /* content */
 
-div.content {
+#content {
 	border-bottom-style: solid;
 	border-bottom-color: black;
 	
@@ -131,7 +131,7 @@ div.content {
 }
 
 /* sidebar */
-.sidebar {
+#sidebar {
 	background-color: var(--page-bg-colour);
 	
 	border-style: solid;
@@ -155,11 +155,11 @@ div.content {
 	text-align: center;
 }
 
-.sidebar h4 {
+#sidebar h4 {
 	margin: 0 0 8% 0;
 }
 
-.sidebar img {
+#sidebar img {
 	width: 42px;
 	height: 42px;
 	margin: 0 auto;
@@ -171,7 +171,7 @@ div.content {
 
 /*footer*/
 
-div.footer {
+#footer {
 	margin: 0 auto;
 	width: 30%;
 	background-color: var(--page-bg-colour);
@@ -191,12 +191,12 @@ div.footer {
 	box-shadow: 2px 2px 15px black;
 }
 
-div.footer p{
+#footer p{
 	margin: auto;
 	padding: 10px;
 }
 
-.copyright {
+#copyright {
 	text-align: center;
 	color: #707070;
 }
