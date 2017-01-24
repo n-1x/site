@@ -202,7 +202,7 @@ a:hover {
 
 /* responsive web design stuff */
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1100px) {
 	body {font-size: 1rem;}
 	#main {
 		margin: 2% auto 0 auto;
