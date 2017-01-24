@@ -3,6 +3,8 @@ html {
 	padding: 0;
 }
 body {
+	/*
+	Colour Variables - Can't be used because IE is crap.
 	--page-bg-colour: #202020;
 	--content-bg-colour: #505050;
 	--main-accent-colour: #6502A6;
@@ -13,9 +15,10 @@ body {
 	--main-highlight-colour: #4B883E;
 	--link-colour: #FF8700;
 	--selection-colour: #FFAB4E;
+	*/
 	
-	color: var(--main-text-colour);
-	background-color: var(--page-bg-colour);
+	color: #FFFFFF;
+	background-color: #202020;
 	font-family: Arial;
 	margin: 0;
 	padding: 0;
@@ -28,11 +31,11 @@ h1 {
 
 a {
 	text-decoration: none;
-	color: var(--main-highlight-colour-light);
+	color: #6FCE5A;
 }
 
 a:hover {
-	color: var(--main-highlight-colour);
+	color: #4B883E;
 }
 
 a img {
@@ -45,7 +48,7 @@ a img {
 }
 
 a img:hover {
-	border-color: var(--main-accent-colour);
+	border-color: #6502A6;
 }
 
 #main {
@@ -60,13 +63,13 @@ a img:hover {
 }
 
 ::selection {
-		background: var(--selection-colour);
+		background: #FFAB4E;
 }
 
 /*header*/
 
 #header {
-	background: linear-gradient(to right, var(--main-accent-colour), var(--main-accent-colour-dark));
+	background: linear-gradient(to right, #6502A6, #2F004C);
 	
 	font-size: 1.6rem;	
 	
@@ -111,7 +114,7 @@ a img:hover {
 #nav li a {
 	display: block;
 	padding: 8px;
-	background-color: var(--main-highlight-colour);
+	background-color: #4B883E;
 	text-decoration: none;
 	
 	border-style: solid;
@@ -123,25 +126,23 @@ a img:hover {
 	
 	box-shadow: 2px 4px 10px black;
 	
-	color: var(--main-text-colour);
+	color: #FFFFFF;
 	padding: 10px 25px;
 	transition: background .2s;
 	
 }
 
 #nav li a:hover {
-	background-color: var(--main-highlight-colour-light);
-}
-
-#nav li a:active {
-	background-color: red;
+	background-color: #6FCE5A;
 }
 
 /*social network links for small devices */
 
+/* TODO: make images scaling - set width to percent and height to auto */
+
 #snbuttons {
 	text-align: center;
-	background-color: var(--page-bg-colour);
+	background-color: #202020;
 	
 	border-style: solid;
 	border-width: 0 5px 5px 5px;
@@ -167,7 +168,7 @@ a img:hover {
 	border-bottom-color: black;
 	
 	padding: 0 10% 10% 10%;
-	background-color: var(--content-bg-colour);	
+	background-color: #505050;	
 	font-size: 1.5em;
 	
 	text-align: justify;
@@ -175,7 +176,7 @@ a img:hover {
 
 /* sidebar, not displayed on small screens */
 #sidebar {
-	background-color: var(--page-bg-colour);
+	background-color: #202020;
 	
 	border-style: solid;
 	border-width: 5px 5px 5px 5px;
@@ -215,14 +216,14 @@ a img:hover {
 #footer {
 	margin: 0 auto;
 	width: 80%;
-	background-color: var(--page-bg-colour);
+	background-color: #202020;
 	
 	border-style: solid;
 	border-width: 0 5px 5px 5px;
 	border-color: black;
 	border-radius: 0 0 15px 15px;
 	
-	color: var(--main-accent-colour);
+	color: #6502A6;
 	
 	text-align: center;
 	
