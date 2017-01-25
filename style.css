@@ -1,10 +1,10 @@
 body {	
-	color: black;
-	background-color: white;
-	font-family: "Trebuchet MS";
+	color: white;
+	background-color: #505050;
+	font-family: 'Sanchez', serif;
 	margin: 0;
 	padding: 0;
-	font-size: 1rem;
+	font-size: 1.3rem;
 }
 
 h1 {
@@ -13,7 +13,9 @@ h1 {
 
 a {
 	text-decoration: none;
-	color: #CDAD5A;
+	color: #FF9B00;
+	
+	transition: color .2s;
 }
 
 a:hover {
@@ -32,21 +34,26 @@ a img {
 #container {
 	display: block;
 	margin: auto;
-	color: white;
 	
-	border-bottom: 3px solid black;
+	border-bottom: 10px solid #1E1E1E;
 	text-align: center;
-	
-	font-size: 1.5rem;
 }
 
 #content {
 	padding: 2% 10% 2% 10%;
 	background-color: #505050;
+	box-shadow: 0 5px 60px black;
 }
 
 #content:nth-child(odd) {
-	background-color: #5F2592;
+	background-color: #4B70DA;
+}
+
+#content img {
+	width: 64px;
+	height: auto;
+	display: inline;
+	margin: 3% 2%;
 }
 
 ::selection {
@@ -56,9 +63,9 @@ a img {
 /*header*/
 
 #header {
-	background: #5F2592;
+	background: #FF9B00;
 	font-size: 2em;	
-	padding: 2% 0;
+	padding: 2.5% 0;
 	text-shadow: 2px 2px 2px black;
 }
 
@@ -73,13 +80,13 @@ a img {
 	color: black;
 	padding: 1%;
 	
-	width: 25%;
+	width: 95%;
 	box-shadow: 2px 2px 1px black;
 	display: inline-block;
 	margin: 3% 2%;
 	
 	transition: background-color .5s;
-	cursor: 
+	cursor: pointer;
 }
 
 #card:hover {
@@ -100,6 +107,8 @@ a img {
 	margin: 1% auto 1% auto;
 	width: 40%;
 	
+	font-size: .8em;
+	
 	text-align: center;
 	
 	clear: both;
@@ -108,4 +117,11 @@ a img {
 #footer p{
 	margin: 0;
 	padding: 10px;
+}
+
+@media only screen and (min-width: 500px)
+{
+	#card {
+		width: 25%;
+	}
 }
