@@ -4,7 +4,7 @@ body {
 	font-family: 'Sanchez', serif;
 	margin: 0;
 	padding: 0;
-	font-size: 1.3rem;
+	font-size: 1rem;
 }
 
 h1 {
@@ -22,15 +22,6 @@ a:hover {
 	color: #E5C676;
 }
 
-a img {
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
-	border-radius: 10px;
-	
-	transition: border-color .2s;
-}
-
 #container {
 	display: block;
 	margin: auto;
@@ -40,7 +31,7 @@ a img {
 }
 
 #content {
-	padding: 2% 10% 2% 10%;
+	padding: 8% 5% 8% 5%;
 	background-color: #505050;
 	box-shadow: 0 5px 60px black;
 }
@@ -52,8 +43,8 @@ a img {
 #content img {
 	width: 64px;
 	height: auto;
-	display: inline;
 	margin: 3% 2%;
+	vertical-align: top;
 }
 
 ::selection {
@@ -106,7 +97,6 @@ a img {
 
 #footer {
 	margin: 1% auto 1% auto;
-	width: 40%;
 	
 	font-size: .8em;
 	
@@ -120,8 +110,23 @@ a img {
 	padding: 10px;
 }
 
-@media only screen and (min-width: 500px)
+@media only screen and (min-width: 565px) {
+	body {
+		font-size: 1.3rem;
+	}
+	
+	#content {
+		padding: 2% 13% 2% 13%;
+	}
+	
+	#card {
+		width: 40%;
+	}
+}
+
+@media only screen and (min-width: 980px)
 {
+	
 	#card {
 		width: 25%;
 	}
