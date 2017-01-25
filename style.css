@@ -83,10 +83,11 @@ a img {
 	width: 95%;
 	box-shadow: 2px 2px 1px black;
 	display: inline-block;
-	margin: 3% 2%;
+	margin: 1% 2%;
 	
 	transition: background-color .5s;
 	cursor: pointer;
+	vertical-align: top;
 }
 
 #card:hover {
