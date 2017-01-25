@@ -1,25 +1,7 @@
-html {
-	margin: 0;
-	padding: 0;
-}
-body {
-	/*
-	Colour Variables - Can't be used because IE is crap.
-	--page-bg-colour: #202020;
-	--content-bg-colour: #505050;
-	--main-accent-colour: #6502A6;
-	--main-accent-colour-dark: #2F004C;
-	--main-accent-colour-light: #AE00FF;
-	--main-text-colour: #FFFFFF;
-	--main-highlight-colour-light: #6FCE5A;
-	--main-highlight-colour: #4B883E;
-	--link-colour: #FF8700;
-	--selection-colour: #FFAB4E;
-	*/
-	
-	color: #FFFFFF;
-	background-color: #202020;
-	font-family: Arial;
+body {	
+	color: black;
+	background-color: white;
+	font-family: "Trebuchet MS";
 	margin: 0;
 	padding: 0;
 	font-size: 1rem;
@@ -31,11 +13,11 @@ h1 {
 
 a {
 	text-decoration: none;
-	color: #6FCE5A;
+	color: #CDAD5A;
 }
 
 a:hover {
-	color: #4B883E;
+	color: #E5C676;
 }
 
 a img {
@@ -47,19 +29,24 @@ a img {
 	transition: border-color .2s;
 }
 
-a img:hover {
-	border-color: #6502A6;
+#container {
+	display: block;
+	margin: auto;
+	color: white;
+	
+	border-bottom: 3px solid black;
+	text-align: center;
+	
+	font-size: 1.5rem;
 }
 
-#main {
-	background-color: var(--second-accent-colour);
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	border-style: none;
-	border-width: 5px;
-	border-color: black;
-	box-shadow: 5px 5px 20px black;
+#content {
+	padding: 2% 10% 2% 10%;
+	background-color: #505050;
+}
+
+#content:nth-child(odd) {
+	background-color: #5F2592;
 }
 
 ::selection {
@@ -69,208 +56,56 @@ a img:hover {
 /*header*/
 
 #header {
-	background: linear-gradient(to right, #6502A6, #2F004C);
-	
-	font-size: 1.6rem;	
-}
-
-
-
-#name {
-	margin: 0;
-	padding: 2% 0 0 4%;
-	text-shadow: 5px 5px 10px black;
+	background: #5F2592;
+	font-size: 2em;	
+	padding: 2% 0;
+	text-shadow: 2px 2px 2px black;
 }
 
 #job {
 	margin: 0;
-	padding: 0 0 2% 8%;
-	text-shadow: 5px 5px 10px black;
 }
 
-/* navigation */
+/*cards*/
 
-#nav {
-	border-bottom-style: solid;
-	border-bottom-width: 5px;
-	border-color: black;
-	
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	font-size: .9em;
-}
-
-#nav li {
-	float: none;
-	text-align: center;
-	margin:0;
-	width: 100%;
-}
-
-#nav li a {
-	display: block;
-	padding: 8px;
-	background-color: #4B883E;
-	text-decoration: none;
-	
-	border-style: solid;
-	border-color: black;
-	border-width: 5px 5px 5px 5px;
-	border-radius: 15px 15px 0 0;
-	
-	margin-bottom: -5px;
-	
-	box-shadow: 2px 4px 10px black;
-	
-	color: #FFFFFF;
-	padding: 10px 25px;
-	transition: background .2s;
-	
-}
-
-#nav li a:hover {
-	background-color: #6FCE5A;
-}
-
-/*social network links for small devices */
-
-/* TODO: make images scaling - set width to percent and height to auto */
-
-#snbuttons {
-	text-align: center;
-	background-color: #202020;
-	
-	border-style: solid;
-	border-width: 0 5px 5px 5px;
-	border-color: black;
-	border-radius: 0 0 15px 15px;
+#card {
+	background-color: white;
+	color: black;
 	padding: 1%;
-	margin: 0 auto 3% auto;
-	width: 100%;
-	height: 50px;
+	
+	width: 25%;
+	box-shadow: 2px 2px 1px black;
+	display: inline-block;
+	margin: 3% 2%;
+	
+	transition: background-color .5s;
+	cursor: 
 }
 
-
-#snbuttons img {
-	width: 42px;
-	height: 42px;
-	margin: 0 3%;
+#card:hover {
+	box-shadow: 0;
+	background-color: #CDAD5A;
 }
 
-/* content */
-
-#content {
-	border-bottom-style: solid;
-	border-bottom-color: black;
-	
-	padding: 0 10% 10% 10%;
-	background-color: #505050;	
-	font-size: 1.5em;
-}
-
-/* sidebar, not displayed on small screens */
-#sidebar {
-	background-color: #202020;
-	
-	border-style: solid;
-	border-width: 5px 5px 5px 5px;
-	border-color: black;
-	border-radius: 0 15px 15px 0;
-	box-shadow: 2px 2px 15px black;
-	
-	padding: 1% .5%;
+#card img {
+	padding: 0;
 	margin: 0;
-	
-	width: 3%;
-	min-width: 64px;
-	
-	position: fixed;
-	display: none;
-	
-	left: 83%;
-	top: 5%;
-		
-	text-align: center;
+	width: 100%;
+	height: auto;
 }
-
-#sidebar h4 {
-	margin: 0 0 8% 0;
-}
-
-#sidebar img {
-	width: 48px;
-	height: 48px;
-	margin: 10% auto;
-}
-
-
 
 /*footer*/
 
 #footer {
-	margin: 0 auto;
-	width: 80%;
-	background-color: #202020;
-	
-	border-style: solid;
-	border-width: 0 5px 5px 5px;
-	border-color: black;
-	border-radius: 0 0 15px 15px;
-	
-	color: #6502A6;
+	margin: 1% auto 1% auto;
+	width: 40%;
 	
 	text-align: center;
 	
 	clear: both;
-	
-	box-shadow: 2px 2px 15px black;
 }
 
 #footer p{
-	margin: auto;
+	margin: 0;
 	padding: 10px;
-}
-
-#copyright {
-	text-align: center;
-	color: #707070;
-	font-size: .9em;
-}
-
-/* responsive web design stuff */
-
-/* medium size, chosen as when the first nav item has to wrap */
-@media only screen and (min-width: 550px) {
-	body {font-size: .8rem;}
-	#main {
-		margin: 2% auto 0 auto;
-		width: 80%;
-		border-style: solid;
-	} 
-	#header {font-size: 2rem;}
-	#nav {padding-bottom: 1%; padding-left: 1%;}
-	#nav li {float: left; width: auto; margin: 1%;} 
-	#nav li a { border-radius: 15px 15px 15px 15px; }
-	#snbuttons {width: 80%;}
-	#footer {width: 40%;}
-	
-}
-
-/* max size */
-
-@media only screen and (min-width: 1230px) {
-	#main {width: 66%;}
-	#nav {padding-bottom: 0;}
-	#nav li {
-		margin: 0 1%;
-	}
-	#nav li a{
-		border-radius: 15px 15px 0 0;
-	}
-	/* no more snbuttons in content, so make extra space */
-	#content {padding-top: 3%;} 
-	#snbuttons {display: none;}
-	#sidebar {display: block;}
 }
