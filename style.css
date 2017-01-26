@@ -35,7 +35,7 @@ a:hover {
 #header {
 	background: #FF9B00;
 	font-size: 2em;	
-	padding: 3% 0 4% 0;
+	padding: 3% 0 8% 0;
 	text-shadow: 2px 2px 2px black;
 }
 
@@ -124,6 +124,10 @@ a:hover {
 	
 	#content {
 		padding: 2% 13% 2% 13%;
+	}
+	
+	#header {
+		padding-bottom: 4%;
 	}
 	
 	#card {
