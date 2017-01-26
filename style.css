@@ -34,7 +34,7 @@ a:hover {
 #content {
 	padding: 8% 5% 8% 5%;
 	background-color: #505050;
-	
+	box-shadow: 0 5px 60px black;
 }
 
 #content:nth-child(odd) {
@@ -44,7 +44,7 @@ a:hover {
  * to reverse the order, just put the shadown in #content
 */
 #content:nth-last-child(n) { 
-	box-shadow: 0 5px 60px black;
+	
 }
 
 #content img {
@@ -81,7 +81,7 @@ a:hover {
 	width: 95%;
 	box-shadow: 2px 2px 1px black;
 	display: inline-block;
-	margin: 1% 2%;
+	margin: 2% 2% 8% 2%;
 	
 	transition: background-color .5s;
 	cursor: pointer;
@@ -90,7 +90,7 @@ a:hover {
 
 #card:hover {
 	box-shadow: 0;
-	background-color: #CDAD5A;
+	background-color: #FF9B00;
 }
 
 #card img {
@@ -128,6 +128,7 @@ a:hover {
 	
 	#card {
 		width: 40%;
+		margin-bottom: 3%;
 	}
 }
 
