@@ -13,37 +13,49 @@
 	</head>
 
 	<body>
+	
+		<div class="responsiveTest">
+		</div>
 		<div id="container">
 			
 			<div id="header">
 				<h1 id="name">Nicholas Dean</h1>
 				<h4 id="job"><i>Programmer</i></h4>
+				
+				<ul id="nav">
+					<a href="#projects"><li>Projects</li></a>
+					<a href="#paperwork"><li>Paperwork</li></a>
+					<a href="#contact"><li>Contact</li></a>
+					
+				</ul>
 			</div>
 			
-			<div id="content">
+			<div id="intro" class="content">
 
 				<h1>Welcome!</h1>
 				<h3>Hi, I'm Nick, a computer games programming student at Northumbria University in the north of England. Welcome to the home of any projects that I deem to be interesting, useful or awesome enough to show off.</h3>
+				
+				<p>I started teaching myself to program when I started high school, using some online Java tutorials (shoutout to <a href="https://thenewboston.com/">thenewboston</a>). Since then I've worked on many <strike>useful</strike> things in all sorts of languages. From games and mobile apps to physics simulations and networking tools.</p>
 
 			</div>
 			
-			<div id="content">
+			<div id="projects" class="content">
 				<h1>Projects</h1>
 				<h3>This is just a few, click the 'See all' button for more.</h3>
 				
-				<a href="#fydregame" id="card">
+				<a href="#fydregame" class="card">
 						<img src="resources/fydregame-screenshot-1-half.png" alt="picture from a game" />
-						<h4>Fydregame</h4>
+						<h4>2D Sidescroller in C++</h4>
 						<p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
 				</a>
 				
-				<a href="#p2" id="card">
+				<a href="#p2" class="card">
 					<img src="resources/console-fractal.png" alt="picture from a game" />
 					<h4>ASCII Fractal Generator</h4>
 					<p>This is a console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
 				</a>
 				
-				<a href="p3" id="card">
+				<a href="#p3" class="card">
 					<img src="resources/mechanics-sim.png" alt="picture from a game" />
 					<h4>Mechanics Simulator</h4>
 					<p>This was my final year project for college. It is written in Java and has an android and desktop version.</p>
@@ -54,12 +66,10 @@
 				</div>
 			</div>
 			
-			<div id="content">
-				<h1>Documents</h1>
+			<div id="paperwork" class="content">
+				<h1>Paperwork</h1>
 				<h3>For if you're looking to employ someone like me.</h3>
-
-				<p>I started teaching myself to program when I started high school, using some online Java tutorials (shoutout to <a href="https://thenewboston.com/">thenewboston</a>). Since then I've worked on many <strike>useful</strike> things in all sorts of languages. From games and mobile apps to physics simulations and networking tools.</p>
-				
+	
 				<h3>CV (<a href="#cv-web">Web</a> / <a href="cv-dow">Download</a>)</h3>
 				
 				<h3>
@@ -68,7 +78,7 @@
 				
 			</div>
 			
-			<div id="content">
+			<div id="contact" class="content">
 				<h1>Contact</h1>
 				<h3>Here's a few places you can get in touch, or just see what I've been up to.</h3>		
 				

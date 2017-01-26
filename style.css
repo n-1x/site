@@ -7,19 +7,28 @@ body {
 	font-size: 1rem;
 }
 
+.responsiveTest{
+	width: 5px;
+	height: 5px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: red;
+}
+
 h1 {
 	margin: 0;
 }
 
 a {
 	text-decoration: none;
-	color: #FF9B00;
+	color: #DAB44B;
 	
 	transition: color .2s;
 }
 
 a:hover {
-	color: #E5C676;
+	color: #B8DA4B;
 }
 
 #container {
@@ -33,30 +42,47 @@ a:hover {
 /*header*/
 
 #header {
-	background: #FF9B00;
+	background: #DA6D4B;
 	font-size: 2em;	
-	padding: 3% 0 8% 0;
+	padding: 3% 0 0 0;
 	text-shadow: 2px 2px 2px black;
 }
 
+#nav {
+	width: 100%;
+	margin: 2% auto 0 auto;
+	padding: 0;
+	
+	font-size: 1.5rem;
+	
+	list-style-type: none;
+}
 
-#content {
+#nav  li {
+	background-color: #505050;
+	display: inline-block;
+	box-shadow: 0 0 10px 0 black;
+	padding: .5% 2%;
+	margin: 2% 1% -1% 1%;
+}
+
+.content {
 	padding: 8% 5% 8% 5%;
 	background-color: #505050;
 	box-shadow: 0 5px 40px black;
 }
 
-#content:nth-child(odd) {
+.content:nth-child(odd) {
 	background-color: #4B70DA;
 }
 /*so that the cards are stacked bottom to top
  * to reverse the order, just put the shadown in #content
 */
-#content:nth-last-child(n) { 
+.content:nth-last-child(n) { 
 	
 }
 
-#content img {
+.content img {
 	width: 64px;
 	height: auto;
 	margin: 3% 2%;
@@ -73,7 +99,7 @@ a:hover {
 
 /*cards*/
 
-#card {
+.card {
 	background-color: white;
 	color: black;
 	padding: 1%;
@@ -88,12 +114,13 @@ a:hover {
 	vertical-align: top;
 }
 
-#card:hover {
+.card:hover {
+	background-color: #DAB44B;
+	color: black;
 	box-shadow: 0;
-	background-color: #FF9B00;
 }
 
-#card img {
+.card img {
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -122,15 +149,19 @@ a:hover {
 		font-size: 1.3rem;
 	}
 	
-	#content {
+	.responsiveTest{
+		background-color: orange;
+	}
+	
+	#nav li {
+		margin-top: 0;
+	}
+
+	.content {
 		padding: 2% 13% 2% 13%;
 	}
 	
-	#header {
-		padding-bottom: 4%;
-	}
-	
-	#card {
+	.card {
 		width: 40%;
 		margin-bottom: 3%;
 	}
@@ -138,8 +169,11 @@ a:hover {
 
 @media only screen and (min-width: 980px)
 {
+	.responsiveTest{
+		background-color: green;
+	}
 	
-	#card {
+	.card {
 		width: 25%;
 	}
 }
