@@ -30,14 +30,21 @@ a:hover {
 	text-align: center;
 }
 
+
 #content {
 	padding: 8% 5% 8% 5%;
 	background-color: #505050;
-	box-shadow: 0 5px 60px black;
+	
 }
 
 #content:nth-child(odd) {
 	background-color: #4B70DA;
+}
+/*so that the cards are stacked bottom to top
+ * to reverse the order, just put the shadown in #content
+*/
+#content:nth-last-child(n) { 
+	box-shadow: 0 5px 60px black;
 }
 
 #content img {
