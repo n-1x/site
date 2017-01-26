@@ -34,8 +34,6 @@ a:hover {
 #container {
 	display: block;
 	margin: auto;
-	
-	border-bottom: 10px solid #1E1E1E;
 	text-align: center;
 }
 
