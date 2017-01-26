@@ -23,7 +23,7 @@ h1 {
 a {
 	text-decoration: none;
 	color: #DAB44B;
-	
+	cursor: pointer;
 	transition: color .2s;
 }
 
@@ -62,7 +62,6 @@ a:hover {
 	box-shadow: 0 0 10px 0 black;
 	padding: .5% 2%;
 	margin: 2% 1% -1% 1%;
-	cursor: pointer;
 }
 
 .content {
@@ -109,7 +108,6 @@ a:hover {
 	margin: 2% 2% 8% 2%;
 	
 	transition: background-color .5s;
-	cursor: pointer;
 	vertical-align: top;
 }
 
@@ -162,7 +160,7 @@ a:hover {
 	
 	.card {
 		width: 40%;
-		margin-bottom: 3%;
+		margin-bottom: 1%;
 	}
 }
 

@@ -12,18 +12,27 @@
 		<meta name="author" content="Nicholas Dean">
 		<meta name="keywords" content="Nicholas Deam, Nick Dean, Fydrenak, Programmer, Game Programmer Website, Game Programmer Portfolio, Programmer Portfolio, Portfolio">
 		
-		<script>
-			//will smooth scroll in modern browsers
+		<script type="text/javascript">		
 			function scrollToEl(element) {
 				theElement = document.getElementById(element);
-				
+				//will smooth scroll in modern browsers
 				theElement.scrollIntoView({behavior: 'smooth'});
+			};
+			
+			function copyright() {
+				var text = "&copy Nicholas J D Dean ";
+				var end = ". All Rights Reserved.";
+				
+				var date = new Date();
+				var d = date.getFullYear();
+				
+				document.getElementById('copyright').innerHTML = text + d + end;
 			}
 		</script>
 		
 	</head>
 
-	<body>
+	<body onload="copyright()">
 	
 		<div class="responsiveTest">
 		</div>
@@ -53,11 +62,12 @@
 			<div id="projects" class="content">
 				<h1>Projects</h1>
 				<h3>This is just a few, click the 'See all' button for more.</h3>
+				<h4>Don't want to scroll? <a onclick="scrollToEl('paperwork')">Skip this section.</a></h4>
 				
 				<a href="#fydregame" class="card">
-						<img src="resources/fydregame-screenshot-1-half.png" alt="picture from a game" />
-						<h4>2D Sidescroller in C++</h4>
-						<p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
+					<img src="resources/fydregame-screenshot-1-half.png" alt="picture from a game" />
+					<h4>2D Sidescroller in C++</h4>
+					<p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
 				</a>
 				
 				<a href="#p2" class="card">
@@ -72,9 +82,9 @@
 					<p>This was my final year project for college. It is written in Java and has an android and desktop version.</p>
 				</a>
 				
-				<div id="topbutton">
+				<h3>
 					<a>See all (no more yet!)</a>
-				</div>
+				</h3>
 			</div>
 			
 			<div id="paperwork" class="content">
@@ -115,9 +125,9 @@
 		</div>
 		
 		<div id="footer">
-				<a href="#top">Go to top</a>
+				<a onclick="scrollToEl('header')">Go to top</a>
 				<p>Site designed and built from scratch by Nicholas Dean.</p>
-				<p id="copyright">&copy Nicholas J D Dean 2017. All Rights Reserved.</p>
+				<p id="copyright">&copy </p>
 		</div>
 
 	</body>
