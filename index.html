@@ -6,9 +6,19 @@
 		<link rel="stylesheet" type="text/css" href='style.css'>
 		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
 		
+		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1">
 		<meta name="description" content="Nicolas Dean, Game / Anything interesting programmer. Currently a student at Northumbria university in the north of England.">
 		<meta name="keywords" content="Nicholas Deam, Nick Dean, Fydrenak, Programmer, Game Programmer Website, Game Programmer Portfolio, Programmer Portfolio">
+		
+		<script>
+			//will smooth scroll in modern browsers
+			function scrollToEl(element) {
+				theElement = document.getElementById(element);
+				
+				theElement.scrollIntoView({behavior: 'smooth'});
+			}
+		</script>
 		
 	</head>
 
@@ -23,9 +33,9 @@
 				<h4 id="job"><i>Programmer</i></h4>
 				
 				<ul id="nav">
-					<a href="#projects"><li>Projects</li></a>
-					<a href="#paperwork"><li>Paperwork</li></a>
-					<a href="#contact"><li>Contact</li></a>
+					<a onclick="scrollToEl('projects')"><li>Projects</li></a>
+					<a onclick="scrollToEl('paperwork')"><li>Paperwork</li></a>
+					<a onclick="scrollToEl('contact')"><li>Contact</li></a>
 					
 				</ul>
 			</div>

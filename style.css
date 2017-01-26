@@ -42,7 +42,7 @@ a:hover {
 #header {
 	background: #DA6D4B;
 	font-size: 2em;	
-	padding: 3% 0 0 0;
+	padding: 1% 0 0 0;
 	text-shadow: 2px 2px 2px black;
 }
 
@@ -62,6 +62,7 @@ a:hover {
 	box-shadow: 0 0 10px 0 black;
 	padding: .5% 2%;
 	margin: 2% 1% -1% 1%;
+	cursor: pointer;
 }
 
 .content {
