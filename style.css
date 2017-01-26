@@ -43,7 +43,7 @@ a:hover {
 #content {
 	padding: 8% 5% 8% 5%;
 	background-color: #505050;
-	box-shadow: 0 5px 60px black;
+	box-shadow: 0 5px 40px black;
 }
 
 #content:nth-child(odd) {
