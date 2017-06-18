@@ -64,20 +64,19 @@ a:hover {
 	margin: 2% 1% -1% 1%;
 }
 
+canvas {
+	border: 2px solid darkgray;
+}
+
 .content {
 	padding: 8% 5% 8% 5%;
 	background-color: #505050;
 	box-shadow: 0 5px 40px black;
+	z-index: -2;
 }
 
 .content:nth-child(odd) {
 	background-color: #4B70DA;
-}
-/*so that the cards are stacked bottom to top
- * to reverse the order, just put the shadown in #content
-*/
-.content:nth-last-child(n) { 
-	
 }
 
 .content img {
