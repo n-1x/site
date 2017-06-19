@@ -1,26 +1,82 @@
 //Author: Nicholas J D Dean
 //Date Created: 2017-06-17
 
-var boids = [];
-var startingBoids = 50;
-var minScale = 0.9;
-var maxScale = 1.3;
+var boids;     //the array of boids
+var obstacles; //array of obstacles
 
+var startingBoids = 25;
+var minRadius = 10;
+var maxRadius = 20;
+
+var theCanvas;
+var resetButton;
+var clearBoidsButton;
+var clearObstaclesButton;
+var boidCountParagraph;
 
 function setup() {
-  var theCanvas = createCanvas(windowWidth * .4, windowHeight * .4);
-  
-  theCanvas.parent("p5parent");
+  theCanvas = createCanvas(windowWidth * .5, windowHeight * .5);
 
-  for(var i = 0; i < startingBoids; i++) {
-    boids[i] = new Boid(width/2, height/2, random(minScale, maxScale));
-  }
+  boidCountParagraph = createP();
+  boidCountParagraph.parent("p5parent");
+
+  theCanvas.parent("p5parent");
+  theCanvas.id("theCanvas");
+  theCanvas.style("display", "block");
+  theCanvas.style("margin", "auto");
+
+  //disable canvas context menu
+  document.getElementById("theCanvas").addEventListener(
+    "contextmenu", 
+    function(event) {
+      event.preventDefault();
+    }
+  );
+  
+  resetButton = createButton("Reset");
+  resetButton.parent("p5parent");
+  resetButton.style("display", "inline");
+  resetButton.style("margin", "auto");
+  resetButton.style("padding", "10px 20px");
+  resetButton.mousePressed(init);
+
+  clearBoidsButton = createButton("Clear Boids");
+  clearBoidsButton.parent("p5parent");
+  clearBoidsButton.style("display", "inline");
+  clearBoidsButton.style("margin", "auto");
+  clearBoidsButton.style("padding", "10px 20px");
+  clearBoidsButton.mousePressed(function() {
+    boids = [];
+    updateBoidCounter();
+  });
+
+  clearObstaclesButton = createButton("Clear Obstacles");
+  clearObstaclesButton.parent("p5parent");
+  clearObstaclesButton.style("display", "inline");
+  clearObstaclesButton.style("margin", "auto");
+  clearObstaclesButton.style("padding", "10px 20px");
+  clearObstaclesButton.mousePressed(function() {
+    obstacles = [];
+  });
+  
+  init();
 }
 
+function init() {
+  boids = [];
+  obstacles = [];
 
-//accumulate a force to be applied on next update
-Boid.prototype.applyForce = function(force) {
-  this.acceleration.add(force);
+  //place the starting boids
+  for(var i = 0; i < startingBoids; i++) {
+    boids[i] = new Boid(width/2, height/2, random(minRadius, maxRadius));
+  }
+
+  //place 3 random obstacles
+  for (var i = 0; i < 4; i++) {
+    obstacles[i] = new Obstacle(random(width), random(height));
+  }
+
+  updateBoidCounter();
 }
 
 
@@ -31,41 +87,83 @@ function draw() {
   //for each boid
   for(var i = 0; i < boids.length; i++) {
     //calculate colour based on scale
-    var scale = boids[i].scale;
-    var colourValue = map(scale, minScale, maxScale, 100, 255);
-    fill(colourValue, 0, 255-colourValue);
+    var radius = boids[i].radius;
+    var colourValue = map(radius, minRadius, maxRadius, 100, 255);
+    fill(0, colourValue, 255-colourValue);
 
-    //draw the boid  
-    var xPos = boids[i].location.x;
-    var yPos = boids[i].location.y;
-
+    //draw the boid
     push();
-    translate(xPos, yPos);
+    translate(boids[i].location.x, boids[i].location.y);
+    ellipse(0, 0, boids[i].radius * 2, boids[i].radius * 2);
     rotate(boids[i].velocity.heading() - PI/2);
-    triangle(-5 * scale, -5 * scale, 0, 15 * scale, 5 * scale, -5 * scale);
+    line(0, 0, 0, boids[i].radius);
     pop();
 
     //add behaviours and update
     boids[i].flock();
     boids[i].update();
   }
+
+  //draw obstacles
+  for(var i = 0; i < obstacles.length; i++) {
+    fill(255, 0, 0);
+    ellipse(obstacles[i].location.x, obstacles[i].location.y, 15, 15);
+  }
 }
 
 
-//create new boids on mouse drag
-// function mouseDragged() {
-//   boids[boids.length] = new Boid(mouseX, mouseY, random(minSize, maxSize));
-// }
+function keyPressed() {
+
+  //add a boid
+  if(keyCode == 90) { //90 is z
+    boids[boids.length] = new Boid(mouseX, mouseY, random(minRadius, maxRadius));
+  } 
+  //add 5 boids
+  else if (keyCode == 88) { //88 is x
+    for(var i = 0; i < 5; i++) {
+      boids[boids.length] = new Boid(mouseX, mouseY, random(minRadius, maxRadius));
+    }
+    updateBoidCounter();
+  }
+  //add an obstacle
+  else if (keyCode == 67) { //67 is c
+    //if mouse is in canvas
+    if(((mouseX > 0) && (mouseX < width)) && 
+       ((mouseY > 0) && (mouseY < height))) {
+      obstacles[obstacles.length] = new Obstacle(mouseX, mouseY);
+    }
+  }
+}
+
+
+
+function updateBoidCounter() {
+  boidCountParagraph.html("Number of boids: " + boids.length);
+}
+
 
 
 //the boid constructor
-function Boid(x, y, scale) {
+function Boid(x, y, radius) {
   this.location = createVector(x, y);
-  this.scale = scale;
-  this.velocity = createVector(random(-1, 1), random(-1, 1));
-  this.acceleration = createVector(0, 0);
   this.maxSpeed = 5;
+  this.radius = radius;
+  this.velocity = createVector(random(-this.maxSpeed, this.maxSpeed), random(-this.maxSpeed, this.maxSpeed));
+  this.acceleration = createVector(0, 0);
   this.maxForce = 0.3;
+}
+
+
+
+function Obstacle(x, y) {
+  this.location = createVector(x, y);
+}
+
+
+
+//accumulate a force to be applied on next update
+Boid.prototype.applyForce = function(force) {
+  this.acceleration.add(force);
 }
 
 
@@ -100,15 +198,30 @@ Boid.prototype.flock = function() {
   var ali = this.alignment();
   var coh = this.cohesion();
 
-  sep.mult(1.5);
-  ali.mult(1);
-  coh.mult(1);
+  sep.mult(1.7);
+  ali.mult(1.3);
+  coh.mult(1.0);
 
-  //seek the mouse while it is pressed
+  //seek or fear mouse based on which button is pressed
   if(mouseIsPressed) {
-    var seekForce = this.seek(createVector(mouseX, mouseY));
-    seekForce.mult(1);
-    this.applyForce(seekForce);
+    var force;
+    if(mouseButton == LEFT) {
+      force = this.seek(createVector(mouseX, mouseY));
+    }
+    else if (mouseButton == RIGHT) {
+      force = this.fear(createVector(mouseX, mouseY));
+      force.mult(3);
+    }
+    this.applyForce(force);
+  } 
+
+  //add a fleeing force for all obstacles
+  for(var i = 0; i < obstacles.length; i++) {
+    var force = this.fear(obstacles[i].location);
+
+    force.mult(2);
+    this.applyForce(force);
+    
   }
 
   this.applyForce(sep);
@@ -119,7 +232,7 @@ Boid.prototype.flock = function() {
 
 
 Boid.prototype.separation = function() {
-  var desiredSeparation = 40;
+  var desiredSeparation = this.radius * 3;
   var steer = createVector(0, 0);
   var avgEscape = createVector(0, 0);
   var count = 0;
@@ -156,7 +269,7 @@ Boid.prototype.separation = function() {
 //a boid wants to have the average velocity
 //of its neigbours
 Boid.prototype.alignment = function() {
-  var range = 50;
+  var range = this.radius * 5;
   var sum = createVector(0, 0);
   var count = 0;
   var steer = createVector(0, 0);
@@ -186,10 +299,10 @@ Boid.prototype.alignment = function() {
 
 //desire to move towards the average position of neighbours
 Boid.prototype.cohesion = function () {
+  var range = this.radius * 5;
   var count = 0;
   var sum = createVector(0, 0);
   var steer = createVector(0, 0);
-  var range = 50;
 
   for (var i = 0; i < boids.length; i++) {
     var distance = p5.Vector.dist(this.location, boids[i].location);
@@ -210,6 +323,7 @@ Boid.prototype.cohesion = function () {
 
 
 
+//seek target regardless of range
 Boid.prototype.seek = function(target) {
   var desired = p5.Vector.sub(target, this.location);
 
@@ -224,21 +338,21 @@ Boid.prototype.seek = function(target) {
 
 
 
-Boid.prototype.arriveMouse = function() {
-  var desired = p5.Vector.sub(this.mouseLoc, this.location);
+//flee the target if it's in range
+Boid.prototype.fear = function(target) {
+  var range = this.radius * 5;
+  var distance = p5.Vector.dist(this.location, target);
+  var steer = createVector(0, 0);
 
-  var d = desired.mag();
-  desired.normalize();
+  if(distance < range) {
+    var desired = p5.Vector.sub(this.location, target);
 
-  if(d < 100) {
-    var m = map(d, 0, 100, 0, this.maxSpeed);
-    desired.mult(m);
-  } else {
+    desired.normalize();
     desired.mult(this.maxSpeed);
-  }
 
-  var steer = p5.Vector.sub(desired, this.velocity);
-  steer.limit(this.maxForce);
+    steer = p5.Vector.sub(desired, this.velocity);
+    steer.limit(this.maxForce);
+  }
 
   return steer;
 }
