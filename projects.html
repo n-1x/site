@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Nicholas Dean | Programmer Portfolio</title>
+		<link rel="stylesheet" type="text/css" href='style.css'>
+        <link rel="stylesheet" type="text/css" href='listCards.css'>
+		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1">
+		<meta name="description" content="Nicholas Dean, Game / Anything interesting programmer. Currently a student at Northumbria university in the north of England.">
+		<meta name="author" content="Nicholas Dean">
+		<meta name="keywords" content="Nicholas J D Dean, Nicholas Dean, Nick Dean, Fydrenak, Programmer, Developer, Game Developer, Game Programmer Website, Programmer Portfolio, Portfolio, Portfolio Website">
+
+		<script type="text/javascript" src="resources/js/misc.js" ></script>
+	</head>
+
+	<body onload="copyright()">
+		<!--
+			If this div is shown, it will change colours based on the current site layout.
+			Red = mobile
+			Orange = tablet
+			Green = desktop
+		-->
+		<!--<div class="responsiveTest"></div>-->
+
+		<div id="container">
+			
+			<div id="header">
+                <a href="index.html">
+                    <h1 id="name">Nicholas Dean</h1>
+                    <h4 id="job"><i>Programmer</i></h4>
+                </a>
+				
+				<ul id="nav">
+					<a href=""><li>Projects</li></a>
+					<a href="index.html#paperwork"><li>Paperwork</li></a>
+					<a href="index.html#contact"><li>Contact</li></a>
+				</ul>
+			</div>
+			
+			<div id="projects" class="content">
+				<h1>Projects</h1>
+                <br />
+
+				<a href="project_boids.html" class="listCard">
+					<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
+					<h4>Boids Flocking Simulation (Runs in Browser)</h4>
+					<p>A simulation of flocking behaviour using p5.js. The boids can be attracted to or repelled from the mouse and obstacles can be placed that they will try to avoid.</p>
+				</a>
+				
+				<a href="https://github.com/Fydrenak/fydreChip" class="listCard">
+					<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
+					<h4>Chip-8 Emulator</h4>
+					<p>This is a project I made for fun over a couple of weekends to learn about emulators. It is written in C++ using SFML.</p>
+				</a>	
+				
+				<a href="#p2" class="listCard">
+					<img src="resources/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
+					<h4>ASCII Fractal Generator</h4>
+					<p>This is a console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
+				</a>
+
+                <a href="#p3" class="listCard">
+					<img src="resources/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
+					<h4>Mechanics Simulator</h4>
+					<p>This was my final year project for college. It is written in Java and has an android and desktop version.</p>
+				</a>
+
+                <a href="#fydregame" class="listCard">
+                    <img src="resources/fydregame-screenshot-1-half.png" alt="Picture from a game." />
+                    <h4>2D Sidescroller in C++</h4>
+                    <p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
+                </a>
+			</div>
+		
+		<div id="footer">
+				<a onclick="scrollToEl('header')">Go to top</a>
+				<p>Site designed and built from scratch by Nicholas Dean.</p>
+				<p id="copyright">&copy </p>
+		</div>
+
+	</body>
+</html>
