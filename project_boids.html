@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href='style.css'>
 		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
         <script src="resources/js/p5.min.js"></script>
+		<script src="resources/js/p5.dom.js"></script>
         <script src="resources/js/boidsSketch.js"></script>
 		
 		<meta charset="utf-8">
@@ -53,8 +54,9 @@
 
 
 			<div class="content">
-                <h1>Boids Flock Simulation</h1>
-                <p>The boids will want to travel towards wherever the mouse is clicked.</p>
+                <h1>Boids Simulation</h1>
+				<p>This is a simulation of flocking behaviour using the boids algorithm. It is written using <a href="https://p5js.org/">p5.js</a>.</p>
+                <p>The boids will be attracted to the mouse while left click is held, and flee from it when right click is held.<br />Press Z to add a boid, X to add 5 boids or C to add an obstacle.</p>
                 <div id="p5parent"></div>
             </div>
 			
