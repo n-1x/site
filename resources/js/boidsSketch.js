@@ -15,7 +15,7 @@ var clearObstaclesButton;
 var boidCountParagraph;
 
 function setup() {
-  theCanvas = createCanvas(windowWidth * .5, windowHeight * .5);
+  theCanvas = createCanvas(windowWidth * .4, windowHeight * .5);
 
   boidCountParagraph = createP();
   boidCountParagraph.parent("p5parent");
