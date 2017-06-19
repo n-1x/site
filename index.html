@@ -10,30 +10,18 @@
 		<meta name="viewport" content="initial-scale=1">
 		<meta name="description" content="Nicholas Dean, Game / Anything interesting programmer. Currently a student at Northumbria university in the north of England.">
 		<meta name="author" content="Nicholas Dean">
-		<meta name="keywords" content="Nicholas Dean, Nick Dean, Fydrenak, Programmer, Game Programmer Website, Game Programmer Portfolio, Programmer Portfolio, Portfolio">
+		<meta name="keywords" content="Nicholas J D Dean, Nicholas Dean, Nick Dean, Fydrenak, Programmer, Developer, Game Developer, Game Programmer Website, Programmer Portfolio, Portfolio, Portfolio Website">
 
-		<script type="text/javascript">		
-			function scrollToEl(element) {
-				theElement = document.getElementById(element);
-				//will smooth scroll in modern browsers
-				theElement.scrollIntoView({behavior: 'smooth'});
-			};
-			
-			function copyright() {
-				var text = "&copy Nicholas J D Dean ";
-				var end = ". All Rights Reserved.";
-				
-				var date = new Date();
-				var d = date.getFullYear();
-				
-				document.getElementById('copyright').innerHTML = text + d + end;
-			}
-		</script>
-		
+		<script src="resources/js/misc.js" ></script>
 	</head>
 
 	<body onload="copyright()">
-	
+		<!--
+			If this div is shown, it will change colours based on the current site layout.
+			Red = mobile
+			Orange = tablet
+			Green = desktop
+		-->
 		<!--<div class="responsiveTest"></div>-->
 
 		<div id="container">
@@ -63,34 +51,34 @@
 				<h3>This is just a few, click the 'See all' button for more.</h3>
 				<h4>Don't want to scroll? <a onclick="scrollToEl('paperwork')">Skip this section.</a></h4>
 				
-				<a href="#fchip" class="card">
-					<img src="resources/fydrechip.png" alt="picture of a game running on an emulator" />
+				<a href="https://github.com/Fydrenak/fydreChip" class="card">
+					<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
 					<h4>Chip-8 Emulator</h4>
-					<p>This is a project I made for fun and to learn about emulators over a couple of weekends. It is written in C++ using SFML.</p>
+					<p>This is a project I made for fun over a couple of weekends to learn about emulators. It is written in C++ using SFML.</p>
 				</a>	
 				
 				<a href="#p2" class="card">
-					<img src="resources/console-fractal.png" alt="picture from a game" />
+					<img src="resources/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
 					<h4>ASCII Fractal Generator</h4>
 					<p>This is a console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
 				</a>
 				
 				<a href="#p3" class="card">
-					<img src="resources/mechanics-sim.png" alt="picture from a game" />
+					<img src="resources/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
 					<h4>Mechanics Simulator</h4>
 					<p>This was my final year project for college. It is written in Java and has an android and desktop version.</p>
 				</a>
 
 				<a href="#fydregame" class="card">
-					<img src="resources/fydregame-screenshot-1-half.png" alt="picture from a game" />
+					<img src="resources/fydregame-screenshot-1-half.png" alt="Picture from a game." />
 					<h4>2D Sidescroller in C++</h4>
 					<p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
 				</a>
 
 				<a href="project_boids.html" class="card">
-					<img src="" alt="TODO: Add image" />
-					<h4>Javascript Flocking Simulation</h4>
-					<p>Developed in Javascript following the book 'The Nature of Code'. Demo runs in the browser.</p>
+					<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
+					<h4>Boids Flocking Simulation</h4>
+					<p>A simulation of flocking behaviour using p5.js. The boids can be attracted to or repelled from the mouse and obstacles can be placed that they will try to avoid.</p>
 				</a>
 				
 				<h3>
