@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html>
-
 	<head>
 		<title>Nicholas Dean | Programmer Portfolio</title>
 		<link rel="stylesheet" type="text/css" href='style.css'>
 		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1">
+		<meta name="description" content="My portfolio website, I'm a programmer of many different things from games to anything I find interesting. Live demos inside!">
+		<meta name="author" content="Nicholas Dean">
+		<meta name="keywords" content="Nicholas J D Dean, Nicholas Dean, Nick Dean, Fydrenak, Programmer, Developer, Game Developer, Game Programmer Website, Programmer Portfolio, Portfolio, Portfolio Website">
+
         <script src="resources/js/p5.min.js"></script>
 		<script src="resources/js/p5.dom.js"></script>
         <script src="resources/js/boidsSketch.js"></script>
-		
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1">
-		<meta name="description" content="Nicholas Dean, Game / Anything interesting programmer. Currently a student at Northumbria university in the north of England.">
-		<meta name="author" content="Nicholas Dean">
-		<meta name="keywords" content="Nicholas Deam, Nick Dean, Fydrenak, Programmer, Game Programmer Website, Game Programmer Portfolio, Programmer Portfolio, Portfolio">
-
-		<script type="text/javascript">		
-			function scrollToEl(element) {
-				theElement = document.getElementById(element);
-				//will smooth scroll in modern browsers
-				theElement.scrollIntoView({behavior: 'smooth'});
-			};
-			
-			function copyright() {
-				var text = "&copy Nicholas J D Dean ";
-				var end = ". All Rights Reserved.";
-				
-				var date = new Date();
-				var d = date.getFullYear();
-				
-				document.getElementById('copyright').innerHTML = text + d + end;
-			}
-		</script>
-		
+		<script src="resources/js/misc.js" ></script>
 	</head>
 
 	<body onload="copyright()">
@@ -46,7 +26,7 @@
 				<h4 id="job"><i>Programmer</i></h4>
 				
 				<ul id="nav">
-					<a href="index.html#projects"><li>Projects</li></a>
+					<a href="projects.html"><li>Projects</li></a>
 					<a href="index.html#paperwork"><li>Paperwork</li></a>
 					<a href="index.html#contact"><li>Contact</li></a>
 				</ul>

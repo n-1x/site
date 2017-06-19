@@ -31,7 +31,7 @@
 				<h4 id="job"><i>Programmer</i></h4>
 				
 				<ul id="nav">
-					<a onclick="scrollToEl('projects')"><li>Projects</li></a>
+					<a href="projects.html"><li>Projects</li></a>
 					<a onclick="scrollToEl('paperwork')"><li>Paperwork</li></a>
 					<a onclick="scrollToEl('contact')"><li>Contact</li></a>
 				</ul>
@@ -49,7 +49,12 @@
 			<div id="projects" class="content">
 				<h1>Projects</h1>
 				<h3>This is just a few, click the 'See all' button for more.</h3>
-				<h4>Don't want to scroll? <a onclick="scrollToEl('paperwork')">Skip this section.</a></h4>
+
+				<a href="project_boids.html" class="card">
+					<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
+					<h4>Boids Flocking Simulation (Runs in Browser)</h4>
+					<p>A simulation of flocking behaviour using p5.js. The boids can be attracted to or repelled from the mouse and obstacles can be placed that they will try to avoid.</p>
+				</a>
 				
 				<a href="https://github.com/Fydrenak/fydreChip" class="card">
 					<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
@@ -62,27 +67,9 @@
 					<h4>ASCII Fractal Generator</h4>
 					<p>This is a console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
 				</a>
-				
-				<a href="#p3" class="card">
-					<img src="resources/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
-					<h4>Mechanics Simulator</h4>
-					<p>This was my final year project for college. It is written in Java and has an android and desktop version.</p>
-				</a>
-
-				<a href="#fydregame" class="card">
-					<img src="resources/fydregame-screenshot-1-half.png" alt="Picture from a game." />
-					<h4>2D Sidescroller in C++</h4>
-					<p>This is a 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
-				</a>
-
-				<a href="project_boids.html" class="card">
-					<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
-					<h4>Boids Flocking Simulation</h4>
-					<p>A simulation of flocking behaviour using p5.js. The boids can be attracted to or repelled from the mouse and obstacles can be placed that they will try to avoid.</p>
-				</a>
-				
+		
 				<h3>
-					<a>See all (no more yet!)</a>
+					<a href="projects.html">See all</a>
 				</h3>
 			</div>
 			
