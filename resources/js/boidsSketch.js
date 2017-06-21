@@ -117,6 +117,7 @@ function keyPressed() {
   //add a boid
   if(keyCode == 90) { //90 is z
     boids[boids.length] = new Boid(mouseX, mouseY, random(minRadius, maxRadius));
+    updateBoidCounter();
   } 
   //add 5 boids
   else if (keyCode == 88) { //88 is x
