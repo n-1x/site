@@ -6,8 +6,8 @@ function scrollToEl(element) {
 };
 
 function copyright() {
-    var text = "&copy Nicholas J D Dean ";
-    var end = ". All Rights Reserved.";
+    var text = "&copy ";
+    var end = "";
     
     var date = new Date();
     var d = date.getFullYear();

@@ -1,179 +1,177 @@
-body {	
-	color: white;
-	background-color: #505050;
-	font-family: 'Sanchez', serif;
-	margin: 0;
-	padding: 0;
-	font-size: 1rem;
+body {
+    background: #151515;
+    color: #ccc;
+    font-family: 'Courier';
+    line-width: 90%;
+    margin: 0;
+    padding: 0;
+
+    font-size: 1rem;
 }
 
 .responsiveTest{
-	width: 5px;
-	height: 5px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: red;
+    width: 5px;
+    height: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: red;
 }
 
 h1 {
-	margin: 0;
+    margin: 0;
 }
 
 a {
-	text-decoration: none;
-	color: #DAB44B;
-	cursor: pointer;
-	transition: color .2s;
+    text-decoration: none;
+    font-weight: bold;
+    color: #30bb10;
+    cursor: pointer;
+    transition: color .1s;
 }
 
 a:hover {
-	color: #B8DA4B;
+    color: #1c6d0a;
+}
+
+::selection {
+    background: #61009d;
+}
+
+::-moz-selection {
+    background: #61009d;
 }
 
 #container {
-	display: block;
-	margin: auto;
-	text-align: center;
+    display: block;
+    margin: auto;
 }
 
 /*header*/
 
 #header {
-	background: #DA6D4B;
-	font-size: 2em;	
-	padding: 1% 0 0 0;
-	text-shadow: 2px 2px 2px black;
+    background-color: #230035;
+    padding-top: 2%;
 }
 
-#header h1, #header h4{
-	color: white;
+#header h1 {
+    text-align: center;
+    font-size: 3rem;
 }
 
 #nav {
-	width: 100%;
-	margin: 2% auto 0 auto;
-	padding: 0;
-	
-	font-size: 1.5rem;
-	
-	list-style-type: none;
+    font-size: 1.3rem;
+    width: 100%;
+    margin: 3% auto 0 10%;
+    padding: 0;
+    
+    list-style-type: none;
 }
 
 #nav li {
-	background-color: #505050;
-	display: inline-block;
-	box-shadow: 0 0 10px 0 black;
-	padding: .5% 2%;
-	margin: 2% 1% -1% 1%;
+    background-color: #0a0a0a;
+    display: inline-block;
+    padding: .5% 2%;
+    margin: 2% 1% -2px 0;
+    border: 2px solid #61009d;
 }
 
 canvas {
-	border: 2px solid darkgray;
+    border: 2px solid darkgray;
 }
 
 .content {
-	padding: 8% 5% 8% 5%;
-	background-color: #505050;
-	box-shadow: 0 5px 40px black;
-	z-index: -2;
+    padding: 8% 5% 8% 5%;
+    background-color: #030303;
+    z-index: -2;
+    border-style: solid;
+    border-color: #61009d;
+    border-width: 2px 0 0 0;
 }
 
 .content:nth-child(odd) {
-	background-color: #4B70DA;
+    background-color: #0a0a0a;
 }
 
 .content img {
-	width: 64px;
-	height: auto;
-	margin: 3% 2%;
-	vertical-align: top;
-}
-
-::selection {
-		background: #FFAB4E;
+    width: 64px;
+    height: auto;
+    margin: 3% 2%;
+    vertical-align: top;
 }
 
 #job {
-	margin: 0;
+    margin: 0;
 }
 
 /*cards*/
 
 .card {
-	background-color: white;
-	color: black;
-	padding: 1%;
-	
-	width: 95%;
-	box-shadow: 2px 2px 1px black;
-	display: inline-block;
-	margin: 2% 2% 8% 2%;
-	
-	transition: background-color .5s;
-	vertical-align: top;
+    background-color: #000;
+    border: 2px solid #61009d;
+    color: #ccc;
+    padding: 1% 5%;
+    
+    width: 110%;
+    height: 20%;
+    display: inline-block;
+
+    margin-bottom: 2px;
+    
+    transition: background-color .1s;
+    vertical-align: top;
 }
 
 .card:hover {
-	background-color: #DAB44B;
-	color: black;
-	box-shadow: 0;
-}
-
-.card img {
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	height: auto;
+    background-color: #230035;
+    box-shadow: 0;
+    color: #ccc;
 }
 
 /*footer*/
 
 #footer {
-	margin: 1% auto 1% auto;
-	
-	font-size: .8em;
-	
-	text-align: center;
-	
-	clear: both;
+    margin: 1% auto 1% auto;
+    
+    font-size: .8em;
+    text-align: center;
+    
+    clear: both;
 }
 
 #footer p{
-	margin: 0;
-	padding: 10px;
+    margin: 0;
+    padding: 10px;
 }
 
 @media only screen and (min-width: 565px) {
-	body {
-		font-size: 1.3rem;
-	}
-	
-	.responsiveTest{
-		background-color: orange;
-	}
-	
-	#nav li {
-		margin-top: 0;
-	}
+    
+    .responsiveTest{
+	background-color: orange;
+    }
+    
+    #nav li {
+	margin-top: 0;
+    }
 
-	.content {
-		padding: 2% 20%;
-	}
-	
-	.card {
-		width: 40%;
-		margin-bottom: 1%;
-	}
+    .content {
+	padding: 2% 10%;
+    }
 }
 
 @media only screen and (min-width: 980px)
 {
-	.responsiveTest{
-		background-color: green;
-	}
-	
-	.card {
-		width: 25%;
-	}
+    #container {
+	width: 50%;
+	border-color: #61009d;
+	border-style: solid;
+	border-width: 0 2px 2px 2px;
+    }
+    .responsiveTest{
+	background-color: green;
+    }
+
+    .card {
+	width: 90%;
+    }
 }

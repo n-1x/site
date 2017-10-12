@@ -1,120 +1,77 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>Nicholas Dean | Programmer Portfolio</title>
-		<link rel="stylesheet" type="text/css" href='style.css'>
-		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
-		
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1">
-		<meta name="description" content="Nicholas Dean, Game / Anything interesting programmer. Currently a student at Northumbria university in the north of England.">
-		<meta name="author" content="Nicholas Dean">
-		<meta name="keywords" content="Nicholas J D Dean, Nicholas Dean, Nick Dean, Fydrenak, Programmer, Developer, Game Developer, Game Programmer Website, Programmer Portfolio, Portfolio, Portfolio Website">
+  <head>
+    <title>theweb/Fydrenak</title>
+    <link rel="stylesheet" type="text/css" href='style.css'>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="description" content="Fydrenak, programmer of computers.">
+    <meta name="author" content="Fydrenak">
+    <meta name="keywords" content="Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
 
-		<script src="resources/js/misc.js" ></script>
-	</head>
+    <script src="resources/js/misc.js" ></script>
+  </head>
 
-	<body onload="copyright()">
-		<!--
-			If this div is shown, it will change colours based on the current site layout.
-			Red = mobile
-			Orange = tablet
-			Green = desktop
-		-->
-		<!--<div class="responsiveTest"></div>-->
+  <body onload="copyright()">
+    <!--
+	If this div is shown, it will change colours based on the current site layout.
+	Red = small
+	Orange = medium
+	Green = large
+      -->
+    <!--<div class="responsiveTest"></div>-->
 
-		<div id="container">
-			
-			<div id="header">
-				<h1 id="name">Nicholas Dean</h1>
-				<h4 id="job"><i>Programmer</i></h4>
-				
-				<ul id="nav">
-					<a href="projects.html"><li>Projects</li></a>
-					<a onclick="scrollToEl('paperwork')"><li>Paperwork</li></a>
-					<a onclick="scrollToEl('contact')"><li>Contact</li></a>
-				</ul>
-			</div>
-			
-			<div id="intro" class="content">
-
-				<h1>Welcome!</h1>
-				<h3>Hi, I'm Nick, a computer games programming student at Northumbria University in the north of England. Welcome to the home of any projects that I deem to be interesting, useful or awesome enough to show off.</h3>
-				
-				<p>I started teaching myself to program when I started high school, using some online Java tutorials (shoutout to <a href="https://thenewboston.com/">thenewboston</a>). Since then I've worked on many <strike>useful</strike> things in all sorts of languages. From games and mobile apps to physics simulations and networking tools.</p>
-
-			</div>
-			
-			<div id="projects" class="content">
-				<h1>Projects</h1>
-				<h3>This is just a few, click the 'See all' button for more.</h3>
-
-				<a href="project_boids.html" class="card">
-					<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
-					<h4>Boids Flocking Simulation (Runs in Browser)</h4>
-					<p>A simulation of flocking behaviour using p5.js. The boids can be attracted to or repelled from the mouse and obstacles can be placed that they will try to avoid.</p>
-				</a>
-				
-				<a href="https://github.com/Fydrenak/fydreChip" class="card">
-					<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
-					<h4>Chip-8 Emulator</h4>
-					<p>This is a project I made for fun over a couple of weekends to learn about emulators. It is written in C++ using SFML.</p>
-				</a>	
-				
-				<a href="#p2" class="card">
-					<img src="resources/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
-					<h4>ASCII Fractal Generator</h4>
-					<p>This is a console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
-				</a>
-		
-				<h3>
-					<a href="projects.html">See all</a>
-				</h3>
-			</div>
-			
-			<div id="paperwork" class="content">
-				<h1>Paperwork</h1>
-				<h3>For if you're looking to employ someone like me.</h3>
+    <div id="container">
+      
+      <div id="header">
+	<h1 id="name">Fydrenak</h1>
 	
-				<h3>CV (<a href="#cv-web">Web</a> / <a href="cv-dow">Download</a>)</h3>
-				
-				<h3>
-					<a href="#ps">Personal Statement</a>
-				</h3>
-				
-			</div>
-			
-			<div id="contact" class="content">
-				<h1>Contact</h1>
-				<h3>Here's a few places you can get in touch, or just see what I've been up to.</h3>		
-				
-				<h3>Email:</h3>
-				<h3>
-					<a href="mailto:nicholas.dean@northumbria.ac.uk">nicholas.dean@northumbria.ac.uk</a>
-				</h3>
-				
-				<a href="https://twitter.com/fydrenak" >
-						<img src="resources/Twitter_Logo_White_On_Blue.png" alt="Fydrenak on Twitter"> 
-				</a>
-				
-				<a href="https://www.youtube.com/user/Fydrenak">
-					<img src="resources/YouTube-icon-full_color.png" alt="Fydrenak on Youtube">
-				</a>
-		
-				<a href="https://github.com/Fydrenak">
-					<img src="resources/GitHub-Mark-Light-64px.png" alt="Fydrenak on GitHub"/>
-				</a>
+	<ul id="nav">
+	  <a href="projects.html"><li>Projects</li></a>
+	  <a onclick="scrollToEl('contact')"><li>Contact</li></a>
+	</ul>
+      </div>
+      
+      <div id="projects" class="content">
+	<h2>Projects Showcase</h2>
+	<h4>Click the link at the top of the page, or 'See all' to see the full list.</h4>
 
-			</div>
-				
-		</div>
-		
-		<div id="footer">
-				<a onclick="scrollToEl('header')">Go to top</a>
-				<p>Site designed and built from scratch by Nicholas Dean.</p>
-				<p id="copyright">&copy </p>
-		</div>
+	<a href="project_boids.html" class="card">
+	  <h4>Boids Flocking Simulation (click to view)</h4>
+	  <p>An interactive simulation of flocking behaviour and obstacle avoidance using p5.js.</p>
+	</a>
+	
+	<a href="https://github.com/Fydrenak/fydreChip" class="card">
+	  <h4>Chip-8 Emulator</h4>
+	  <p>My first attempt at writing a virtual machine. It is written in C++ using SFML.</p>
+	</a>	
+	
+	<a href="#p2" class="card">
+	  <h4>Text-based Fractal Generator</h4>
+	  <p>A fractal renderer of the mandelbrot set that runs in the console. Soon to be rewritten.</p>
+	</a>
+	
+	<h3>
+	  <a href="projects.html">See all</a>
+	</h3>
+      </div>
+      
+      <div id="contact" class="content">
+	<h1>Contact</h1>
+	<h3>For hiring enquiries or questions regarding a project.</h3>		
 
-	</body>
+	<p><strong>Email</strong>: Not yet in place.
+	<p><strong>Encrypted Messenger</strong>: Not yet in place, but will be the primary way to contact me.</p>
+      </div>
+    </div>
+    
+    <div id="footer">
+      <a onclick="scrollToEl('header')">Go to top</a>
+      <p><em id="copyright"></em> This website is my own work.</p>
+      <p>END</p>
+    </div>
+
+  </body>
 </html>
