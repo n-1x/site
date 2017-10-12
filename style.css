@@ -112,7 +112,7 @@ canvas {
     color: #ccc;
     padding: 1% 5%;
     
-    width: 100%;
+    width: 90%;
     height: 20%;
     display: inline-block;
 
@@ -156,6 +156,10 @@ canvas {
 
     .content {
 	padding: 2% 10%;
+    }
+
+    #container {
+	width: 100%;
     }
 }
 
