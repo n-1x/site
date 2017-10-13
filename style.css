@@ -1,109 +1,109 @@
 body {
 	background: #151515;
-    background: linear-gradient(to right, black, #444, black);/*151515*/
-    color: #ddd;
-    font-family: 'Courier';
-    margin: 0;
-    padding: 0;
+  background: linear-gradient(to right, black, #444, black);/*151515*/
+  color: #ddd;
+  font-family: 'Courier';
+  margin: 0;
+  padding: 0;
 
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .responsiveTest{
-    width: 5px;
-    height: 5px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: red;
+  width: 5px;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: red;
 }
 
 h1 {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #30bb10;
-    cursor: pointer;
-    transition: color .1s;
+  text-decoration: none;
+  font-weight: bold;
+  color: #30bb10;
+  cursor: pointer;
+  transition: color .1s;
 }
 
 a:hover {
-    color: #1c6d0a;
+  color: #1c6d0a;
 }
 
 ::selection {
-    background: #61009d;
+  background: #61009d;
 }
 
 ::-moz-selection {
-    background: #61009d;
+  background: #61009d;
 }
 
 /*header*/
 
 #header {
-    background-color: #230035;
-    padding-top: 2%;
+  background-color: #230035;
+  padding-top: 2%;
 }
 
 #header h1 {
-    text-align: center;
-    font-size: 3rem;
+  text-align: center;   
+  font-size: 3rem;
 	color: #ddd;
 }
 
 #nav {
-    font-size: 1.3rem;
-    margin: 1% 0 0 10%;
-    padding: 0;
-    
-    list-style-type: none;
+  font-size: 1.3rem;
+  margin: 1% 0 0 10%;
+  padding: 0;
+   
+  list-style-type: none;
 }
 
 #nav li {
-    background-color: #0a0a0a;
-    display: inline-block;
-    padding: .5% 2%;
-    margin: 2% 1% -2px 0;
-    border: 2px solid #61009d;
+  background-color: #0a0a0a;
+  display: inline-block;
+  padding: .5% 2%;
+  margin: 2% 1% -2px 0;
+  border: 2px solid #61009d;
 }
 
 canvas {
-    border: 2px solid darkgray;
+  border: 2px solid darkgray;
 }
 
 .content {
-    padding: 1% 5% 2% 5%;
-    background-color: #030303;	
+  padding: 1% 5% 2% 5%;
+  background-color: #030303;	
 	border-top: 2px solid #61009d;
 }
 
 .content:nth-child(odd) {
-    background-color: #0a0a0a;
+  background-color: #0a0a0a;
 }
 
 #job {
-    margin: 0;
+  margin: 0;
 }
 
 /*cards*/
 
 .card {
-    background-color: #000;
-    border: 2px solid #61009d;
-    color: #ccc;
-    padding: 1% 5%;
+  background-color: #000;
+  border: 2px solid #61009d;
+  color: #ccc;
+  padding: 1% 5%;
     
-    width: 90%;
-    display: inline-block;
+  width: 90%;
+  display: inline-block;
 
-    margin-bottom: 2px;
+  margin-bottom: 2px;
     
-    transition: background-color .1s;
-    vertical-align: top;
+  transition: background-color .1s;
+  vertical-align: top;
 }
 
 .card:hover {
@@ -113,8 +113,8 @@ canvas {
 }
 
 .card img {
-	max-width: 75%;
-	max-height: 75%;
+	max-width: 50%;
+	max-height: 50%;
 	
 	border: 2px solid #61009d;
 }
@@ -122,9 +122,9 @@ canvas {
 /*footer*/
 
 #footer {
-    font-size: .8em;
-    text-align: center;
-    background: #000;
+  font-size: .8em;
+  text-align: center;
+  background: #000;
 	padding: 1% 0 0 0;
 }
 
