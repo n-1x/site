@@ -14,64 +14,56 @@
     <script src="resources/js/misc.js" ></script>
   </head>
 
-  <body onload="copyright()">
-    <!--
-	If this div is shown, it will change colours based on the current site layout.
-	Red = small
-	Orange = medium
-	Green = large
-      -->
-    <!--<div class="responsiveTest"></div>-->
+	<body onload="copyright()">
+		<div id="container">
+		  
+			<div id="header">
+				<h1 id="name">Fydrenak</h1>
+		
+				<ul id="nav">
+					<a href="projects.html"><li>Projects</li></a>
+					<a onclick="scrollToEl('contact')"><li>Contact</li></a>
+				</ul>
+			</div>
+		  
+			<div id="projects" class="content">
+			
+				<h2>Projects Showcase</h2>
+				<a href="project_boids.html" class="card">
+					<h4>Boids Flocking Simulation (click to view)</h4>
+					<p>An interactive simulation of flocking behaviour and obstacle avoidance using p5.js.</p>
+				</a>
+			
+				<a href="https://github.com/Fydrenak/fydreChip" class="card">
+					<h4>Chip-8 Emulator</h4>
+					<p>My first attempt at writing a virtual machine. It is written in C++ using SFML.</p>
+				</a>	
+			
+				<a href="#p2" class="card">
+					<h4>Text-based Fractal Generator</h4>
+					<p>A fractal renderer of the mandelbrot set that runs in the console. Soon to be rewritten.</p>
+				</a>
+			
+				<h3>
+					<a href="projects.html">See all</a>
+				</h3>
+				
+			</div>
+			  
+			<div id="contact" class="content">
+				<h2>Contact</h2>
+				<h4>For hiring enquiries or questions regarding a project.</h4>		
 
-    <div id="container">
-      
-      <div id="header">
-	<h1 id="name">Fydrenak</h1>
-	
-	<ul id="nav">
-	  <a href="projects.html"><li>Projects</li></a>
-	  <a onclick="scrollToEl('contact')"><li>Contact</li></a>
-	</ul>
-      </div>
-      
-      <div id="projects" class="content">
-	<h2>Projects Showcase</h2>
-	<h4>Click the link at the top of the page, or 'See all' to see the full list.</h4>
-
-	<a href="project_boids.html" class="card">
-	  <h4>Boids Flocking Simulation (click to view)</h4>
-	  <p>An interactive simulation of flocking behaviour and obstacle avoidance using p5.js.</p>
-	</a>
-	
-	<a href="https://github.com/Fydrenak/fydreChip" class="card">
-	  <h4>Chip-8 Emulator</h4>
-	  <p>My first attempt at writing a virtual machine. It is written in C++ using SFML.</p>
-	</a>	
-	
-	<a href="#p2" class="card">
-	  <h4>Text-based Fractal Generator</h4>
-	  <p>A fractal renderer of the mandelbrot set that runs in the console. Soon to be rewritten.</p>
-	</a>
-	
-	<h3>
-	  <a href="projects.html">See all</a>
-	</h3>
-      </div>
-      
-      <div id="contact" class="content">
-	<h1>Contact</h1>
-	<h3>For hiring enquiries or questions regarding a project.</h3>		
-
-	<p><strong>Email</strong>: Not yet in place.
-	<p><strong>Encrypted Messenger</strong>: Not yet in place, but will be the primary way to contact me.</p>
-      </div>
-    </div>
+				<p><strong>Email</strong>: Not yet in place.
+				<p><strong>Encrypted Messenger</strong>: Not yet in place, but will be the primary way to contact me.</p>
+			</div>
+		</div>
     
-    <div id="footer">
-      <a onclick="scrollToEl('header')">Go to top</a>
-      <p><em id="copyright"></em> This website is my own work.</p>
-      <p>END</p>
-    </div>
+		<div id="footer">
+			<a onclick="scrollToEl('header')">Go to top</a>
+			<p><em id="copyright"></em> This website is my own work.</p>
+			<p>END</p>
+		</div>
 
-  </body>
+	</body>
 </html>
