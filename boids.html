@@ -11,7 +11,7 @@
 
         <script src="resources/js/p5.min.js"></script>
 		<script src="resources/js/p5.dom.js"></script>
-        <script src="resources/js/boidsSketch.js"></script>
+        <script src="projects/boids/boidsSketch.js"></script>
 		<script src="resources/js/misc.js" ></script>
 	</head>
 
@@ -23,29 +23,30 @@
 			
 			<div id="header">
 				<a href="index.html">
-                    <h1 id="name">Fydrenak</h1>
-                </a>
+          <h1 id="name">Fydrenak</h1>
+        </a>
 				
 				<ul id="nav">
 					<a href="projects.html"><li>Projects</li></a>
-					<a href="index.html#paperwork"><li>Paperwork</li></a>
 					<a href="index.html#contact"><li>Contact</li></a>
 				</ul>
 			</div>
 
 
-			<div class="content">
-                <h1>Boids Simulation</h1>
-				<p>This is a simulation of flocking behaviour using the boids algorithm. It is written using <a href="https://p5js.org/">p5.js</a>.</p>
-                <p>The boids will be attracted to the mouse while left click is held, and flee from it when right click is held.<br />Press Z to add a boid, X to add 5 boids or C to add an obstacle.</p>
-                <div id="p5parent"></div>
-            </div>
-			
-		<div id="footer">
-				<a onclick="scrollToEl('header')">Go to top</a>
-				<p>Site designed and built from scratch by Nicholas Dean.</p>
-				<p id="copyright">&copy</p>
-		</div>
+      <div class="content">
+        <h1>Boids Simulation</h1>
+        <p>This is a simulation of flocking behaviour using the boids algorithm. It is written using <a href="https://p5js.org/">p5.js</a>.</p>
+        <p>The boids will be attracted to the mouse while left click is held, and flee from it when right click is held.<br />Press Z to add a boid, X to add 5 boids or C to add an obstacle.</p>
+        <div id="p5parent"></div>
+      </div>
+        
+      <div id="footer" class="content">
+        <a onclick="scrollToEl('header')">Go to top</a>
+        <p><em id="copyright"></em> This website is my own work.</p>
+        <p>END</p>
+      </div>
+    
+    </div>
 
 	</body>
 </html>
