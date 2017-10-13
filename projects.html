@@ -16,67 +16,61 @@
 
 
   <body onload="copyright()">
-    <!--
-	If this div is shown, it will change colours based on the current site layout.
-	Red = mobile
-	Orange = tablet
-	Green = desktop
-      -->
-    <!--<div class="responsiveTest"></div>-->
 
     <div id="container">
       
-      <div id="header">
-        <a href="index.html">
-          <h1 id="name">Fydrenak</h1>
-        </a>
-	
-		<ul id="nav">
-		  <a href=""><li>Projects</li></a>
-		  <a href="index.html#contact"><li>Contact</li></a>
-		</ul>
-    </div>
+		<div id="header">
+			<a href="index.html">
+				<h1 id="name">Fydrenak</h1>
+			</a>
+		
+			<ul id="nav">
+				<a href=""><li>Projects</li></a>
+				<a href="index.html#contact"><li>Contact</li></a>
+			</ul>
+		</div>
       
-    <div id="projects" class="content">
-		<h1>Projects</h1>
+		<div id="projects" class="content">
+			<h1>Projects</h1>
+			
 			<br />
 
-		<div class="card">
-			<h2>Boids Flocking Simulation (Runs in Browser)</h2>
-			<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
-			<p>An interactive simulation of flocking behaviour and obstacle avoidance using p5.js.</p>
-		</div>
-		
-		<div class="card">
-			<h2>Chip-8 Emulator</h2>
-			<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
-			<p>My first attempt at writing a virtual machine. It is written in C++ using SFML.</p>
-		</div>	
-		
-		<div class="card">
-		  <h2>ASCII Fractal Generator</h2>
-		  <img src="resources/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
-		  <p>A console based generator of the mandlebrot set that renders using ASCII letters. I plan to add more fractals and paramaters to this in the future.</p>
-		</div>
+			<div class="card">
+				<h2>Boids Flocking Simulation (Runs in Browser)</h2>
+				<img src="resources/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
+				<p>An interactive simulation of flocking behaviour and obstacle avoidance using p5.js.</p>
+			</div>
+			
+			<div class="card">
+				<h2>Chip-8 Emulator</h2>
+				<img src="resources/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
+				<p>My first attempt at writing a virtual machine. It is written in C++ using SFML.</p>
+			</div>	
+			
+			<div class="card">
+			  <h2>ASCII Fractal Generator</h2>
+			  <img src="resources/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
+			  <p>A renderer of the mandelbrot set that runs in the console. Soon to be rewritten.</p>
+			</div>
 
-		<div class="card">
-			<h2>Mechanics Simulator</h2>
-			<img src="resources/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
-			<p>My final year project for college. It is written in Java and has an android and desktop version.</p>
-		</div>
+			<div class="card">
+				<h2>Mechanics Simulator</h2>
+				<img src="resources/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
+				<p>My final year project for college. It is written in Java and has an android and desktop version.</p>
+			</div>
 
-		<div class="card">
-			<h2>2D Sidescroller in C++</h2>
-			<img src="resources/fydregame-screenshot-1-half.png" alt="Picture from a game." />
-			<p>A 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
+			<div class="card">
+				<h2>2D Sidescroller in C++</h2>
+				<img src="resources/fydregame-screenshot-1-half.png" alt="Picture from a game." />
+				<p>A 2D side-scrolling game made in C++ at the start of my second year of university. It uses a bare-bones engine created by Chris Rook.</p>
+			</div>
 		</div>
-    </div>
-      
-    <div id="footer">
+	</div>
+		  
+	<div id="footer">
 		<a onclick="scrollToEl('header')">Go to top</a>
 		<p><em id="copyright"></em> This website is my own work.</p>
 		<p>END</p>
 	</div>
-
   </body>
 </html>
