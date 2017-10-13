@@ -1,6 +1,6 @@
 body {
     background: #151515;
-    color: #ccc;
+    color: #ddd;
     font-family: 'Courier';
     margin: 0;
     padding: 0;
@@ -51,6 +51,7 @@ a:hover {
 #header h1 {
     text-align: center;
     font-size: 3rem;
+	color: #ddd;
 }
 
 #nav {
@@ -110,14 +111,18 @@ canvas {
     color: #ccc;
 }
 
+.card img {
+	max-width: 75%;
+	max-height: 75%;
+}
+
 /*footer*/
 
 #footer {
-    margin-top: 1%;
     font-size: .8em;
     text-align: center;
     
-    clear: both;
+	color: #aaa;
 }
 
 #footer p{
@@ -129,7 +134,7 @@ canvas {
 {
     #container {
 		width: 50%;
-		margin: auto;
+		margin: 1% auto;
 		
 		border-color: #61009d;
 		border-style: solid;
