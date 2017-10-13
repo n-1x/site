@@ -2,7 +2,6 @@ body {
     background: #151515;
     color: #ccc;
     font-family: 'Courier';
-    line-width: 90%;
     margin: 0;
     padding: 0;
 
@@ -18,7 +17,7 @@ body {
     background-color: red;
 }
 
-h1 {
+#content h1 {
     margin: 0;
 }
 
@@ -42,11 +41,6 @@ a:hover {
     background: #61009d;
 }
 
-#container {
-    display: block;
-    margin: auto;
-}
-
 /*header*/
 
 #header {
@@ -61,8 +55,7 @@ a:hover {
 
 #nav {
     font-size: 1.3rem;
-    width: 100%;
-    margin: 3% auto 0 10%;
+    margin: 3% 0 0 10%;
     padding: 0;
     
     list-style-type: none;
@@ -81,23 +74,13 @@ canvas {
 }
 
 .content {
-    padding: 8% 5% 8% 5%;
-    background-color: #030303;
-    z-index: -2;
-    border-style: solid;
-    border-color: #61009d;
-    border-width: 2px 0 0 0;
+    padding: 1% 5% 2% 5%;
+    background-color: #030303;	
+	border-top: 2px solid #61009d;
 }
 
 .content:nth-child(odd) {
     background-color: #0a0a0a;
-}
-
-.content img {
-    width: 64px;
-    height: auto;
-    margin: 3% 2%;
-    vertical-align: top;
 }
 
 #job {
@@ -113,7 +96,6 @@ canvas {
     padding: 1% 5%;
     
     width: 90%;
-    height: 20%;
     display: inline-block;
 
     margin-bottom: 2px;
@@ -131,8 +113,7 @@ canvas {
 /*footer*/
 
 #footer {
-    margin: 1% auto 1% auto;
-    
+    margin-top: 1%;
     font-size: .8em;
     text-align: center;
     
@@ -144,38 +125,14 @@ canvas {
     padding: 10px;
 }
 
-@media only screen and (min-width: 565px) {
-    
-    .responsiveTest{
-	background-color: orange;
-    }
-    
-    #nav li {
-	margin-top: 0;
-    }
-
-    .content {
-	padding: 2% 10%;
-    }
-
-    #container {
-	width: 100%;
-    }
-}
-
-@media only screen and (min-width: 980px)
+@media only screen and (min-width: 1080px)
 {
     #container {
-	width: 50%;
-	border-color: #61009d;
-	border-style: solid;
-	border-width: 0 2px 2px 2px;
-    }
-    .responsiveTest{
-	background-color: green;
-    }
-
-    .card {
-	width: 90%;
+		width: 50%;
+		margin: auto;
+		
+		border-color: #61009d;
+		border-style: solid;
+		border-width: 0 2px 2px 2px;
     }
 }
