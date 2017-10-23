@@ -1,5 +1,5 @@
 body {
-	background: #151515;
+  background: #151515;
   background: #2b2b2b;
   color: #ddd;
   font-family: 'Courier';
@@ -25,13 +25,13 @@ h1 {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #30bb10;
+  color: #8801c6;
   cursor: pointer;
   transition: color .1s;
 }
 
 a:hover {
-  color: #1c6d0a;
+  color: #680099;
 }
 
 ::selection {
@@ -45,7 +45,7 @@ a:hover {
 /*header*/
 
 #header {
-  background-color: #230035;
+  background-color: #3a3a3a;
   padding-top: 2%;
 }
 
@@ -57,18 +57,28 @@ a:hover {
 
 #nav {
   font-size: 1.3rem;
-  margin: 1% 0 0 10%;
+  margin: 0 0 0 10%;
   padding: 0;
    
   list-style-type: none;
 }
 
 #nav li {
-  background-color: #0a0a0a;
+  background: #2d2d2d;
   display: inline-block;
-  padding: .5% 2%;
-  margin: 2% 1% -2px 0;
-  border: 2px solid #61009d;
+  padding: 1% 2%;
+  margin: 2% 1% 0 0;
+  border: 1px solid black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+  border-radius: 5px 5px 0 0;
+  
+  transition: background .1s;
+}
+
+#nav li:hover {
+  background: #4a4a4a;
 }
 
 canvas {
@@ -77,12 +87,12 @@ canvas {
 
 .content {
   padding: 1% 5% 2% 5%;
-  background-color: #030303;	
-	border-top: 2px solid #61009d;
+  background-color: #2d2d2d;	
+	border-top: 1px solid black;
 }
 
 .content:nth-child(odd) {
-  background-color: #0a0a0a;
+  background-color: #2a2a2a;
 }
 
 #job {
@@ -124,7 +134,7 @@ canvas {
 #footer {
   font-size: .8em;
   text-align: center;
-  background: #000;
+  background: #1a1a1a;
 	padding: 1% 0 0 0;
 }
 
@@ -139,8 +149,8 @@ canvas {
 		width: 50%;
 		margin: 0 auto;
 		
-		border-color: #61009d;
+		border-color: black;
 		border-style: solid;
-		border-width: 0 2px 2px 2px;
+		border-width: 0 1px 1px 1px;
     }
 }
