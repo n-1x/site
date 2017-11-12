@@ -8,7 +8,7 @@ body {
     background: var(--color2);
     color: var(--color1);;
     font-family: monospace;
-    font-size: 1.2rem;
+    font-size: 0.9em;
     margin: 0;
     padding: 0;
 }
@@ -51,12 +51,16 @@ p {
 }
 
 .section {
-    padding: 0 25%;
+    padding: 1% 0;
 }
 
 .section:nth-of-type(odd) {
     background: var(--color1);
     color: var(--color2);
+}
+
+.section p {
+    margin: 0 2%;
 }
 
 #header {
@@ -89,7 +93,6 @@ p {
 
 .projectCard img {
     width: 100%;
-    float: none;
     max-height: 200px;
     margin: auto 0;
 }
@@ -116,6 +119,23 @@ p {
 .fall {
     opacity: 0;
     animation: fallIn 0.5s ease-out forwards;
+}
+
+@media screen and (min-width: 700px) {
+    body {
+	font-size: 1.2rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    body {
+	font-size: 1.2rem;
+    }
+    
+    .section {
+	padding: 0 25%;
+    }
 }
 
 @keyframes appear-left {
