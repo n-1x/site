@@ -76,11 +76,6 @@ p {
     text-align: center;
 }
 
-#projectCards {
-    width: 100%;
-    margin: auto;
-}
-
 .projectCard {
     display: inline-block;
     width: 28%;
