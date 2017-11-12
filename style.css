@@ -79,7 +79,6 @@ p {
 #projectCards {
     width: 100%;
     margin: auto;
-    text-align: center;
 }
 
 .projectCard {
@@ -89,6 +88,7 @@ p {
     color: var(--color1);
     margin: 5% 2% 0 2%;
     min-width: 100px;
+    vertical-align: top;
 }
 
 .projectCard img {
