@@ -35,7 +35,7 @@ svg {
     display: block;
     user-drag: none;
     user-select: none;
-    margin: 0 0;
+    margin: -1px 0;
 }
 
 p {
@@ -51,7 +51,7 @@ p {
 }
 
 .section {
-    padding: 0 10%;
+    padding: 0 0%;
 }
 
 .section:nth-of-type(odd) {
@@ -85,12 +85,14 @@ p {
     color: var(--color2);;
     margin: 5% 2%;
     min-width: 100px;
-    vertical-align: center;
 }
 
 .projectCard img {
-    width: 100%;
+    max-width: 100%;
+    float: left;
     max-height: 200px;
+    display: inline;
+    margin: auto 0;
 }
 
 .projectCard h3 {
@@ -110,9 +112,19 @@ p {
 
 @media only screen and (min-width: 720px)
 {
+    .section {
+	padding: 10%;
+    }
+    
     .projectCard {
 	width: 28%;
 	margin-bottom: 0;
+    }
+
+    .projectCard img {
+	float: none;
+	display: block;
+	width: 100%;
     }
 }
 
