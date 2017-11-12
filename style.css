@@ -109,6 +109,15 @@ p {
   margin: 0;
 }
 
+.appear {
+    opacity: 0;
+}
+
+.fall {
+    opacity: 0;
+    animation: fallIn 0.5s ease-out forwards;
+}
+
 @keyframes appear-left {
     from {
 	opacity: 0;
