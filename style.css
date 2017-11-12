@@ -109,44 +109,6 @@ p {
   margin: 0;
 }
 
-@media only screen and (min-width: 720px)
-{
-    .section {
-	padding: 10%;
-    }
-    
-    .projectCard {
-	width: 28%;
-	margin-bottom: 0;
-    }
-
-    .projectCard img {
-	float: none;
-	display: block;
-	width: 100%;
-    }
-}
-
-@media only screen and (min-width: 1500px)
-{
-    .section {
-	padding: 0 25%;
-    }
-}
-
-/*animation is added in the javascript*/
-.appear {
-    opacity: 0;
-    transform: translate(0, 40px);
-}
-
-/*animation added here because it's only for use
-on the top section*/
-.fall {
-    opacity: 0;
-    animation: fallIn 0.5s ease-out forwards;
-}
-
 @keyframes appear-left {
     from {
 	opacity: 0;
