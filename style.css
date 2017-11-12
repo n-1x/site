@@ -1,18 +1,22 @@
-body {
-  background: #151515;
-  background: #2b2b2b;
-  color: #ccc;
-  font-family: monospace;
-  margin: 0;
-  padding: 0;
+:root {
+    --color1: #bbb;
+    --color2: #111;
+    --link-color: #8801c6;
+}
 
-  font-size: 1.1rem;
+body {
+    background: var(--color2);
+    color: var(--color1);;
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #8801c6;
+  color: var(--link-color);
   cursor: pointer;
   transition: color .1s;
 }
@@ -23,49 +27,119 @@ a:hover {
 
 h1, h2, h3, h4, h5 {
     text-align: center;
+    margin: 0 0 5% 0;
+}
+
+svg {
+    fill: var(--color1);
+    display: block;
+    user-drag: none;
+    user-select: none;
+    margin: 0 0;
+}
+
+p {
+    margin: 0;
 }
 
 ::selection {
-  background: #61009d;
+    background: var(--link-color);
 }
 
 ::-moz-selection {
-  background: #61009d;
+    background: var(--link-color);
 }
 
-.content {
-    margin-bottom: 10%;
+.section {
     padding: 0 10%;
 }
 
+.section:nth-of-type(odd) {
+    background: var(--color1);
+    color: var(--color2);
+}
+
 #header {
-    margin: 15% 0 10% 0;
-    text-align: center;
+    padding-top: 5%;
 }
 
 #header h1 {
-  font-size: 4rem;
-  color: #ddd;
+    font-weight: normal;
+    font-size: 3.5rem;
 }
 
+#about, #projects{
+    text-align: center;
+}
+
+#projectCards {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.projectCard {
+    display: inline-block;
+    width: 100%;
+    background: var(--color1);
+    color: var(--color2);;
+    margin: 5% 2%;
+    min-width: 100px;
+    vertical-align: center;
+}
+
+.projectCard img {
+    width: 100%;
+    max-height: 200px;
+}
+
+.projectCard h3 {
+    padding-top: 10%;
+}
+
+.projectCard p {
+    padding: 1% 5% 8% 5%;
+}
+
+#footer {
+  font-size: .8em;
+  text-align: center;
+  padding-bottom: 1%;
+  margin: 0;
+}
+
+@media only screen and (min-width: 720px)
+{
+    .projectCard {
+	width: 28%;
+	margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 1500px)
+{
+    .section {
+	padding: 0 25%;
+    }
+}
+
+/*animation is added in the javascript*/
 .appear {
-    animation: appear .5s ease-out forwards;
     opacity: 0;
-    transform: translate(0, 20px);
+    transform: translate(0, 40px);
 }
 
-.delay1 {
-    animation-delay: .4s;
+/*animation added here because it's only for use
+on the top section*/
+.fall {
+    opacity: 0;
+    animation: fallIn 0.5s ease-out forwards;
 }
 
-.delay2 {
-    animation-delay: .6s;
-}
-
-@keyframes appear {
+@keyframes appear-left {
     from {
 	opacity: 0;
-	transform: translate(0, 20px);
+	transform: translate(-40px, 0);
     }
 
     to {
@@ -74,44 +148,27 @@ h1, h2, h3, h4, h5 {
     }
 }
 
-.card {
-    text-align: center;
-    margin-bottom: 20%;
-}
-
-.card img {
-    height: 250px;
-}
-
-.card p {
-    text-align: left;
-}
-
-/*footer*/
-
-#footer {
-  font-size: .8em;
-  text-align: center;
-  padding: 1% 0 0 0;
-}
-
-#footer p{
-    margin: 0;
-    padding: 10px;
-}
-
-@media only screen and (min-width: 1080px)
-{
-    body {
-	font-size: 1.3rem;
-    }
-    
-    #container {
-	width: 50%;
-	margin: auto;
+@keyframes appear-right {
+    from {
+	opacity: 0;
+	transform: translate(40px, 0);
     }
 
-    .content {
-	padding: 0;
+    to {
+	opacity: 1;
+	transform: translate(0, 0)
+    }
+}
+
+
+@keyframes fallIn {
+    from {
+	opacity: 0;
+	transform: translate(0, -40px);
+    }
+
+    to {
+	opacity: 1;
+	transform: translate(0, 0);
     }
 }
