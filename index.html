@@ -2,47 +2,76 @@
 <html>
 
   <head>
-    <title>theweb/Fydrenak</title>
+    <title>Nick Dean | Programmer</title>
     <link rel="stylesheet" type="text/css" href='style.css'>
     
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1">
-    <meta name="description" content="Fydrenak, programmer of computers.">
-    <meta name="author" content="Fydrenak">
-    <meta name="keywords" content="Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
+    <meta name="description" content="Nick Dean">
+    <meta name="author" content="Nick Dean">
+    <meta name="keywords" content="Nick Dean, Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
 
     <script src="resources/js/misc.js" ></script>
   </head>
 
-	<body onload="copyright()">
-		<div id="container">
-		  
-			<div id="header">
-				<h1 id="name" class="appear">Nick Dean</h1>
-			</div>
-		  
-			<div id="about" class="content appear delay1">
-				<h2>Hello</h2>
-				
-				<p>I am a third year proramming student with a focus on games. My interests lie primarily within games/simulation programming and low level systems such as virtual machines. However I also enjoy creating different things including websites and android apps.</p>
-			</div>
-			  
-			<div id="contact" class="content appear delay2" class="appear delay2">
-				<h2>Contact</h2>
-				<p>For hiring enquiries or questions regarding a project.</p>
-				<br />
+  <body onload="pageLoad()">
+    
+    <div id="header" class="section">
+      <h1 id="name" class="fall">Nick Dean</h1>
 
-				<p><strong>Matrix (preferred)</strong>: <a>@fydrenak:matrix.org</a></p>
-				<p><strong>Email</strong>: <a href="mailto:me@nickdean.io">me@nickdean.io</a></p>
-				<p><strong>GPG Key</strong>: <a href="resources/fydrenak-pubkey.asc">0xDC496B0B</a></p>
-			</div>
-			
-			<div id="footer" class="content appear delay2">
-				<a onclick="scrollToEl('header')">Go to top</a>
-				<p><em id="copyright"></em> This website is my own work.</p>
-			</div>
+      <div id="about" class="fall">
+	<p>I'm a programmer from England. I like to build cool things.</p>
+      </div>
+    </div>
+
+    
+
+    <div id="projects" class="section">
+      <h2 class="appear">Projects</h2>
+
+      <p class="appear">My favourite personal projects at the moment. Click <a href="#sorry-not-yet-ready">here</a> for a full list.</p>
+
+      <div class="appear">
+	<div class="projectCard">
+	  <img src="resources/fydrechip.png" />
+	  <h3>Fydrechip</h3>
+	  <p>A basic CHIP-8 emulator written in C++ using SFML.</p>
+	</div>
+
+	<div class="projectCard">
+	  <img src="resources/webtris.png" />
+	  <h3>Webtris</h3>
+	  <p>A web-based tetris clone written using <a>p5.js</a>.</p>
+	</div>
+
+	<div class="projectCard">
+	  <img src="resources/console-fractal.png" />
+	  <h3>Console Mandelbrot</h3>
+	  <p>An ASCII renderer of the Mandelbrot set written in C++.</p>
+	</div>
+      </div>
       
-		</div>
-   
-	</body>
+    </div>
+
+    
+
+    <div id="contact" class="section">
+      
+      <h2 class="appear">Contact</h2>
+
+      <div class="appear">
+	<p><strong>Matrix (preferred)</strong>: <a>@fydrenak:matrix.org</a></p>
+	<p><strong>Email</strong>: <a href="mailto:me@nickdean.io">me@nickdean.io</a></p>
+      </div>
+    </div>
+
+
+    <div id="footer" class="appear">
+      <a onclick="scrollToEl('header')">Go to top</a>
+      <p><em id="copyright"></em> This website is my own work.</p>
+    </div>
+
+    
+</div>
+  </body>
 </html>
