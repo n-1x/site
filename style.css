@@ -81,8 +81,8 @@ p {
 .projectCard {
     display: inline-block;
     width: 100%;
-    background: var(--color1);
-    color: var(--color2);;
+    background: #333;
+    color: var(--color1);
     margin: 5% 2%;
     min-width: 100px;
 }
