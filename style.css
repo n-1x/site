@@ -51,7 +51,7 @@ p {
 }
 
 .section {
-    padding: 0 0%;
+    padding: 0 25%;
 }
 
 .section:nth-of-type(odd) {
@@ -80,18 +80,17 @@ p {
 
 .projectCard {
     display: inline-block;
-    width: 100%;
+    width: 28%;
     background: #333;
     color: var(--color1);
-    margin: 5% 2%;
+    margin: 5% 2% 0 2%;
     min-width: 100px;
 }
 
 .projectCard img {
-    max-width: 100%;
-    float: left;
+    width: 100%;
+    float: none;
     max-height: 200px;
-    display: inline;
     margin: auto 0;
 }
 
