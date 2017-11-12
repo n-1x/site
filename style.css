@@ -8,7 +8,7 @@ body {
     background: var(--color2);
     color: var(--color1);;
     font-family: monospace;
-    font-size: 0.9em;
+    font-size: 1.2rem;
     margin: 0;
     padding: 0;
 }
@@ -121,18 +121,7 @@ p {
     animation: fallIn 0.5s ease-out forwards;
 }
 
-@media screen and (min-width: 700px) {
-    body {
-	font-size: 1.2rem;
-    }
-}
-
-
 @media screen and (min-width: 1200px) {
-    body {
-	font-size: 1.2rem;
-    }
-    
     .section {
 	padding: 0 25%;
     }
