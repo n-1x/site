@@ -83,10 +83,10 @@ function insertAngleSVGs() {
 }
 
 
-
-//to be called with the body onLoad event.
-function pageLoad() {
+function loaded() {
     updateCopyright();
-    fadeIn();
     insertAngleSVGs();
+    fadeIn();
 }
+
+document.addEventListener("DOMContentLoaded", loaded);
