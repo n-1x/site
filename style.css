@@ -8,7 +8,7 @@ body {
     background: var(--color2);
     color: var(--color1);;
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
     padding: 0;
 }
