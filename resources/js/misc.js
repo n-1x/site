@@ -58,7 +58,9 @@ function insertAngleSVGs() {
 
     //loop through all the sections, adding svg 1 or 2
     //alternately, and randomly choosing the a or b
-    for (let i = 0; i < sections.length; ++i) {
+    //don't include the last section as that shouldn't
+    //have a line after it.
+    for (let i = 0; i < sections.length - 1; ++i) {
 	let theSVG = svg1a;
 	let useB = Math.random() >= 0.5;
 
