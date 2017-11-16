@@ -169,7 +169,10 @@ p {
 	padding: 0 20%;
     }
 
-   
+    .projectCard {
+	width: 25%;
+    }
+    
 }
 
 @keyframes appear-left {
