@@ -10,7 +10,7 @@ body {
     background: var(--lightColor);
     color: var(--lightColor);
     font-family: "Nova Flat", monospace;
-    font-size: 25px;
+    font-size: 35px;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -146,6 +146,7 @@ p {
 
 
 @media screen and (min-width: 720px) {
+    
      .projectCard {
 	width: 25%;
      }
@@ -157,7 +158,7 @@ p {
 
 @media screen and (min-width: 1200px) {
     body {
-
+	font-size: 25px;
     }
 
     #rTest {
@@ -169,23 +170,6 @@ p {
     }
 
    
-}
-
-@media screen and (min-width: 1200px) {
-    body {
-
-    }
-
-    #rTest {
-	background: red;
-    }
-    
-    .section {
-	padding: 0 20%;
-    }
-
-   
-
 }
 
 @keyframes appear-left {
