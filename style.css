@@ -1,37 +1,31 @@
 :root {
-    --color1: #eee;
-    --color2: #111;
-    --link-color: #8801c6;
+    --darkColor: #222229;
+    --darkColorHover: #191919;
+    --lightColor: #ddd;
+    --lightColorHover: #aaaaaf;
+    --accentColor: #ff7900;
 }
 
 body {
-    background: var(--color2);
-    color: var(--color1);;
-    font-family: monospace;
-    font-size: 1.5rem;
+    background: var(--lightColor);
+    color: var(--lightColor);
+    font-family: "Nova Flat", monospace;
+    font-size: 25px;
+    text-align: center;
     margin: 0;
     padding: 0;
-}
-
-#rTest {
-    width: 10px;
-    height: 10px;
-    position: fixed;
-    left: 10%;
-    top: 10%;
-    background: green;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
-  color: var(--link-color);
+  color: var(--accentColor);
   cursor: pointer;
   transition: color .1s;
 }
 
 a:hover {
-  color: #680099;
+    opacity: 0.6;
 }
 
 h1, h2, h3, h4, h5 {
@@ -40,7 +34,7 @@ h1, h2, h3, h4, h5 {
 }
 
 svg {
-    fill: var(--color1);
+    fill: var(--darkColor);
     display: block;
     user-drag: none;
     user-select: none;
@@ -52,20 +46,28 @@ p {
 }
 
 ::selection {
-    background: var(--link-color);
+    background: var(--accentColor);
+    color: var(--lightColor);
 }
 
 ::-moz-selection {
-    background: var(--link-color);
+    background: var(--accentColor);
+    color: var(--lightColor);
+}
+
+.alignLeft {
+    text-align: left;
+    
 }
 
 .section {
-    padding: 1% 0;
+    padding: 5% 1%;
+    color: var(--darkColor);
 }
 
 .section:nth-of-type(odd) {
-    background: var(--color1);
-    color: var(--color2);
+    background: var(--darkColor);
+    color: var(--lightColor);
 }
 
 .section p {
@@ -74,25 +76,43 @@ p {
 
 #header {
     padding-top: 5%;
+    color: var(--lightColor);
 }
 
 #header h1 {
     font-weight: normal;
-    font-size: 3rem;
+    font-size: 5rem;
+    margin: 0;
 }
 
-#intro, #projects{
-    text-align: center;
+#header a {
+    color: var(--lightColor);
 }
 
 .projectCard {
     display: inline-block;
-    width: 28%;
-    background: #333;
-    color: var(--color1);
-    margin: 5% 2% 0 2%;
-    min-width: 100px;
+    width: 80%;
+    background: var(--darkColor);
+    color: var(--lightColor);
+    margin: 5% 1% 0 1%;
+    padding: 2%;
     vertical-align: top;
+    transition: background .3s;
+    border-radius: 12px;
+    
+}
+
+.projectCard:hover{
+    background: var(--darkColorHover);
+}
+
+.section:nth-of-type(odd) .projectCard {
+    background: var(--lightColor);
+    color: var(--darkColor);
+}
+
+.section:nth-of-type(odd) .projectCard:hover {
+    background: var(--lightColorHover);
 }
 
 .projectCard img {
@@ -102,16 +122,15 @@ p {
 }
 
 .projectCard h3 {
-    padding-top: 10%;
+    
 }
 
 .projectCard p {
-    padding: 1% 5% 8% 5%;
+    padding: 1% 5% 0% 5%;
 }
 
 #footer {
-  font-size: .8em;
-  text-align: center;
+  font-size: .7em;
   padding-bottom: 1%;
   margin: 0;
 }
@@ -125,9 +144,16 @@ p {
     animation: fallIn 0.5s ease-out forwards;
 }
 
+
+@media screen and (min-width: 720px) {
+     .projectCard {
+	width: 25%;
+    }
+}
+
 @media screen and (min-width: 1200px) {
     body {
-	font-size: 1.2rem;
+
     }
 
     #rTest {
@@ -135,8 +161,16 @@ p {
     }
     
     .section {
-	padding: 0 25%;
+	padding: 0 20%;
     }
+
+    .alignLeft {
+	padding-left: 25%;
+    }
+
+   
+
+
 }
 
 @keyframes appear-left {
