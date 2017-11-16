@@ -95,7 +95,7 @@ p {
     background: var(--darkColor);
     color: var(--lightColor);
     margin: 5% 1% 0 1%;
-    padding: 2%;
+    padding: 1.2%;
     vertical-align: top;
     transition: background .3s;
     border-radius: 12px;
@@ -148,7 +148,11 @@ p {
 @media screen and (min-width: 720px) {
      .projectCard {
 	width: 25%;
-    }
+     }
+
+     .alignLeft {
+	 padding-left: 25%;
+     }
 }
 
 @media screen and (min-width: 1200px) {
@@ -164,12 +168,23 @@ p {
 	padding: 0 20%;
     }
 
-    .alignLeft {
-	padding-left: 25%;
+   
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+
+    }
+
+    #rTest {
+	background: red;
+    }
+    
+    .section {
+	padding: 0 20%;
     }
 
    
-
 
 }
 
