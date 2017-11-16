@@ -146,7 +146,6 @@ p {
 
 
 @media screen and (min-width: 720px) {
-    
      .projectCard {
 	width: 40%;
      }
@@ -158,7 +157,7 @@ p {
 
 @media screen and (min-width: 1200px) {
     body {
-	font-size: 25px;
+	font-size: 22px;
     }
 
     #rTest {
@@ -166,7 +165,7 @@ p {
     }
     
     .section {
-	padding: 0 20%;
+	padding: 0 25%;
     }
 
     .projectCard {
