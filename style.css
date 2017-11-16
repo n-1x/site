@@ -148,7 +148,7 @@ p {
 @media screen and (min-width: 720px) {
     
      .projectCard {
-	width: 25%;
+	width: 40%;
      }
 
      .alignLeft {
