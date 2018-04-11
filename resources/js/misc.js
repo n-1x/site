@@ -51,13 +51,12 @@ function insertAngleSVGs() {
 
     //loop through all the sections, adding svg 1 or 2
     //alternately, and randomly choosing the a or b
-    for (let i = 0; i < sections.length - 1; ++i) {
+    for (let i = 0; i < sections.length; ++i) {
         const useB = Math.random() >= 0.5;
         let theSVG = svg1a;
 
         //even element
         if (i%2 != 0) {
-            
             if (useB) {
                 theSVG = svg1b;
             }

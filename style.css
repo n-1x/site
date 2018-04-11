@@ -1,7 +1,7 @@
 :root {
     --darkColor: #222229;
     --darkColorHover: #191920;
-    --lightColor: #c5c5c5;
+    --lightColor: #d5d5d5;
     --lightColorHover: #aaaaaf;
     --accentColor: #ff7900;
 }
@@ -138,21 +138,20 @@ p {
 }
 
 #postList li {
-    background: var(--darkColor);
-    color: var(--lightColor);
-    border-radius: 10px;
-    padding: 0.5%;
-    margin: 0.5%;
-}
-
-#postList li:nth-of-type(odd) {
     background: var(--lightColor);
     color: var(--darkColor);
+    border-radius: 10px;
+    padding: 0.5%;
+    margin: 0.5% 0.5% 3% 0.5%;
 }
 
 #postList h3 {
     margin: 2%;
     color: var(--accentColor)
+}
+
+#blogPost {
+    text-align: justify;
 }
 
 #footer {
