@@ -31,30 +31,24 @@ function renderPostList() {
     })
 }
 
-/**************************************************************************************************************** */
-//Maybe render the posts in the same way that cards are rendered
-//for project lists
+
 function renderListEntry(post) {
     const a = document.createElement("a")
     const li = document.getElementById("postTemplate").cloneNode(true)
     const postList = document.getElementById("postList")
 
-    //a.href = ``
+    a.href = `?link=${post.link}`
 
     li.childNodes[1].innerText = post.title
     li.childNodes[3].innerText = post.desc
 
-    //a.appendChild(li)
-    postList.appendChild(li)
-
-    li.addEventListener("click", () => {
-        history.pushState({urlPath: "blog.html"}, "", `blog.html?link=${post.link}`)
-        postList.remove()
-        renderPost(post)
-    })
+    a.appendChild(li)
+    postList.appendChild(a)
 }
 
 
+//render a blog post. The argument is the post's entry in
+//postList.json
 function renderPost(post) {
     fetch(`blogPosts/${post.link}.html`).then(data => {
         return data.text()
@@ -104,16 +98,6 @@ function main() {
         renderPostList()
     }
 }
-
-
-//if the user pressed the back button but is still on this page
-//then they expect to go back to the list of blog posts. This 
-//is because when you choose a blog post pushState is called with
-//a link to this page. So if this event happens, just refresh and they
-//will be shown the post list again
-window.addEventListener("popstate", () => {
-    location.reload()
-})
 
 
 //set the blog posts to be loaded as soon as the DOM content is loaded
