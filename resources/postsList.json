@@ -1,0 +1,16 @@
+{
+    "posts": [
+        {
+            "link": "staticBlog",
+            "title": "Creating a blog on a static website",
+            "desc": "How I made a relatively easy to use blog on a static website."
+        },
+
+        {
+            "link": "randomDividers",
+            "title": "Random Browser-generated SVG Contend Dividers.",
+            "desc": "How the content dividers used on this website work."
+        }
+
+    ]
+}

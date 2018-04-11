@@ -10,58 +10,33 @@
     <meta name="author" content="Nick Dean">
     <meta name="keywords" content="Nick Dean, Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
 
+    <script type="text/javascript" src="resources/js/blog.js"></script>
     <script type="text/javascript" src="resources/js/misc.js" ></script>
   </head>
 
   <body>
     <div id="header" class="section">
-      <h1 id="name" class="fall">Nick Dean</h1>
-    </div>
-
-    <div id="projects" class="section">
-      <h2>Projects</h2>
-      <p class="appear">My current favourite personal projects. Click <a href="projects.html">here</a> for a full list.</p>
-
-      <div class="projectCard appear">
-	      <img src="resources/fydrechip.png" />
-	      <h3>Fydrechip</h3>
-	      <p>A basic CHIP-8 emulator written in C++ using <a href="https://sfml-dev.org/" target="blank">SFML</a>.</p>
-      </div>
-
-      <div class="projectCard appear">
-	      <img src="resources/webtris.png" />
-	      <h3>Webtris</h3>
-	      <p>A web-based tetris clone written using <a href="https://p5js.org/" target="blank">p5.js</a>.</p>
-      </div>
-
-      <div class="projectCard appear">
-        <img src="resources/console-fractal.png" />
-        <h3>Console Mandelbrot</h3>
-        <p>An ASCII renderer of the Mandelbrot set written in C++.</p>
-      </div>
+      <a href="index.html">
+	      <h1 id="name">Nick Dean</h1>
+      </a>     
     </div>
 
     <div id="blog" class="section">
-      <a href="blog.html"><h2>Blog</h2></a>
-      <p class="appear">Ramblings about things that I couldn't find any adequate preexisting ramblings about.</p>
+      <ul id="postList">
+        <li id="postTemplate" class="appear">
+          <h3>Sample header</h3>
+          <p class="noColoredA">Sample text</p>
+        </li>
+      </ul>
+      <!--to be filled by script-->
     </div>
-    
-    <div id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="appear alignLeft">
-	      <p><strong>Matrix</strong>: <a>@fydrenak:matrix.org</a></p>
-	      <p><strong>Email</strong>: <a href="mailto:me@nickdean.io">me@nickdean.io</a></p>
-      </div>
-    </div>
-
-
+  
     <div id="footer" class="section">
       <div>
 	      <a onclick="scrollToEl('header')">Go to top</a>
-	      <p>From scratch by Nick Dean <em id="copyright"></em></p>
+	      <p>From scratch by Nick Dean <p id="copyright"></p></p>
       </div>
     </div>
-
 
   </body>
 </html>
