@@ -6,18 +6,13 @@ function scrollToEl(element) {
 };
 
 
-
 //place the current year on the footer
 function updateCopyright() {
-    var text = "&copy ";
-    var end = "";
+    const text = "&copy ";    
+    const d = (new Date()).getFullYear();
     
-    var date = new Date();
-    var d = date.getFullYear();
-    
-    document.getElementById('copyright').innerHTML = text + d + end;
+    document.getElementById('copyright').innerHTML = text + d;
 }
-
 
 
 //take every element with the 'appear' class on it
@@ -26,16 +21,15 @@ function fadeIn() {
     let els = document.getElementsByClassName("appear");
 
     for (let i = 0; i < els.length; ++i) {
-	let delay = (i*0.2) + 's';
-	let anim = "right";
+        const delay = (i*0.2) + 's';
+        let anim = "right";
 
-	if (i%2 == 0) {
-	    anim = "left"
-	}
-	els[i].style.animation = "appear-" + anim + " 0.8s " + delay + " ease-out forwards";
+        if (i%2 == 0) {
+            anim = "left"
+        }
+        els[i].style.animation = "appear-" + anim + " 0.8s " + delay + " ease-out forwards";
     }
 }
-
 
 
 //add in the svg images after each section
@@ -55,32 +49,29 @@ function insertAngleSVGs() {
     const svg1a = svgOpen + "0,10 100,0 100,10" + svgClose;
     const svg1b = svgOpen + "0,10 0,0 100,10" + svgClose;
 
-
     //loop through all the sections, adding svg 1 or 2
     //alternately, and randomly choosing the a or b
-    //don't include the last section as that shouldn't
-    //have a line after it.
     for (let i = 0; i < sections.length - 1; ++i) {
-	let theSVG = svg1a;
-	let useB = Math.random() >= 0.5;
+        const useB = Math.random() >= 0.5;
+        let theSVG = svg1a;
 
-	//even element
-	if (i%2 != 0) {
-	    
-	    if (useB) {
-		theSVG = svg1b;
-	    }
-	}
-	//odd element
-	else {
-	    theSVG = svg2a;
+        //even element
+        if (i%2 != 0) {
+            
+            if (useB) {
+                theSVG = svg1b;
+            }
+        }
+        //odd element
+        else {
+            theSVG = svg2a;
 
-	    if (useB) {
-		theSVG = svg2b;
-	    }
-	}
-	
-	sections[i].insertAdjacentHTML("afterEnd", theSVG);
+            if (useB) {
+                theSVG = svg2b;
+            }
+        }
+        
+        sections[i].insertAdjacentHTML("afterEnd", theSVG);
     }
 }
 
@@ -90,5 +81,3 @@ function loaded() {
     insertAngleSVGs();
     fadeIn();
 }
-
-document.addEventListener("DOMContentLoaded", loaded);

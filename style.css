@@ -1,13 +1,13 @@
 :root {
     --darkColor: #222229;
     --darkColorHover: #191920;
-    --lightColor: #ddd;
+    --lightColor: #c5c5c5;
     --lightColorHover: #aaaaaf;
     --accentColor: #ff7900;
 }
 
 body {
-    background: var(--lightColor);
+    background: var(--darkColor);
     color: var(--lightColor);
     font-family: "Expletus Sans", monospace;
     font-size: 35px;
@@ -24,6 +24,17 @@ a {
   transition: color .1s;
 }
 
+
+/*Used for sections where links shouldn't be colored. 
+Such as where all content is technically a link*/
+.nonColoredA a{
+    color: var(--lightColor);
+}
+
+.nonColoredA:nth-of-type(odd) {
+    color: var(--darkColor);
+}
+
 a:hover {
     opacity: 0.6;
 }
@@ -34,7 +45,7 @@ h1, h2, h3, h4, h5 {
 }
 
 svg {
-    fill: var(--darkColor);
+    fill: var(--lightColor);
     display: block;
     user-drag: none;
     user-select: none;
@@ -62,12 +73,11 @@ p {
 
 .section {
     padding: 5% 1%;
-    color: var(--darkColor);
 }
 
 .section:nth-of-type(odd) {
-    background: var(--darkColor);
-    color: var(--lightColor);
+    background: var(--lightColor);
+    color: var(--darkColor);
 }
 
 .section p {
@@ -76,24 +86,20 @@ p {
 
 #header {
     padding-top: 5%;
-    color: var(--lightColor);
 }
 
 #header h1 {
+    color: var(--darkColor);
     font-weight: normal;
     font-size: 5rem;
     margin: 0;
 }
 
-#header a {
-    color: var(--lightColor);
-}
-
 .projectCard {
     display: inline-block;
     width: 80%;
-    background: var(--darkColor);
-    color: var(--lightColor);
+    background: var(--lightColor);
+    color: var(--darkColor);
     margin: 5% 1% 0 1%;
     padding: 1.2%;
     vertical-align: top;
@@ -103,16 +109,16 @@ p {
 }
 
 .projectCard:hover{
-    background: var(--darkColorHover);
+    background: var(--lightColorHover);
 }
 
 .section:nth-of-type(odd) .projectCard {
-    background: var(--lightColor);
-    color: var(--darkColor);
+    background: var(--darkColor);
+    color: var(--lightColor);
 }
 
 .section:nth-of-type(odd) .projectCard:hover {
-    background: var(--lightColorHover);
+    background: var(--darkColorHover);
 }
 
 .projectCard img {
@@ -121,12 +127,32 @@ p {
     margin: auto 0;
 }
 
-.projectCard h3 {
-    
-}
-
 .projectCard p {
     padding: 1% 5% 0% 5%;
+}
+
+#postList {
+    list-style-type: none;
+    color: initial;
+    margin: 0 auto;
+}
+
+#postList li {
+    background: var(--darkColor);
+    color: var(--lightColor);
+    border-radius: 10px;
+    padding: 0.5%;
+    margin: 0.5%;
+}
+
+#postList li:nth-of-type(odd) {
+    background: var(--lightColor);
+    color: var(--darkColor);
+}
+
+#postList h3 {
+    margin: 2%;
+    color: var(--accentColor)
 }
 
 #footer {
@@ -147,66 +173,66 @@ p {
 
 @media screen and (min-width: 720px) {
      .projectCard {
-	width: 40%;
+	    width: 40%;
      }
 
      .alignLeft {
-	 padding-left: 25%;
+	    padding-left: 25%;
      }
 }
 
 @media screen and (min-width: 1200px) {
     body {
-	font-size: 22px;
+	    font-size: 22px;
     }
 
     #rTest {
-	background: red;
+	    background: red;
     }
     
     .section {
-	padding: 0 25%;
+	    padding: 0 25%;
     }
 
     .projectCard {
-	width: 25%;
+	    width: 25%;
     }
     
 }
 
 @keyframes appear-left {
     from {
-	opacity: 0;
-	transform: translate(-40px, 0);
+        opacity: 0;
+        transform: translate(-40px, 0);
     }
 
     to {
-	opacity: 1;
-	transform: translate(0, 0px);
+        opacity: 1;
+        transform: translate(0, 0px);
     }
 }
 
 @keyframes appear-right {
     from {
-	opacity: 0;
-	transform: translate(40px, 0);
+        opacity: 0;
+        transform: translate(40px, 0);
     }
 
     to {
-	opacity: 1;
-	transform: translate(0, 0)
+        opacity: 1;
+        transform: translate(0, 0)
     }
 }
 
 
 @keyframes fallIn {
     from {
-	opacity: 0;
-	transform: translate(0, -40px);
+        opacity: 0;
+        transform: translate(0, -40px);
     }
 
     to {
-	opacity: 1;
-	transform: translate(0, 0);
+        opacity: 1;
+        transform: translate(0, 0);
     }
 }
