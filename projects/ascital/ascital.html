@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nick Dean | Programmer</title>
+    <link rel="stylesheet" type="text/css" href='../../style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans" rel="stylesheet"> 
+    
+    <meta charset="utf-8">
+    <meta name="description" content="An ASCII fractal renderer.">
+    <meta name="author" content="Nick Dean">
+    <meta name="keywords" content="Nick Dean, Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website, Blog, Programmer Blog, Dev Blog, Developer Blog">
+
+    <script type="text/javascript" src="../../resources/js/misc.js" ></script>
+    <script type="text/javascript" src="ascital.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        renderFractal(50, 80, 35, -1.5, 1.5, 1.5, -1.5)
+        loaded()
+      })
+    </script>
+
+    <style type="text/css">
+      #fractal {
+        font-family: monospace;
+        font-size: large;
+        white-space: pre;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="top" class="section">
+      <a href="../../index.html">
+	      <h1 id="name">Nick Dean</h1>
+      </a>     
+    </header>
+    
+    <div class="section">
+      <h1>Ascital</h1>
+      <div id="fractal"></div>
+    </div>
+
+  
+    <footer class="section">
+      <div>
+	      <a onclick="scrollToEl('top')">Go to top</a>
+	      <p>From scratch by Nick Dean <p id="copyright"></p></p>
+      </div>
+    </footer>
+
+  </body>
+</html>

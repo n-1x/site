@@ -11,9 +11,21 @@
     <meta name="keywords" content="Nick Dean, Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
 
     <script type="text/javascript" src="resources/js/misc.js" ></script>
+    <script type="text/javascript" src="projects/ascital/ascital.js"></script>
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", loaded)
+      document.addEventListener("DOMContentLoaded", () => {
+        renderFractal(25, 30, 9)
+        loaded()
+      })
     </script>
+
+    <style type="text/css">
+      #fractal {
+        font-family: monospace;
+        font-size: medium;
+        white-space: pre;
+      }
+    </style>
   </head>
 
   <body>
@@ -32,24 +44,32 @@
 	      <p>A basic CHIP-8 emulator written in C++ using <a href="https://sfml-dev.org/" target="blank">SFML</a>.</p>
       </div>
 
-      <div class="projectCard appear">
+      <a href="projects/webtris/webtris.html" class="projectCard appear">
 	      <img src="resources/images/webtris.png" />
 	      <h3>Webtris</h3>
-	      <p>A web-based tetris clone written using <a href="https://p5js.org/" target="blank">p5.js</a>.</p>
-      </div>
+	      <p>A web-based tetris clone written using.</p>
+      </a>
     
       <div class="projectCard appear">
-        <img src="resources/images/console-fractal.png" />
-        <h3>Console Mandelbrot</h3>
-        <p>An ASCII renderer of the Mandelbrot set written in C++.</p>
+        <div id="fractal"></div>
+        <br />
+        <h3><a href="projects/ascital/ascital.html">Ascital</a></h3>
+        <p>An in-browser text based fractal renderer.</p>
       </div>
     </div>
 
     
     <div id="blog" class="section">
-      <div class="fall">
-        <a href="blog.html"><h2>Blog</h2></a>
-        <p class="appear">Ramblings about things that I couldn't find any adequate preexisting ramblings about.</p>
+      <h2>Media</h2>
+      <div class="appear">
+        <a href="blog.html"><h3>Blog</h3></a>
+        <p>Ramblings about things that I couldn't find any adequate preexisting ramblings about.</p>
+        <br />
+
+        <a href="https://www.github.com/fydrenak">
+          <h3>GitHub</h3>
+        </a>
+        <br />
       </div>
     </div>
 
