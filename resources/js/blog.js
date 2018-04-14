@@ -1,18 +1,19 @@
-let contentLoaded = false
-let postListPromise = fetch("resources/postList.json").then(data => {
+const postListPromise = fetch("resources/postList.json").then(data => {
     return data.json()
 })
 
 function decodeURIParams() {
     const url = window.location.href
+    const obj = {}
     let params = url.split('?')
-    let obj = {}
 
+    //if there's no ? in the uri then params[1] will be undefined
     if (params[1]) {
+        //assign params to be the split('=') of all text after the ?
         params = params[1].split('=')
     }
 
-    for (param of params) {
+    for (const param of params) {
         obj[params[0]] = params[1]
     }
 
@@ -21,7 +22,7 @@ function decodeURIParams() {
 
 
 function renderPostList(postList) {
-    for(post of postList.posts) {
+    for(const post of postList.posts) {
         renderListEntry(post)
     }
 
@@ -57,6 +58,10 @@ function renderPost(post) {
         const blog = document.getElementById("blog")
         const blogPost = document.createElement("div")
         const title = document.createElement("h2")
+        const returnLink = document.createElement("a")
+
+        returnLink.href = "blog.html"
+        returnLink.innerText = "Back to blog"
 
         blogPost.id = "blogPost"
 
@@ -65,9 +70,12 @@ function renderPost(post) {
         blogPost.appendChild(title)
         blogPost.innerHTML += text
 
+        blog.appendChild(returnLink)
         blog.appendChild(blogPost)
+
+        loaded()
     }).catch(error => {
-        document.getElementById("blog").innerHTML = "Error 404: Post not found.<br/><a href=\"blog.html\">Go back</a>"
+        document.getElementById("blog").innerHTML = `${error}`
     })
 }
 
@@ -84,10 +92,9 @@ function main() {
             
             //check all posts for one with the correct link
             //then render it
-            for (post of json.posts) {
+            for (const post of json.posts) {
                 if (post.link == params.link) {
                     renderPost(post)
-                    loaded()
                     break
                 }
             }
