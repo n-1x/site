@@ -31,10 +31,6 @@ Such as where all content is technically a link*/
     color: var(--lightColor);
 }
 
-.nonColoredA:nth-of-type(odd) {
-    color: var(--darkColor);
-}
-
 a:hover {
     opacity: 0.6;
 }
@@ -75,7 +71,8 @@ p {
     padding: 5% 1%;
 }
 
-.section:nth-of-type(odd) {
+/*4n+1 because each section will have an svg after it*/
+.section:nth-child(4n+1) {
     background: var(--lightColor);
     color: var(--darkColor);
 }
@@ -84,11 +81,11 @@ p {
     margin: 0 2%;
 }
 
-#header {
+header {
     padding-top: 5%;
 }
 
-#header h1 {
+header h1 {
     color: var(--darkColor);
     font-weight: normal;
     font-size: 5rem;
@@ -105,19 +102,17 @@ p {
     vertical-align: top;
     transition: background .3s;
     border-radius: 12px;
-    
+}
+
+.section:nth-child(4n+1) .projectCard {
+    background: var(--darkColor);
+    color: var(--lightColor);
 }
 
 .projectCard:hover{
     background: var(--lightColorHover);
 }
-
-.section:nth-of-type(odd) .projectCard {
-    background: var(--darkColor);
-    color: var(--lightColor);
-}
-
-.section:nth-of-type(odd) .projectCard:hover {
+.section:nth-child(4n+1) .projectCard:hover {
     background: var(--darkColorHover);
 }
 
@@ -167,8 +162,7 @@ p {
 .fall {
     opacity: 0;
     animation: fallIn 0.5s ease-out forwards;
-}
-
+}   
 
 @media screen and (min-width: 720px) {
      .projectCard {
@@ -183,10 +177,6 @@ p {
 @media screen and (min-width: 1200px) {
     body {
 	    font-size: 22px;
-    }
-
-    #rTest {
-	    background: red;
     }
     
     .section {
