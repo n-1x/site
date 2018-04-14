@@ -3,7 +3,12 @@
         {
             "link": "staticBlog",
             "title": "Creating a blog on a static website",
-            "desc": "How I made a relatively easy to use blog on a static website."
+            "desc": "Making a relatively easy to use blog on a static website."
+        },
+        {
+            "link": "FAKEPOST",
+            "title": "A test post",
+            "desc": "A test post!!!!!!!!!"
         }
     ],
 

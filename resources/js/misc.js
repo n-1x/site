@@ -8,10 +8,9 @@ function scrollToEl(element) {
 
 //place the current year on the footer
 function updateCopyright() {
-    const text = "&copy ";    
     const d = (new Date()).getFullYear();
     
-    document.getElementById('copyright').innerHTML = text + d;
+    document.getElementById('copyright').innerHTML = "&copy" + d;
 }
 
 
@@ -41,7 +40,7 @@ function fadeIn() {
 function insertAngleSVGs() {
     const sections = document.getElementsByClassName("section");
     
-    const svgOpen = "<svg viewBox=\"0 0 100 10\" style=\"width: 100%; \" ><polygon points=\""
+    const svgOpen = "<svg viewBox=\"0 0 100 10\"><polygon points=\""
     const svgClose = "\"></svg>"
 
     const svg2a = svgOpen + "0,0 100,0 100,10" + svgClose;
@@ -72,6 +71,8 @@ function insertAngleSVGs() {
         
         sections[i].insertAdjacentHTML("afterEnd", theSVG);
     }
+
+    sections[sections.length]
 }
 
 

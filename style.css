@@ -21,7 +21,7 @@ a {
   font-weight: bold;
   color: var(--accentColor);
   cursor: pointer;
-  transition: color .1s;
+  transition: opacity .11s;
 }
 
 
@@ -29,6 +29,10 @@ a {
 Such as where all content is technically a link*/
 .nonColoredA a{
     color: var(--lightColor);
+}
+
+.section:nth-child(4n+1) .nonColoredA {
+    color: var(--darkColor);
 }
 
 a:hover {
@@ -135,9 +139,12 @@ header h1 {
 #postList li {
     background: var(--lightColor);
     color: var(--darkColor);
-    border-radius: 10px;
-    padding: 0.5%;
-    margin: 0.5% 0.5% 3% 0.5%;
+    padding: .1% 0 1.2% 0;
+    margin-bottom: 2%;
+}
+
+#postList a:hover {
+    opacity: 1;
 }
 
 #postList h3 {
@@ -149,7 +156,7 @@ header h1 {
     text-align: justify;
 }
 
-#footer {
+footer {
   font-size: .7em;
   padding-bottom: 1%;
   margin: 0;
