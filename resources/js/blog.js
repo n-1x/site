@@ -1,3 +1,6 @@
+//immediately start loading the postList, this reduces the time
+//before content can be displayed as it doesn't wait for the dom
+//to load first
 const postListPromise = fetch("resources/postList.json").then(data => {
     return data.json()
 })
@@ -26,8 +29,6 @@ function renderPostList(postList) {
         renderListEntry(post)
     }
 
-    document.getElementById("postTemplate").remove()
-
     //after all the content has been created, call the loaded
     //function to fade in each element
     loaded()
@@ -35,14 +36,19 @@ function renderPostList(postList) {
 
 
 function renderListEntry(post) {
-    const a = document.createElement("a")
-    const li = document.getElementById("postTemplate").cloneNode(true)
     const postList = document.getElementById("postList")
+    const li = document.createElement("li")
+    const a = document.createElement("a")
+    const postTitle = document.createElement("h3")
+    const postDesc = document.createElement("p")
 
     a.href = `?link=${post.link}`
 
-    li.childNodes[1].innerText = post.title
-    li.childNodes[3].innerText = post.desc
+    postTitle.innerText = post.title
+    postDesc.innerText = post.desk
+
+    li.appendChild(postTitle)
+    li.appendChild(postDesc)
 
     a.appendChild(li)
     postList.appendChild(a)
