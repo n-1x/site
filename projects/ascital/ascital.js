@@ -1,12 +1,7 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-//(a + bi)(a + bi)
-//a^2 + 2abi - b^2
-//re = a^2 - b^2
-//im = 2ab
-
 function mapCoords(value, oLow, oMax, nLow, nMax) {
-    return nLow + ((value - oLow) / (oMax - oLow)) * (nMax - nLow)
+    return nLow + (value - oLow) / (oMax - oLow) * (nMax - nLow)
 }
 
 
@@ -33,6 +28,7 @@ function renderFractal(maxIter, width, height, xMin = -2, xMax = 1, yMin = 1, yM
                 ++iter
             }
 
+            //choose which character to use for that portion
             let char = ' '
 
             if (iter < maxIter) {
@@ -42,6 +38,7 @@ function renderFractal(maxIter, width, height, xMin = -2, xMax = 1, yMin = 1, yM
             line.innerText += char
         }
 
+        //add the line to the DOM
         area.appendChild(line)  
     }
 }

@@ -8,8 +8,12 @@
     <meta charset="utf-8">
     
     <script src="resources/js/misc.js" ></script>
+    <script type="text/javascript" src="projects/ascital/ascital.js"></script>
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", loaded)
+      document.addEventListener("DOMContentLoaded", () => {
+        renderFractal(25, 30, 9)
+        loaded()
+      })
     </script>
   </head>
 
@@ -22,7 +26,13 @@
 
       
     <div id="projects" class="section">
-      <h2 class="fall">Projects</h2>
+      <h2 class="fall">Projects</h2>   	
+			
+      <div class="projectCard appear">
+        <div id="fractal"></div>
+        <h3><a href="projects/ascital/ascital.html">Ascital</a></h3>
+        <p>An in-browser text based fractal renderer.</p>
+      </div>
 
       <div class="projectCard appear">
         <h3>Webtris: Javascript Tetris Clone</h3>
@@ -42,12 +52,6 @@
         <h3>Fydrechip: Chip-8 Virtual Machine</h3>
         <img src="resources/images/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
         <p>A virtual machine/emulator written in C++ using <a href="https://sfml-dev.com/" target="blank">SFML</a>. View the source on <a href="https://github.com/Fydrenak/fydreChip">GitHub</a>.</p>
-      </div>	
-			
-      <div class="projectCard appear">
-        <h3>ASCII Fractal Generator</h3>
-        <img src="resources/images/console-fractal.png" alt="A mandelbrot fractal written in ascii characters." />
-        <p>A renderer of the mandelbrot set that runs in the console. Soon to be rewritten.</p>
       </div>
 
       <div class="projectCard appear">

@@ -173,7 +173,13 @@ footer {
 .fall {
     opacity: 0;
     animation: fallIn 0.5s ease-out forwards;
-}   
+}
+
+#fractal {
+    font-family: monospace;
+    font-size: medium;
+    white-space: pre;
+}
 
 @media screen and (min-width: 720px) {
      .projectCard {
