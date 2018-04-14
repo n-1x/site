@@ -1,3 +1,8 @@
+let contentLoaded = false
+let postListPromise = fetch("resources/postList.json").then(data => {
+    return data.json()
+})
+
 function decodeURIParams() {
     const url = window.location.href
     let params = url.split('?')
@@ -15,20 +20,16 @@ function decodeURIParams() {
 }
 
 
-function renderPostList() {
-    fetch("resources/postList.json").then(a => {
-        return a.json()
-    }).then(data => {
-        for(post of data.posts) {
-            renderListEntry(post)
-        }
+function renderPostList(postList) {
+    for(post of postList.posts) {
+        renderListEntry(post)
+    }
 
-        document.getElementById("postTemplate").remove()
+    document.getElementById("postTemplate").remove()
 
-        //after all the content has been created, call the loaded
-        //function to fade in each element
-        loaded()
-    })
+    //after all the content has been created, call the loaded
+    //function to fade in each element
+    loaded()
 }
 
 
@@ -74,17 +75,15 @@ function renderPost(post) {
 function main() {
     const params = decodeURIParams()
 
-    //if there's no "link=<>" in the uri, then just
-    //render the list of posts, else render the linked
-    //post
-    if (params.link) {
-        document.getElementById("postList").remove()
-        //fetch the postlist and find the post to be loaded
-        //this means renderPost can be called with the full post
-        //information which is needed for creating the title
-        fetch("resources/postList.json").then(data => {
-            return data.json()
-        }).then(json => {
+    postListPromise.then(json => {
+        //if there's no "link=<>" in the uri, then just
+        //render the list of posts, else render the linked
+        //post
+        if (params.link) {
+            document.getElementById("postList").remove()
+            
+            //check all posts for one with the correct link
+            //then render it
             for (post of json.posts) {
                 if (post.link == params.link) {
                     renderPost(post)
@@ -92,11 +91,12 @@ function main() {
                     break
                 }
             }
-        })
-    }
-    else {
-        renderPostList()
-    }
+            
+        }
+        else {
+            renderPostList(json)
+        }
+    })
 }
 
 
