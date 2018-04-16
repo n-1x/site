@@ -31,7 +31,7 @@ function renderFractal(maxIter, width, height, xMin = -2, xMax = 1, yMin = 1, yM
             //choose which character to use for that portion
             let char = ' '
 
-            if (iter < maxIter) {
+            if (iter < maxIter && iter > 1) {
                 char = alphabet[iter % alphabet.length]
             }
 
