@@ -45,7 +45,7 @@ function renderListEntry(post) {
     a.href = `?link=${post.link}`
 
     postTitle.innerText = post.title
-    postDesc.innerText = post.desk
+    postDesc.innerText = post.desc
 
     li.appendChild(postTitle)
     li.appendChild(postDesc)
