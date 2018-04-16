@@ -5,6 +5,7 @@ const postListPromise = fetch("resources/postList.json").then(data => {
     return data.json()
 })
 
+
 function decodeURIParams() {
     const url = window.location.href
     const obj = {}
@@ -16,6 +17,8 @@ function decodeURIParams() {
         params = params[1].split('=')
     }
 
+    //assign all the param values to the object
+    //property of the param name
     for (const param of params) {
         obj[params[0]] = params[1]
     }
