@@ -1,0 +1,3 @@
+[submodule "projects/fydris"]
+	path = projects/fydris
+	url = git@github.com:Fydrenak/fydris.git
