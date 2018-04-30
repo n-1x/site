@@ -5,7 +5,7 @@ function mapCoords(value, oLow, oMax, nLow, nMax) {
 }
 
 
-function renderFractal(maxIter, width, height, xMin = -2, xMax = 1, yMin = 1, yMax = -1) {
+function renderFractal(maxIter, width, height, fillEdges = false, xMin = -2, xMax = 1, yMin = 1, yMax = -1, ) {
     const area = document.getElementById("fractal")
 
     for (let y = 0; y < height; ++y) {
@@ -31,7 +31,7 @@ function renderFractal(maxIter, width, height, xMin = -2, xMax = 1, yMin = 1, yM
             //choose which character to use for that portion
             let char = ' '
 
-            if (iter < maxIter && iter > 1) {
+            if (iter < maxIter && (fillEdges || iter > 1)) {
                 char = alphabet[iter % alphabet.length]
             }
 
