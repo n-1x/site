@@ -10,66 +10,48 @@
     <meta name="author" content="Nick Dean">
     <meta name="keywords" content="Nick Dean, Fydrenak, Programmer, Developer, Programmer Portfolio, Portfolio, Portfolio Website">
 
-    <script type="text/javascript" src="resources/js/misc.min.js" ></script>
+    <script type="text/javascript" src="resources/js/misc.js" ></script>
     <script type="text/javascript" src="projects/ascital/ascital.js"></script>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", () => {
-        renderFractal(25, 30, 9, true)
-        loaded()
-      })
-    </script>
   </head>
 
   <body>
     <header id="top" class="section">
-      <h1 id="name" class="fall">Nick Dean</h1>
+      <h1 id="name" class="fall">Nyx</h1>
     </header>
-
-
-    <div id="projects" class="section">
-      <h2 class="fall">Projects</h2>
-      <p class="appear">My current favourite personal projects. Click <a href="projects.html">here</a> for a full list.</p>
-
-      <div class="projectCard appear">
-	      <img src="resources/images/fydrechip.png" />
-	      <h3>Fydrechip</h3>
-	      <p>A basic CHIP-8 emulator written in C++ using <a href="https://sfml-dev.org/" target="blank">SFML</a>.</p>
-      </div>
-
-      <div class="projectCard appear">
-	      <img src="resources/images/fydris.png" />
-	      <h3><a href="projects/fydris.html">Fydris</a></h3>
-	      <p>A web-based tetris clone written using p5.js.</p>
-      </div>
     
-      <div class="projectCard appear">
-        <div id="fractal"></div>
-        <h3><a href="projects/ascital/ascital.html">Ascital</a></h3>
-        <p>An in-browser text based fractal renderer.</p>
+
+    <div class="section">
+      <h2 class="fall">Projects</h2>
+      <p class="appear">Click <a href="projects.html">here</a> for the full list.</p>
+
+      <div class="projects">
+        <a class="appear">
+          <h3>Fydrechip</h3>
+          <p>A basic CHIP-8 emulator written in C++ using SFML.</p>
+        </a>
+  
+        <a href="projects/fydris.html" class="appear">
+          <h3>Fydris</h3>
+          <p>A web-based tetris clone written using p5.js.</p>
+        </a>
+      
+        <a class="appear">
+          <div id="fractal"></div>
+          <h3>Ascital</h3>
+          <p>An in-browser text based fractal renderer.</p>
+        </a>
       </div>
+      
     </div>
 
     
     <div id="blog" class="section">
-      <h2>Media</h2>
+      <h2 class="fall"></h2>
       <div class="appear">
-        <a href="blog.html"><h3>Blog</h3></a>
-        <p>Ramblings about things that I couldn't find any adequate preexisting ramblings about.</p>
-        <br />
-
-        <a href="https://www.github.com/fydrenak">
-          <h3>GitHub</h3>
-        </a>
-        <br />
-      </div>
-    </div>
-
-    
-    <div id="contact" class="section">
-      <h2 class="fall">Contact</h2>
-        <div class="appear alignLeft">
-	      <p><strong>Matrix</strong>: <a>@fydrenak:matrix.org</a></p>
-	      <p><strong>Email</strong>: <a href="mailto:me@nickdean.io">me@nickdean.io</a></p>
+        <h3><a href="blog.html">Blog</a></h3>
+        <h3><a href="https://www.github.com/fydrenak">GitHub</a></h3>
+        <p><strong>Matrix</strong>: <a>@fydrenak:matrix.org</a></p>
+	      <p><strong>Email</strong>: <a href="mailto:me@nickdean.io">me@nyx.ink</a></p>
       </div>
     </div>
 
