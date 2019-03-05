@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fydris | nyx.ink</title>
+    <link rel="stylesheet" type="text/css" href='../style.css'>
+    
+    <meta charset="utf-8">
+    <meta name="description" content="Browser-based Rubik's cube.">
+    <meta name="author" content="Nick Dean">
+    <meta name="keywords" content="online, rubik's, cube">
+
+    <script type="text/javascript" src="../resources/js/misc.min.js" ></script>
+    <script type="text/javascript" src="../resources/js/p5.min.js"></script>
+    <script type="text/javascript" src="../resources/js/p5.dom.min.js"></script>
+    <script type="text/javascript" src="../resources/js/p5.sound.min.js"></script>
+    <script type="text/javascript" src="rubiks/rubiks.js"></script>
+  </head>
+
+  <body>
+    <header id="top" class="section">
+      <a href="../index.html">
+	      <h1 id="name">Nyx</h1>
+      </a>     
+    </header>
+
+    <div id="game" class="section">
+      <div id="p5-holder"></div>
+    </div>
+  
+    <footer class="section">
+        <div class="fall">
+          <a onclick="scrollToEl('header')">Go to top</a>
+          <p>From scratch by Nick Dean <em id="copyright"></em></p>
+        </div>
+    </div>
+  </body>
+</html>

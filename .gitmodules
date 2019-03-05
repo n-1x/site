@@ -4,3 +4,6 @@
 [submodule "projects/canvas-raycast"]
 	path = projects/canvas-raycast
 	url = https://github.com/Aenyx/canvas-raycast
+[submodule "projects/rubiks"]
+	path = projects/rubiks
+	url = https://github.com/Aenyx/rubiks.git
