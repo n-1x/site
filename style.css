@@ -1,11 +1,8 @@
 :root {
-    --dark: #1d1b24;
-    --darkHover: #14143f;
-    --light: #272530;
-    --lightHover: #aaaaaf;
-    --accent: #481572;
-    --accentText: #6d2dc0;
-    --lightText: #ddd;
+    --dark: #111;
+    --light: #181818;
+    --accent: rgb(152, 77, 238);
+    --lightText: #eee;
     --darkText: #222;
 }
 
@@ -22,7 +19,7 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: var(--accentText);
+  color: var(--accent);
   cursor: pointer;
   transition: opacity .2s;
 }
@@ -42,7 +39,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .section {
-    padding: 1em 10em;
+    padding: 1em 4em;
     transition: background-color 0.5s, box-shadow 0.5s;
 }
 
@@ -71,6 +68,7 @@ header h1 {
     padding: 0.5em;
     border-radius: 0px;
     transition: border-radius 0.3s;
+    border: 3px solid var(--accent);
 }
 
 .section:nth-child(2n) .projects > * {
