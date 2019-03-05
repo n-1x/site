@@ -62,6 +62,7 @@ header h1 {
     grid-template-columns: repeat(3, 20ch);
     grid-gap: 1em;
     justify-content: center;
+    justify-items: center;
 }
 
 .projects > * {
