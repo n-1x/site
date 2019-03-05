@@ -1,3 +1,6 @@
 [submodule "projects/fydris"]
 	path = projects/fydris
 	url = git@github.com:Fydrenak/fydris.git
+[submodule "projects/canvas-raycast"]
+	path = projects/canvas-raycast
+	url = https://github.com/Aenyx/canvas-raycast
