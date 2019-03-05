@@ -32,7 +32,6 @@ function fadeIn() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("worked");
     updateCopyright();
     fadeIn();
 })
