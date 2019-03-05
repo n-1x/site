@@ -40,12 +40,11 @@ h1, h2, h3, h4, h5 {
 
 .section {
     padding: 1em 4em;
-    transition: background-color 0.5s, box-shadow 0.5s;
+    border-bottom: 3px solid var(--darkText);
 }
 
 .section:nth-child(2n) {
     background-color: var(--light);
-    box-shadow: 10px 0 10px #111, -10px 0 10px #111;
 }
 
 header h1 {
