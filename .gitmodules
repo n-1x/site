@@ -7,3 +7,9 @@
 [submodule "projects/rubiks"]
 	path = projects/rubiks
 	url = https://github.com/Aenyx/rubiks.git
+[submodule "projects/quadboids"]
+	path = projects/quadboids
+	url = https://github.com/Aenyx/quadboids.git
+[submodule "projects/tendryl"]
+	path = projects/tendryl
+	url = https://github.com/Aenyx/tendryl.git
