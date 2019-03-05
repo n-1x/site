@@ -58,14 +58,14 @@ header h1 {
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(3, 20ch);
-    grid-gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    justify-items: center;
 }
 
 .projects > * {
+    width: 16ch;
+    margin: 1em 1em;
     background-color: var(--light);
     color: var(--lightText);
     padding: 0.5em;
