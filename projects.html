@@ -9,67 +9,56 @@
     
     <script src="resources/js/misc.min.js" ></script>
     <script type="text/javascript" src="projects/ascital/ascital.js"></script>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", () => {
-        renderFractal(25, 30, 9, true)
-        loaded()
-      })
-    </script>
   </head>
 
   <body>
     <header id="top" class="section">
       <a href="index.html">
-	      <h1 id="name" class="fall">Nick Dean</h1>
+	      <h1 id="name">Nyx</h1>
       </a>     
     </header>
 
       
-    <div id="projects" class="section">
+    <div class="section">
       <h2 class="fall">Projects</h2>
       
-      <div class="projectCard appear">
-        <div id="raycaster"></div>
-        <h3><a href="projects/raycaster.html">Raycaster</a></h3>
-        <p>An HTML5 raycaster using <a href="p5js.org">p5.js</a>.</p>
-      </div>
-			
-      <div class="projectCard appear">
-        <div id="fractal"></div>
-        <h3><a href="projects/ascital/ascital.html">Ascital</a></h3>
-        <p>An in-browser text based fractal renderer.</p>
-      </div>
+      <div class="projects">
 
-      <div class="projectCard appear">
-        <h3>Webtris: Javascript Tetris Clone</h3>
-        <img src="resources/images/webtris.png" alt="A tetris game in progress." />
-        <p>A browser-based tetris clone. Not much more to this one.</p>
-        <p>Click <a href="projects/webtris/webtris.html">here</a> to play!</p>
-      </div>
+          <a href="projects/fydris.html">
+              <h3>Fydris: Javascript Tetris Clone</h3>
+              <p>A browser-based tetris clone. Not much more to this one.</p>
+          </a>
 
-      <div class="projectCard appear">
-        <h3>Boids Flocking Simulation</h3>
-        <img src="resources/images/boids.png" alt="Image of boids in a 2 part cage with a small tunnel between them." />
-        <p>A javascript simulation using the boids flocking algorithm. Rendered using <a href="https://p5js.org/" target="blank">p5.js</a>.</p>
-        <p>Click <a href="#">here</a> to try it in the browser.</p>
-      </div>
-			
-      <div class="projectCard appear">
-        <h3>Fydrechip: Chip-8 Virtual Machine</h3>
-        <img src="resources/images/fydrechip.png" alt="Picture of chip-8 space invaders running on an emulator."/>
-        <p>A virtual machine/emulator written in C++ using <a href="https://sfml-dev.com/" target="blank">SFML</a>. View the source on <a href="https://github.com/Fydrenak/fydreChip">GitHub</a>.</p>
-      </div>
+          <a href="projects/rubiks.html">
+            <h3>Rubik's Cube</h3>
+            <p>A Rubik's cube running in the browser.</p>
+          </a>
 
-      <div class="projectCard appear">
-        <h3>Mechanics Simulator</h3>
-        <img src="resources/images/mechanics-sim.png" alt="A visualisation of the motion of some projectiles." />
-        <p>My final year project for college. It is written in Java and has an android and desktop version.</p>
-      </div>
+          <a href="projects/raycaster.html">
+            <h3>Raycaster</h3>
+            <p>A raycaster for HTML5. Build a level then run around it in first person.</p>
+          </a>
 
-      <div class="projectCard appear">
-        <h3>Infinite 2D Sidescrolling Game</h3>
-        <img src="resources/images/fydregame-screenshot-1-half.png" alt="Picture from a game." />
-        <p>A 2D side-scrolling game written in C++. It uses a source-only engine created by Chris Rook.</p>
+          <a href="https://github.com/Fydrenak/fydreChip">
+            <h3>Fydrechip</h3>
+            <p>A Chip-8 virtual machine/emulator written in C++.</p>
+          </a>
+
+          <a href="projects/ascital/ascital.html">
+              <h3>Ascital</h3>
+              <p>An in-browser text based fractal renderer.</p>
+          </a>
+
+          <a href="projects/quadboids.html">
+            <h3>Quadboids</h3>
+            <p>A flocking simulation using the boids algorithm. Uses a quadtree for optimisation.</p>
+          </a>
+
+          <a href="projects/tendryl">
+              <h3>Tendryl</h3>
+              <p>A browser-based generative art tool.</p>
+          </a>
+
       </div>
       
     </div>
