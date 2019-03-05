@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rubik's Cube | nyx.ink</title>
+    <title>Quadboids | nyx.ink</title>
     <link rel="stylesheet" type="text/css" href='../style.css'>
     
     <meta charset="utf-8">
-    <meta name="description" content="Browser-based Rubik's cube.">
+    <meta name="description" content="Browser based boids simulation.">
     <meta name="author" content="Nick Dean">
     <meta name="keywords" content="online, rubik's, cube">
 
@@ -13,7 +13,8 @@
     <script type="text/javascript" src="../resources/js/p5.min.js"></script>
     <script type="text/javascript" src="../resources/js/p5.dom.min.js"></script>
     <script type="text/javascript" src="../resources/js/p5.sound.min.js"></script>
-    <script type="text/javascript" src="rubiks/rubiks.js"></script>
+    <script type="text/javascript" src="quadboids/quadtree.js"></script>
+    <script type="text/javascript" src="quadboids/boids.js"></script>
   </head>
 
   <body>
@@ -22,8 +23,9 @@
 	      <h1 id="name">Nyx</h1>
       </a>     
     </header>
-
+    
     <div id="game" class="section">
+      <h2>Quadboids</h2>
       <div id="p5-holder"></div>
     </div>
   
