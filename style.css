@@ -24,6 +24,11 @@ a {
   transition: opacity .2s;
 }
 
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
 a:hover {
     opacity: 0.6;
 }
@@ -39,7 +44,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .section {
-    padding: 1em 4em;
+    padding: 1em 25%;
     border-bottom: 3px solid var(--darkText);
 }
 
@@ -61,6 +66,7 @@ header h1 {
 
 .projects > * {
     width: 16ch;
+    min-width: 12ch;
     margin: 1em 1em;
     background-color: var(--light);
     color: var(--lightText);
