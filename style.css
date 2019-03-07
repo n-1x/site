@@ -16,6 +16,10 @@ body {
     padding: 0;
 }
 
+footer {
+    font-size: 0.7em;
+}
+
 a {
   text-decoration: none;
   font-weight: bold;
@@ -72,7 +76,7 @@ header h1 {
     color: var(--lightText);
     padding: 0.5em;
     border-radius: 0px;
-    transition: border-radius 0.3s;
+    transition: border-radius 0.2s;
     border: 3px solid var(--accent);
 }
 
@@ -82,7 +86,7 @@ header h1 {
 
 .projects > *:hover {
     opacity: 1;
-    border-radius: 100px;
+    border-radius: 96px;
 }
 
 .projects h3 {
