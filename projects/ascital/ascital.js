@@ -5,7 +5,7 @@ function mapCoords(value, oLow, oMax, nLow, nMax) {
 }
 
 
-function renderFractal(maxIter, width, height, fillEdges = false, xMin = -2, xMax = 1, yMin = 1, yMax = -1, ) {
+function renderFractal(maxIter, width, height, fillEdges = false, xMin = -2, xMax = 1, yMin = 1, yMax = -1) {
     const area = document.getElementById("fractal")
 
     for (let y = 0; y < height; ++y) {

@@ -1,7 +1,7 @@
 :root {
     --dark: #111;
     --light: #181818;
-    --accent: #984dee;
+    --accent: #1ef04c;
     --lightText: #eee;
     --darkText: #222;
 }
@@ -112,6 +112,10 @@ footer {
     font-family: monospace;
     font-size: medium;
     white-space: pre;
+}
+
+#fractal p {
+    margin: 0;
 }
 
 @keyframes appear-left {
