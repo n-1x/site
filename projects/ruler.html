@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="ruler/style.css" />
+        <title>Screen Size Visualiser</title>
+    </head>
+
+    <body>
+        <div id="rectMenu" class="popupMenu hide">
+            <h2>Add Rectangle</h2>
+            
+            <label for="diagLen">Diagonal Length (in)</label>
+            <input type="number" id="diagLen" step="0.01">
+
+            <label for="aspectX">Aspect Ratio X</label>
+            <input type="number" id="aspectX">
+
+            <label for="aspectY">Aspect Ratio Y</label>
+            <input type="number" id="aspectY">
+
+            <button onclick="addRect()">Add</button>
+        </div>
+
+        <div id="calibMenu" class="popupMenu hide">
+            <h3>Calibration Length (mm)</h3>
+            <input type="number" id="calibLen" value="210">
+        </div>
+
+        <canvas id="canv">
+            Your browser does not support canvas.
+        </canvas>
+        <script src="ruler/main.js"></script>
+    </body>
+
+</html>

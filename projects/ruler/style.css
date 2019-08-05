@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    background-color: rgb(42,40,45);
+    color: #2a282d;
+}
+
+#canv {
+    width: 100%;
+    height: 100%;
+}
+
+
+#rectMenu {
+    width: 10em;
+    height: 15em;
+}
+
+#calibMenu {
+    width: 10em;
+    height: 6em;
+}
+
+#rectMenu input {
+    margin-bottom: 1em;
+}
+
+#rectMenu button {
+    width: 100%;
+}
+
+.popupMenu {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 0 2em 2em 2em;
+    border: 2px solid white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+
+.hide {
+    display: none;
+}
