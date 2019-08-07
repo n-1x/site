@@ -170,6 +170,11 @@ function addRect() {
         //calculate height in mm using diagonal length and aspect ratio
         const h = (25.4 * diagLenParsed) / (ratio ** 2 + 1) ** 0.5;
 
+        console.log("Diag len in mm: " + 25.4 * diagLenParsed);
+        console.log("Ratio: " + ratio);
+        console.log("Width: " + h * ratio);
+        console.log("Height: " + h);
+
         rects.push({
             w: h * ratio,
             h: h
