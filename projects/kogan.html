@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="kogan/style.css" />
+        <title>Kogan</title>
+    </head>
+
+    <body>
+        <canvas id="canv">
+            Your browser does not support canvas.
+        </canvas>
+
+        <div id="menu">
+            <!-- <button id="menuButton" class="absButton">M</button> -->
+            <button id="undoButton" class="absButton" onclick="undo()">U</button>
+            <button id="saveButton" class="absButton" onclick="save()">S</button>
+        </div>
+        <a id="downloadLink" download="kogan.png"></a>
+        <script src="kogan/main.js"></script>
+    </body>
+
+</html>
