@@ -88,7 +88,7 @@ window.oncontextmenu = event => {
     event.preventDefault();
 }
 
-reset();
+clear(false);
 loadLocalStorage();
 windowResized();
 window.requestAnimationFrame(draw);
@@ -392,7 +392,7 @@ function keyPressed(event) {
 //open the dialog for starting a new pattern
 function openNewDialog() {
     if (confirm("Start a new pattern?")) {
-        reset();
+        clear();
     }
 }
 
@@ -443,15 +443,18 @@ function redo() {
 }
 
 
-//reset whole application to default state
-function reset() {
+//clears canvas and resets viewport
+function clear(clearStorage = true) {
     lines = [];
     actionStack = [];
     undoActionStack = [];
     pan = [window.innerWidth/2 - gridSize * gridSpacing / 2, 
         window.innerHeight/2 - gridSize * gridSpacing / 2];
     zoom = 1;
-    localStorage.clear();
+
+    if (clearStorage) {
+        localStorage.clear();
+    }
 }
 
 
@@ -477,8 +480,9 @@ function loadFile() {
     reader.onload = () => {
         const result = reader.result;
 
-        reset();
+        clear();
         lines = JSON.parse(result);        
+        saveLocalStorage();
     }
     
     reader.readAsText(uploader.files[0]);
