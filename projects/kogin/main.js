@@ -48,9 +48,6 @@ let lineStartLoc = [];
 //stores all lines on the canvas
 let lines = [];
 
-//stores lines that are deleted or undone so they can be redone
-let removedLinesStack = [];
-
 //stores the action history
 let actionStack = [];
 
@@ -75,12 +72,12 @@ canvas.addEventListener("mouseup", mouseReleased, false);
 canvas.addEventListener("wheel", mouseScrolled, false);
 
 //generate the colour menu from the colours array
-for (let i = 0; i < colours.length; ++i) {
+for (const colour of colours) {
     const child = document.createElement("button");
 
-    child.style.backgroundColor = colours[i];
+    child.style.backgroundColor = colour;
     child.onclick = () => {
-        currentColour = colours[i];
+        currentColour = colour;
     }
 
     colourMenu.appendChild(child);
@@ -91,9 +88,9 @@ window.oncontextmenu = event => {
     event.preventDefault();
 }
 
+reset();
 loadLocalStorage();
 windowResized();
-reset();
 window.requestAnimationFrame(draw);
 
 //*********************************************************************
@@ -281,11 +278,13 @@ function mousePressed(event) {
                         colour: currentColour
                     };
                     lines.push(line);
-                    actionStack.push({type: "draw", count: 1});
+                    actionStack.push({
+                        type: "draw", 
+                        lines: [line]
+                    });
                     
                     //clear history for redos
                     undoActionStack = [];
-                    removedLinesStack = [];
 
                     saveLocalStorage();
 
@@ -393,9 +392,7 @@ function keyPressed(event) {
 //open the dialog for starting a new pattern
 function openNewDialog() {
     if (confirm("Start a new pattern?")) {
-        lines = [];
-        undoHistory = []
-        localStorage.clear();
+        reset();
     }
 }
 
@@ -407,14 +404,14 @@ function undo() {
     if (lastAction !== undefined) {
         undoActionStack.push(lastAction);
 
-        if (lastAction.type === "draw") {
-            for(let i = 0; i < lastAction.count; ++i) {
-                removedLinesStack.push(lines.pop());
+        if (lastAction.type === "draw") { //
+            for(let i = 0; i < lastAction.lines.length; ++i) {
+                lines.pop(); //TODO: can be optimised with splice
             }
         }
         else if (lastAction.type === "delete") {
-            for (let i = 0; i < lastAction.count; ++i) {
-                lines.push(removedLinesStack.pop());
+            for (const line of lastAction.lines) {
+                lines.push(line);
             }
         }
 
@@ -431,13 +428,13 @@ function redo() {
         actionStack.push(lastUndo);
 
         if (lastUndo.type === "draw") {
-            for (let i = 0; i < lastUndo.count; ++i) {
-                lines.push(removedLinesStack.pop());
+            for (const line of lastUndo.lines) {
+                lines.push(line);
             }
         }
         else if (lastUndo.type === "delete") {
-            for (let i = 0; i < lastUndo.count; ++i) {
-                removedLinesStack.push(lines.pop());
+            for (const line of lastUndo.lines) {
+                lines.pop();
             }
         }
 
@@ -450,11 +447,11 @@ function redo() {
 function reset() {
     lines = [];
     actionStack = [];
-    removedLinesStack = []
     undoActionStack = [];
     pan = [window.innerWidth/2 - gridSize * gridSpacing / 2, 
         window.innerHeight/2 - gridSize * gridSpacing / 2];
     zoom = 1;
+    localStorage.clear();
 }
 
 
@@ -493,7 +490,6 @@ function saveLocalStorage() {
     localStorage.setItem("lines", JSON.stringify(lines));
     localStorage.setItem("actionStack", JSON.stringify(actionStack));
     localStorage.setItem("undoActionStack", JSON.stringify(undoActionStack));
-    localStorage.setItem("redoStack", JSON.stringify(removedLinesStack));
 }
 
 
@@ -502,7 +498,6 @@ function loadLocalStorage() {
     const storedLines = localStorage.getItem("lines");
     const storedActionStack = localStorage.getItem("actionStack");
     const storedUndoActionStack = localStorage.getItem("undoActionStack");
-    const storedRedoStack = localStorage.getItem("storedRedoStack");
 
     if (storedLines) {
         lines = JSON.parse(storedLines);
@@ -514,10 +509,6 @@ function loadLocalStorage() {
 
     if (storedUndoActionStack) {
         undoActionStack = JSON.parse(storedUndoActionStack);
-    }
-
-    if (storedRedoStack) {
-        removedLinesStack = JSON.parse(storedRedoStack);
     }
 }
 
@@ -551,12 +542,8 @@ function deleteInterceptedLines() {
     if (deletedLines.length > 0) {
         actionStack.push({
             type: "delete",
-            count: deletedLines.length
+            lines: deletedLines
         });
-
-        while (deletedLines.length > 0) {
-            removedLinesStack.push(deletedLines.pop());
-        }
 
         saveLocalStorage();
     }
