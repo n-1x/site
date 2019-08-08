@@ -2,8 +2,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="user-scalable=no">
+        <meta name="description" content="Create Japanese Kogin patterns for free in the browser.">
+        <meta name="author" content="Nicholas Dean">
+        <meta name="keywords" content="japanese,craft,stitching,kogin,pattern,creator,online,free">
+        <title>Kogin Pattern Creator</title>
         <link rel="stylesheet" type="text/css" href="kogin/style.css" />
-        <title>Kogin</title>
     </head>
 
     <body>
@@ -12,11 +15,15 @@
         </canvas>
 
         <div id="menu">
-            <!-- <button id="menuButton" class="absButton">M</button> -->
-            <button id="undoButton" class="absButton" onclick="undo()">U</button>
-            <button id="redoButton" class="absButton" onclick="redo()">R</button>
-            <button id="saveButton" class="absButton" onclick="save()">S</button>
+            <button id="newButton" title="New (N)" onclick="openNewDialog()">Ne</button>
+            <button id="undoButton" title="Undo (Z)" onclick="undo()">Un</button>
+            <button id="redoButton" title="Redo (R)" onclick="redo()">Re</button>
+            <button id="saveButton" title="Save (S)" onclick="save()">Sa</button>
+            <button id="loadButton" title="Open (O)" onclick="openLoadDialogue()">Op</button>
+            <button id="exportButton" title="Export as image (E)" onclick="exportAsPNG()">Ex</button>
         </div>
+
+        <input id="uploader" class="hide" type="file" onchange="loadFile()"/>
         <a id="downloadLink" download="kogin.png"></a>
         <script src="kogin/main.js"></script>
     </body>

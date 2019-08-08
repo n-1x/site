@@ -16,7 +16,10 @@ let pan = [window.innerWidth/2 - gridSize * gridSpacing / 2,
     window.innerHeight/2 - gridSize * gridSpacing / 2];
 let panStartLoc = [0,0];
 let panning = false;
+
 let saveOnDraw = false;
+let exportName = "kogin";
+
 let lineStarted = false;
 let lineStartLoc = [];
 
@@ -108,6 +111,25 @@ function drawGridLine(x1, y1, x2, y2, lineWidth = 2) {
 }
 
 
+function drawGrid() {
+    for(let x = 0; x <= gridSize; ++x) {
+        let lineWidth = 1;
+
+        if (x === 0 || x === gridSize) {
+            lineWidth = 6;
+        }
+        else if (x % 10 === 0) {
+            lineWidth = 3;
+        }
+
+        //horizontal line
+        drawGridLine(0, x, gridSize, x, lineWidth);
+        //vertical line
+        drawGridLine(x, 0, x, gridSize, lineWidth);
+    }
+}
+
+
 function windowResized() {
     width = window.innerWidth;
     height = window.innerHeight;
@@ -152,6 +174,10 @@ function mousePressed(event) {
 
                     //save lines in local storage
                     localStorage.setItem("lines", JSON.stringify(lines));
+
+                    //clear undo history
+                    undoHistory = [];
+                    localStorage.setItem("undoHistory", undoHistory);                    
                 }
                 else { //start new line
                     lineStarted = true;
@@ -210,11 +236,28 @@ function mouseScrolled(event) {
 
 function keyPressed(event) {
     switch(event.key) {
-        case "u": //undo
+        case "n":
+            openNewDialog();
+            break;
+
+        case "z":
             undo();
             break;
+
+        case "r":
+            redo();
+            break;
+
         case "s":
             save();
+            break;
+
+        case "o":
+            openLoadDialog();
+            break;
+
+        case "e":
+            exportAsPNG();
             break;
     }
 }
@@ -281,6 +324,7 @@ function draw() {
         
         //open save dialogue
         downloadLink.href = canvas.toDataURL();
+        downloadLink.download = exportName;
         downloadLink.click();
 
         pan = tempPan;
@@ -293,12 +337,22 @@ function draw() {
 }
 
 
+function openNewDialog() {
+    if (confirm("Start a new pattern?")) {
+        lines = [];
+        undoHistory = []
+        localStorage.clear();
+    }
+}
+
+
 function undo() {
     const line = lines.pop();
 
     if (line !== undefined) {
         undoHistory.push(line);
         localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+        localStorage.setItem("lines", JSON.stringify(lines));
     }
 }
 
@@ -309,12 +363,54 @@ function redo() {
     if (line !== undefined) {
         lines.push(line);
         localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+        localStorage.setItem("lines", JSON.stringify(lines));
     }
 }
 
 
+//converts lines into a JSON file and downloads it
 function save() {
-    saveOnDraw = true;
+    const promptName = prompt("Enter a file name", "kogin");
+    
+    if (promptName !== null) {
+        const b = new Blob([JSON.stringify(lines)], {type: "application/json"});
+        const url = window.URL.createObjectURL(b);
+    
+        downloadLink.href = url;
+        downloadLink.download =  promptName + ".json";
+        downloadLink.click();
+    }
+}
+
+
+function loadFile() {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        const result = reader.result;
+
+        lines = JSON.parse(result);
+        undoHistory = [];
+    }
+    
+    reader.readAsText(uploader.files[0]);
+}
+
+
+function openLoadDialog() {
+    uploader.click();
+}
+
+
+//sets the flag so the next draw call will create a
+//png and download it
+function exportAsPNG() {
+    const name = prompt("Enter a name for the image", exportName);
+    
+    if (name !== null) {
+        saveOnDraw = true;
+        exportName = name + ".png";
+    }
 }
 
 
@@ -357,23 +453,4 @@ function getStraightPos() {
     }
 
     return [endX, endY];
-}
-
-
-function drawGrid() {
-    for(let x = 0; x <= gridSize; ++x) {
-        let lineWidth = 1;
-
-        if (x === 0 || x === gridSize) {
-            lineWidth = 6;
-        }
-        else if (x % 10 === 0) {
-            lineWidth = 3;
-        }
-
-        //horizontal line
-        drawGridLine(0, x, gridSize, x, lineWidth);
-        //vertical line
-        drawGridLine(x, 0, x, gridSize, lineWidth);
-    }
 }
