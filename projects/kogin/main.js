@@ -1,33 +1,71 @@
-let bg = "#fff";
-let fg = "#000";
-const canvas = document.getElementById("canv");
-const ctx = canvas.getContext("2d");
+//Author: Nicholas J D Dean
 
+//colour of the page
+let backgroundColour = "#fff";
+
+//colour of the grid lines
+let gridColour = "#000";
+
+//canvas size
 let width = 800;
 let height = 600;
-let mouseX = 0, mouseY = 0;
-let zoom = 1;
 
-const gridSize = 80;
+//current mouse position on the screen in pixels
+//updated every frame
+let mouseX = 0, mouseY = 0;
+
+let gridSize = 80;
 let gridSpacing = 10;
 let gridWidth = (gridSize - 1) * gridSpacing;
 
-let pan = [window.innerWidth/2 - gridSize * gridSpacing / 2, 
-    window.innerHeight/2 - gridSize * gridSpacing / 2];
+//the current zoom level
+let zoom = 1;
+
+//the current pan position
+let pan = [0, 0];
+
+//the location used to calculate the pan distance
 let panStartLoc = [0,0];
+
+//is the canvas currently being panned
 let panning = false;
 
+//whether the next draw call will save the drawn image
+//this means that things that shouldn't be on the saved 
+//image won't be draw, such as the cursor
 let saveOnDraw = false;
 let exportName = "kogin";
 
+//is the user currently drawing a delete line
+let deleteStarted = false;
+
+//is the user currently drawing a line
 let lineStarted = false;
+
+//the location of the line or delete line currently being drawn
 let lineStartLoc = [];
 
-let touchZooming = false;
-let touchZoomStartDist = 0;
-
+//stores all lines on the canvas
 let lines = [];
-let undoHistory = [];
+
+//stores lines that are deleted or undone so they can be redone
+let removedLinesStack = [];
+
+//stores the action history
+let actionStack = [];
+
+//stores the actions that have been undone so they can be redone
+let undoActionStack = [];
+
+//the colours that are available on the bottom menu. The menu
+//is automatically generated from this list
+let colours = ["black", "red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+
+//the colour that new lines will have
+let currentColour = "black";
+
+const canvas = document.getElementById("canv");
+const ctx = canvas.getContext("2d");
 
 window.addEventListener("resize", windowResized, false);
 window.addEventListener("keydown", keyPressed, false);
@@ -36,59 +74,35 @@ canvas.addEventListener("mousedown", mousePressed, false);
 canvas.addEventListener("mouseup", mouseReleased, false);
 canvas.addEventListener("wheel", mouseScrolled, false);
 
-const storedLines = localStorage.getItem("lines");
-const storedUndoHistory = localStorage.getItem("undoHistory");
+//generate the colour menu from the colours array
+for (let i = 0; i < colours.length; ++i) {
+    const child = document.createElement("button");
 
-if (storedLines) {
-    lines = JSON.parse(storedLines);
+    child.style.backgroundColor = colours[i];
+    child.onclick = () => {
+        currentColour = colours[i];
+    }
+
+    colourMenu.appendChild(child);
 }
 
-if (storedUndoHistory) {
-    undoHistory = JSON.parse(storedUndoHistory);
-}
-
-
-//bind touch controls
-window.addEventListener("touchstart", e => {
-    const {clientX : tx, clientY : ty} = e.targetTouches[0];
-    panStartLoc = [tx, ty];
-    mouseX = tx;
-    mouseY = ty;
-    e.preventDefault();
-}, false);
-
-window.addEventListener("touchmove", e => {
-    if (e.targetTouches.length === 1) {
-        const {clientX : tx, clientY : ty} = e.targetTouches[0];
-        pan[0] += tx - panStartLoc[0];
-        pan[1] += ty - panStartLoc[1];
-        panStartLoc = [tx, ty];
-        mouseX = tx;
-        mouseY = ty;
-    }
-    else {
-        const [t1, t2] = e.targetTouches;
-        const {clientX : t1x, clientY : t1y} = t1;
-        const {clientX: t2x, clientY: t2y} = t2;
-        const diff = [t2x - t1x, t2y - t1y];
-        const dist = (diff[0] ** 2 + diff[1] ** 2) ** .5;
-
-        if (touchZooming) {
-
-        }
-        else {
-            touchZooming = true;
-        }
-    }
-});
-
-
+//prevent right click context menu
 window.oncontextmenu = event => {
     event.preventDefault();
 }
 
-window.requestAnimationFrame(draw);
+loadLocalStorage();
 windowResized();
+reset();
+window.requestAnimationFrame(draw);
+
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+//Draw functions
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
 
 //draws a line on the canvas
 function drawLine(x1, y1, x2, y2, lineWidth = 2) {
@@ -111,6 +125,7 @@ function drawGridLine(x1, y1, x2, y2, lineWidth = 2) {
 }
 
 
+//draw the main grid
 function drawGrid() {
     for(let x = 0; x <= gridSize; ++x) {
         let lineWidth = 1;
@@ -130,6 +145,102 @@ function drawGrid() {
 }
 
 
+function draw() {
+    const [gridX, gridY] = getMouseGridPos();
+    const tempPan = pan;
+    const tempZoom = zoom;
+    
+    //position the grid in the center of the canvas
+    if (saveOnDraw) {
+        const borderSize = 50;
+        canvas.width = gridSize * gridSpacing + borderSize * 2;
+        canvas.height = canvas.width;
+        
+        pan = [borderSize, borderSize];
+        zoom = 1;
+    }
+    
+    //clear canvas
+    ctx.fillStyle = backgroundColour;
+    ctx.fillRect(0, 0, width, height);
+    
+    //draw the grid
+    ctx.fillStyle = gridColour;
+    ctx.strokeStyle = "#444";
+    drawGrid();
+
+    //draw pattern lines
+    for (const l of lines) {
+        const {start, end, colour} = l;
+        ctx.strokeStyle = colour;
+
+        if (deleteStarted) {
+            const deleteLine = {
+                start: lineStartLoc,
+                end: getStraightPos()
+            };
+
+            //highlihgt lines that intercept the delete line
+            if (linesIntercept(l, deleteLine)) {
+                ctx.strokeStyle = "rgba(100,0,0,.5)";
+            }
+        }
+        drawGridLine(start[0], start[1], end[0], end[1], 8, );
+    }
+
+    //these things should not be drawn on a frame that will be saved
+    if (!saveOnDraw) {
+        //draw line in progress
+        if (lineStarted || deleteStarted) {
+            const [startX, startY] = lineStartLoc;        
+            const [endX, endY] = getStraightPos();
+    
+            ctx.strokeStyle = "rgba(100,100,100,.8)";
+            drawGridLine(startX, startY, endX, endY, 6);
+        }
+    
+        //draw cursor
+        if (isValidGridPos(gridX, gridY)) {
+            ctx.fillStyle = currentColour;
+            ctx.beginPath();
+            ctx.arc(
+                gridX * gridSpacing * zoom + pan[0],
+                gridY * gridSpacing * zoom + pan[1],
+                5,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill();
+        }
+    }
+
+    //save the image and restore canvas properties
+    if (saveOnDraw) {
+        saveOnDraw = false;
+        
+        //open save dialogue
+        downloadLink.href = canvas.toDataURL();
+        downloadLink.download = exportName;
+        downloadLink.click();
+
+        //restore canvas size and viewport
+        pan = tempPan;
+        zoom = tempZoom;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    window.requestAnimationFrame(draw);
+}
+
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+//Event Handlers
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+
 function windowResized() {
     width = window.innerWidth;
     height = window.innerHeight;
@@ -142,11 +253,6 @@ function mouseMoved(event) {
     mouseX = event.clientX;
     mouseY = event.clientY;
 
-    calculatePan();
-}
-
-
-function calculatePan() {
     if (panning) {
         const xDiff = mouseX - panStartLoc[0];
         const yDiff = mouseY - panStartLoc[1];
@@ -160,24 +266,30 @@ function calculatePan() {
 
 
 function mousePressed(event) {
+    const gridLoc = getMouseGridPos();
+
     switch(event.which) {
         case 1:
-            const gridLoc = getMouseGridPos();
-
-            if (isValidGridPos(gridLoc[0], gridLoc[1])) {
+            if (deleteStarted) {
+                deleteStarted = false;
+            }
+            else if (isValidGridPos(gridLoc[0], gridLoc[1])) {
                 if (lineStarted) { //finish line
-                    lines.push([
-                        lineStartLoc,
-                        getStraightPos()
-                    ]);
+                    const line = {
+                        start: lineStartLoc,
+                        end: getStraightPos(),
+                        colour: currentColour
+                    };
+                    lines.push(line);
+                    actionStack.push({type: "draw", count: 1});
+                    
+                    //clear history for redos
+                    undoActionStack = [];
+                    removedLinesStack = [];
+
+                    saveLocalStorage();
+
                     lineStarted = false;
-
-                    //save lines in local storage
-                    localStorage.setItem("lines", JSON.stringify(lines));
-
-                    //clear undo history
-                    undoHistory = [];
-                    localStorage.setItem("undoHistory", undoHistory);                    
                 }
                 else { //start new line
                     lineStarted = true;
@@ -194,6 +306,14 @@ function mousePressed(event) {
         case 3:
             if (lineStarted) {
                 lineStarted = false;
+            }
+            else if (deleteStarted) {
+                deleteStarted = false;
+                deleteInterceptedLines();
+            }
+            else {
+                deleteStarted = true;
+                lineStartLoc = gridLoc;
             }
             break;
     }
@@ -262,81 +382,15 @@ function keyPressed(event) {
     }
 }
 
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+//Action functions
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
 
-function draw() {
-    const tempPan = pan;
-    const tempZoom = zoom;
-
-    //prepare canvas for saving
-    if (saveOnDraw) {
-        const borderSize = 50;
-        canvas.width = gridSize * gridSpacing + borderSize * 2;
-        canvas.height = canvas.width;
-
-        pan = [borderSize,borderSize];
-        zoom = 1;
-    }
-
-    const [gridX, gridY] = getMouseGridPos();
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, width, height);
-
-    ctx.fillStyle = fg;
-    ctx.strokeStyle = "#444";
-    drawGrid();
-
-    ctx.strokeStyle = fg;
-    //draw all lines
-    for (const l of lines) {
-        const [start, end] = l;
-
-        drawGridLine(start[0], start[1], end[0], end[1], 8);
-    }
-
-    //don't draw these things when saving
-    if (!saveOnDraw) {
-        //draw line in progress
-        if (lineStarted) {
-            const [startX, startY] = lineStartLoc;        
-            const [endX, endY] = getStraightPos();
-    
-            ctx.strokeStyle = "rgba(100,100,100,.8)";
-            drawGridLine(startX, startY, endX, endY, 6);
-        }
-    
-        //draw cursor
-        if (isValidGridPos(gridX, gridY)) {
-            ctx.beginPath();
-            ctx.arc(
-                gridX * gridSpacing * zoom + pan[0],
-                gridY * gridSpacing * zoom + pan[1],
-                5,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-        }
-    }
-
-    //save the image and restore canvas properties
-    if (saveOnDraw) {
-        saveOnDraw = false;
-        
-        //open save dialogue
-        downloadLink.href = canvas.toDataURL();
-        downloadLink.download = exportName;
-        downloadLink.click();
-
-        pan = tempPan;
-        zoom = tempZoom;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    window.requestAnimationFrame(draw);
-}
-
-
+//open the dialog for starting a new pattern
 function openNewDialog() {
     if (confirm("Start a new pattern?")) {
         lines = [];
@@ -346,25 +400,61 @@ function openNewDialog() {
 }
 
 
+//undo the last action
 function undo() {
-    const line = lines.pop();
+    const lastAction = actionStack.pop();
 
-    if (line !== undefined) {
-        undoHistory.push(line);
-        localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
-        localStorage.setItem("lines", JSON.stringify(lines));
+    if (lastAction !== undefined) {
+        undoActionStack.push(lastAction);
+
+        if (lastAction.type === "draw") {
+            for(let i = 0; i < lastAction.count; ++i) {
+                removedLinesStack.push(lines.pop());
+            }
+        }
+        else if (lastAction.type === "delete") {
+            for (let i = 0; i < lastAction.count; ++i) {
+                lines.push(removedLinesStack.pop());
+            }
+        }
+
+        saveLocalStorage();
     }
 }
 
 
+//redo the last action
 function redo() {
-    const line = undoHistory.pop();
+    const lastUndo = undoActionStack.pop();
 
-    if (line !== undefined) {
-        lines.push(line);
-        localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
-        localStorage.setItem("lines", JSON.stringify(lines));
+    if (lastUndo !== undefined) {
+        actionStack.push(lastUndo);
+
+        if (lastUndo.type === "draw") {
+            for (let i = 0; i < lastUndo.count; ++i) {
+                lines.push(removedLinesStack.pop());
+            }
+        }
+        else if (lastUndo.type === "delete") {
+            for (let i = 0; i < lastUndo.count; ++i) {
+                removedLinesStack.push(lines.pop());
+            }
+        }
+
+        saveLocalStorage();
     }
+}
+
+
+//reset whole application to default state
+function reset() {
+    lines = [];
+    actionStack = [];
+    removedLinesStack = []
+    undoActionStack = [];
+    pan = [window.innerWidth/2 - gridSize * gridSpacing / 2, 
+        window.innerHeight/2 - gridSize * gridSpacing / 2];
+    zoom = 1;
 }
 
 
@@ -383,22 +473,93 @@ function save() {
 }
 
 
+//parse the JSON file currently in the uploader element
 function loadFile() {
     const reader = new FileReader();
 
     reader.onload = () => {
         const result = reader.result;
 
-        lines = JSON.parse(result);
-        undoHistory = [];
+        reset();
+        lines = JSON.parse(result);        
     }
     
     reader.readAsText(uploader.files[0]);
 }
 
 
+//save relevant vairables to local storage
+function saveLocalStorage() {
+    localStorage.setItem("lines", JSON.stringify(lines));
+    localStorage.setItem("actionStack", JSON.stringify(actionStack));
+    localStorage.setItem("undoActionStack", JSON.stringify(undoActionStack));
+    localStorage.setItem("redoStack", JSON.stringify(removedLinesStack));
+}
+
+
+//load saved variables form local storage and assign them
+function loadLocalStorage() {
+    const storedLines = localStorage.getItem("lines");
+    const storedActionStack = localStorage.getItem("actionStack");
+    const storedUndoActionStack = localStorage.getItem("undoActionStack");
+    const storedRedoStack = localStorage.getItem("storedRedoStack");
+
+    if (storedLines) {
+        lines = JSON.parse(storedLines);
+    }
+
+    if (storedActionStack) {
+        actionStack = JSON.parse(storedActionStack);
+    }
+
+    if (storedUndoActionStack) {
+        undoActionStack = JSON.parse(storedUndoActionStack);
+    }
+
+    if (storedRedoStack) {
+        removedLinesStack = JSON.parse(storedRedoStack);
+    }
+}
+
+
 function openLoadDialog() {
     uploader.click();
+}
+
+
+//delete all the lines intercepted by the current delete line
+function deleteInterceptedLines() {
+    let index = 0;
+    const deletedLines = [];
+
+    while (index < lines.length) {
+        const line = lines[index];
+        const line2 = {
+            start: lineStartLoc,
+            end: getStraightPos()
+        }
+
+        if (linesIntercept(line, line2)) {
+            lines.splice(index, 1);
+            deletedLines.push(line);
+        }
+        else {
+            ++index;
+        }
+    }
+
+    if (deletedLines.length > 0) {
+        actionStack.push({
+            type: "delete",
+            count: deletedLines.length
+        });
+
+        while (deletedLines.length > 0) {
+            removedLinesStack.push(deletedLines.pop());
+        }
+
+        saveLocalStorage();
+    }
 }
 
 
@@ -413,6 +574,39 @@ function exportAsPNG() {
     }
 }
 
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+//Utility functions
+//*********************************************************************
+//*********************************************************************
+//*********************************************************************
+
+//returns true if the two lines intercept
+function linesIntercept(line1, line2) {
+    const test = (start1, end1, start2, end2) => {
+        const [s1x, s1y] = start1;
+        const [e1x, e1y] = end1;
+        const [s2x, s2y] = start2;
+        const [e2x, e2y] = end2;
+
+        return s1x >= s2x && s1x <= e2x &&
+            s1y <= s2y && e1y >= s2y;
+    };
+
+    //test every combination of which line comees first and which
+    //order the line's points are in
+    return test(line1.start, line1.end,   line2.start, line2.end)   ||
+           test(line1.end,   line1.start, line2.start, line2.end)   ||
+           test(line1.start, line1.end,   line2.end,   line2.start) ||
+           test(line1.end,   line1.start, line2.end,   line2.start) ||
+           
+           test(line2.start, line2.end,   line1.start, line1.end)   ||
+           test(line2.end,   line2.start, line1.start, line1.end)   ||
+           test(line2.start, line2.end,   line1.end,   line1.start) ||
+           test(line2.end,   line2.start, line1.end,   line1.start);
+}
+
 
 //checks if the coordinates are in the grid
 function isValidGridPos(x, y) {
@@ -421,6 +615,8 @@ function isValidGridPos(x, y) {
 }
 
 
+//get the mouse position in the grid accounting
+//for pan and zoom 
 function getMouseGridPos() {
     return [
         Math.round((mouseX - pan[0]) / (gridSpacing * zoom)),
@@ -429,15 +625,8 @@ function getMouseGridPos() {
 }
 
 
-function getMouseWorldPos() {
-    return [
-        (mouseX - pan[0]) / (gridSpacing * zoom),
-        (mouseY - pan[1]) / (gridSpacing * zoom)
-    ];
-}
-
-
-//gets the location of the end of the line
+//gets the location of the end of the line currently being drawn
+//but only allows this to be a straight line
 function getStraightPos() {
     const [gridX, gridY] = getMouseGridPos();
     const [startX, startY] = lineStartLoc;

@@ -15,17 +15,19 @@
         </canvas>
 
         <div id="menu">
-            <button id="newButton" title="New (N)" onclick="openNewDialog()">Ne</button>
-            <button id="undoButton" title="Undo (Z)" onclick="undo()">Un</button>
-            <button id="redoButton" title="Redo (R)" onclick="redo()">Re</button>
-            <button id="saveButton" title="Save (S)" onclick="save()">Sa</button>
-            <button id="loadButton" title="Open (O)" onclick="openLoadDialogue()">Op</button>
-            <button id="exportButton" title="Export as image (E)" onclick="exportAsPNG()">Ex</button>
+            <button id="newButton" title="New (N)" onclick="openNewDialog()">New</button>
+            <button id="undoButton" title="Undo (Z)" onclick="undo()">Undo</button>
+            <button id="redoButton" title="Redo (R)" onclick="redo()">Redo</button>
+            <button id="saveButton" title="Save (S)" onclick="save()">Save</button>
+            <button id="loadButton" title="Open (O)" onclick="openLoadDialog()">Open</button>
+            <button id="exportButton" title="Export as image (E)" onclick="exportAsPNG()">Export</button>
         </div>
+
+        <dif id="colourMenu">
+        </dif>
 
         <input id="uploader" class="hide" type="file" onchange="loadFile()"/>
         <a id="downloadLink" download="kogin.png"></a>
         <script src="kogin/main.js"></script>
     </body>
-
 </html>

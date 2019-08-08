@@ -1,22 +1,41 @@
 body {
     margin: 0;
-    background-color: magenta;
+    background-color: white;
+    overflow: hidden;
 }
 
 #menu {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 1rem;
+    left: 1rem;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
 #menu > button {
     background-color: white;
-    box-shadow: 3px 3px 5px black;
-    width: 4rem;
-    height: 4rem;
-    font-size: 2rem;
+    box-shadow: 3px 3px 6px black;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 5%;
+}
+
+#colourMenu {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#colourMenu > button {
+    width: 3rem;
+    height: 3rem;
+    box-shadow:  3px 3px 6px black;
+    background-color: green;
+    border: 1px solid black;
     border-radius: 50%;
 }
 
