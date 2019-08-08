@@ -23,7 +23,8 @@ let lineStartLoc = [];
 let touchZooming = false;
 let touchZoomStartDist = 0;
 
-const lines = [];
+let lines = [];
+let undoHistory = [];
 
 window.addEventListener("resize", windowResized, false);
 window.addEventListener("keydown", keyPressed, false);
@@ -31,6 +32,17 @@ canvas.addEventListener("mousemove", mouseMoved, false);
 canvas.addEventListener("mousedown", mousePressed, false);
 canvas.addEventListener("mouseup", mouseReleased, false);
 canvas.addEventListener("wheel", mouseScrolled, false);
+
+const storedLines = localStorage.getItem("lines");
+const storedUndoHistory = localStorage.getItem("undoHistory");
+
+if (storedLines) {
+    lines = JSON.parse(storedLines);
+}
+
+if (storedUndoHistory) {
+    undoHistory = JSON.parse(storedUndoHistory);
+}
 
 
 //bind touch controls
@@ -137,6 +149,9 @@ function mousePressed(event) {
                         getStraightPos()
                     ]);
                     lineStarted = false;
+
+                    //save lines in local storage
+                    localStorage.setItem("lines", JSON.stringify(lines));
                 }
                 else { //start new line
                     lineStarted = true;
@@ -194,7 +209,6 @@ function mouseScrolled(event) {
 
 
 function keyPressed(event) {
-    console.log(event);
     switch(event.key) {
         case "u": //undo
             undo();
@@ -280,7 +294,13 @@ function draw() {
 
 
 function undo() {
-    lines.pop();
+    undoHistory.push(lines.pop());
+    localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+}
+
+
+function redo() {
+    lines.push(undoHistory.pop());
 }
 
 
