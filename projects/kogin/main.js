@@ -294,13 +294,22 @@ function draw() {
 
 
 function undo() {
-    undoHistory.push(lines.pop());
-    localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+    const line = lines.pop();
+
+    if (line !== undefined) {
+        undoHistory.push(line);
+        localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+    }
 }
 
 
 function redo() {
-    lines.push(undoHistory.pop());
+    const line = undoHistory.pop();
+
+    if (line !== undefined) {
+        lines.push(line);
+        localStorage.setItem("undoHistory", JSON.stringify(undoHistory));
+    }
 }
 
 
