@@ -26,10 +26,10 @@ let touchZoomStartDist = 0;
 const lines = [];
 
 window.addEventListener("resize", windowResized, false);
+window.addEventListener("keydown", keyPressed, false);
 canvas.addEventListener("mousemove", mouseMoved, false);
 canvas.addEventListener("mousedown", mousePressed, false);
 canvas.addEventListener("mouseup", mouseReleased, false);
-canvas.addEventListener("keydown", keyPressed, false);
 canvas.addEventListener("wheel", mouseScrolled, false);
 
 
@@ -194,6 +194,7 @@ function mouseScrolled(event) {
 
 
 function keyPressed(event) {
+    console.log(event);
     switch(event.key) {
         case "u": //undo
             undo();
