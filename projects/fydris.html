@@ -10,10 +10,21 @@
     <meta name="keywords" content="Game, Fydris, Online, Web Game">
 
     <script type="text/javascript" src="../resources/js/misc.js" ></script>
-    <script type="text/javascript" src="../resources/js/p5.min.js"></script>
-    <script type="text/javascript" src="../resources/js/p5.dom.min.js"></script>
-    <script type="text/javascript" src="../resources/js/p5.sound.min.js"></script>
-    <script type="text/javascript" src="fydris/fydris.js"></script>
+    <script type="module" src="fydris/src/main.js"></script>
+
+    <style type="text/css">
+      .usernameForm input {
+        border: 2px solid white;
+        background: transparent;
+        font-size: inherit;
+        color: white;
+        width: 8ch;
+      }
+
+      .usernameForm label {
+        font-size: inherit
+      }
+    </style>
   </head>
 
   <body>
@@ -24,9 +35,6 @@
     </header>
 
     <div id="game" class="section">
-      <div id="p5_loading">
-        <p>Loading game assets...</p>
-      </div>
     </div>
   
     <footer class="section">
