@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rubik's Cube | SalkiNet</title>
+    <title>0x2a.re | rubik's</title>
     <link rel="stylesheet" type="text/css" href='../style.css'>
     <link rel="icon" href="../favicon.png">
     <meta charset="utf-8">
@@ -9,7 +9,6 @@
     <meta name="author" content="Nick Dean">
     <meta name="keywords" content="online, rubik's, cube">
 
-    <script type="text/javascript" src="../resources/js/misc.js" ></script>
     <script type="text/javascript" src="../resources/js/p5.min.js"></script>
     <script type="text/javascript" src="../resources/js/p5.dom.min.js"></script>
     <script type="text/javascript" src="../resources/js/p5.sound.min.js"></script>
@@ -17,18 +16,13 @@
   </head>
 
   <body>
-    <header id="top" class="section">
-      <a href="../index.html">
-	      <h1 id="name">SalkiNet</h1>
-      </a>     
-    </header>
+    <div id="top">
+      <div class="card">
+        <h3><a href="../index.html">Home</a></h3>
+      </div>
+    </div>
 
-    <div id="game" class="section">
-      <h2>Rubik's Cube</h2>
-      
-      <div id="p5-holder"></div>
-
-      <h3>Controls</h3>
+    <div id="game">
       <ul>
         <li>SPACE: Turn layer</li>
         <li>UP: Up one layer</li>
@@ -37,13 +31,8 @@
         <li>RIGHT: Next axis</li>
         <li>Click and drag the mouse to rotate the cube</li>
       </ul>
-    </div>
-  
-    <footer class="section">
-        <div class="fall">
-          <a onclick="scrollToEl('top')">Go to top</a>
-          <p>From scratch by Nick Dean <em id="copyright"></em></p>
-        </div>
+
+      <div id="p5-holder"></div>
     </div>
   </body>
 </html>
