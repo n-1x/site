@@ -77,4 +77,5 @@ h3 {
 .content {
     max-width: 80ch;
     margin: 2ch auto;
+    text-align: center;
 }
