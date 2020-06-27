@@ -62,7 +62,7 @@ h3 {
 }
 
 .card {
-    text-align: center;
+    text-align: left;
     padding: 1ch;
     border-radius: 25px;
     transition: border-radius 0.2s;
