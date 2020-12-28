@@ -1,18 +1,25 @@
 :root {
     --dark: #111;
     --light: #181818;
-    --accent: #984dee;
+    --accent-hue: 70;
+    --accent-sat: 80%;
+    --accent: hsl(var(--accent-hue), var(--accent-sat), 50%);
+    --accent-light: hsl(var(--accent-hue), var(--accent-sat), 60%);
+    --accent-dark: hsl(var(--accent-hue), var(--accent-sat), 30%);
+    --accent-vdark: hsl(var(--accent-hue), var(--accent-sat), 8%);
+    --accent-vvdark: hsl(var(--accent-hue), var(--accent-sat), 5%);
     --lightText: #eee;
     --darkText: #222;
 }
 
 body {
-    background: var(--dark);
+    background: var(--accent-vvdark);
     color: var(--lightText);
     font-family: monospace;
     font-size: 1.5em;
-    padding: 2ch 8%;
+    padding: 2ch 6%;
     text-align: center;
+    max-width: 80ch;
 }
 
 ul {
@@ -25,11 +32,12 @@ ul > li {
 
 a {
   text-decoration: none;
-  color: var(--accent);
+  color: var(--accent-light);
+  transition: opacity 0.15s;
 }
 
-h3 {
-    margin: 0;
+a:hover {
+    opacity: 80%;
 }
 
 ::selection {
@@ -37,41 +45,64 @@ h3 {
     color: var(--lightText);
 }
 
+p, canvas, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.bgcanv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
 #top {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 2ch;
-    margin-bottom: 2ch;
+    justify-content: left;
+    gap: 1ch;
+    margin-bottom: 1ch;
 }
 
-#top > div {
-    width: 8ch;
+#top > * {
+    min-width: 8ch;
     text-align: center;
+}
+
+#top > a {
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 3ch;
+    grid-template-columns: repeat(1, minmax(240px, 1fr));
     justify-content: center;
 }
 
-#projects > div {
+#projects > * {
     color: var(--lightText);
 }
 
 .card {
+    background: var(--accent-vdark);
+    border: 2px solid var(--accent-dark);
     text-align: left;
     padding: 1ch;
-    border-radius: 25px;
-    transition: border-radius 0.2s;
-    box-shadow: 10px 10px 10px #030303;
-    background: var(--light);
+    margin: 0.2ch 0;
+    transition: border-radius 0.25s, border-color 0.25s, opacity 0.25s;
+    opacity: 80%;
+}
+
+.card .title {
+    color: var(--accent);
 }
 
 .card:hover {
-    border-radius: 0px;
+    border-radius: 0 25px 0 25px;
+    border-color: var(--accent);
+    opacity: 95%;
 }
 
 .content {

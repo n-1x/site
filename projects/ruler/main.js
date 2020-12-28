@@ -1,5 +1,6 @@
-let bg = "#2a282d";
-let fg = "#fff";
+const style = getComputedStyle(document.documentElement);
+const fg = style.getPropertyValue("--accent");
+const bg = style.getPropertyPriority("--accent-vvdark");
 
 let ppmm = 10;
 let calibrationLength = 210;
@@ -114,20 +115,21 @@ function keyPressed(event) {
 
 
 function draw() {
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = "bg";
+    ctx.clearRect(0, 0, width, height);
     
     //draw calibration screen
     if (!calibrated) {
+        console.log("drawing calibration screen")
         ctx.fillStyle = fg;
         ctx.textAlign = "center";
-        ctx.font = "100px Arial";
+        ctx.font = "2rem Monospace";
         ctx.fillText("CALIBRATION", width/2, 150);
     
-        ctx.font = "30px Arial";
+        ctx.font = "1.5rem Monospace";
         ctx.fillText("Place the short side of a piece of A4 on the 0 mark", width/2, 200);
         ctx.fillText("click where the right hand corner reaches.", width/2, 230);
-        //text("Don't have any A4? Press L to set a different calibration length.", width/2, 280);
+        ctx.fillText("No A4? Press L to set a different calibration length.", width/2, 280);
 
         ctx.beginPath()
         ctx.arc(mouseX, height/2, 4, 0, Math.PI * 2);
@@ -147,8 +149,6 @@ function draw() {
             ctx.stroke();
         }
     }
-
-    
     
     drawHorizGuide(0, window.innerWidth, window.innerHeight/2, 10, 5);
 }
@@ -200,7 +200,6 @@ function drawHorizGuide(xStart, xEnd, y, mainFreq, subFreq) {
             
             ctx.fillStyle = fg;
             ctx.textAlign = "center";
-            ctx.font = `${ppmm * 4}px Arial`;
             ctx.fillText(Math.floor(counter / mainFreq), xPos, y - markLen - 10)
         }
         else if (counter % subFreq === 0) {
