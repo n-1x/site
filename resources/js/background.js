@@ -1,9 +1,12 @@
+const vertices = [-1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0];
+const indices = [0, 2, 3, 0, 1, 2];
+
 let canvas = null;
 let gl = null;
 let uniformTime = null;
 let uniformMouse = null;
-const vertices = [-1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0];
-const indices = [0, 2, 3, 0, 1, 2];
+let uniformHSL = null;
+let root = document.querySelector(":root");
 
 window.addEventListener("DOMContentLoaded", () => {
     canvas = document.createElement("canvas");
@@ -120,11 +123,8 @@ window.addEventListener("DOMContentLoaded", () => {
     uniformMouse = gl.getUniformLocation(shaderProgram, "iMouse");
     gl.uniform2f(uniformMouse, 0.0, 0.0);
 
-    const uniformHSL = gl.getUniformLocation(shaderProgram, "colour");
-    const style = getComputedStyle(document.documentElement);
-    const hue = style.getPropertyValue("--accent-hue");
-    const sat = parseInt(style.getPropertyValue("--accent-sat"));
-    const [r,g,b] = hslToRGB(hue/360., sat/100., 0.5);
+    uniformHSL = gl.getUniformLocation(shaderProgram, "colour");
+    const [r,g,b] = getAccentRGB();
     gl.uniform3f(uniformHSL, r, g, b);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
@@ -136,20 +136,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
     gl.clearColor(0.5, 0.5, 0.5, 0.9);
 
-    update(0);
+    update();
 
     document.onmousemove = event => {
         gl.uniform2f(uniformMouse, 
         event.clientX, 
         document.documentElement.scrollHeight - event.clientY
         );
-    }
+    };
     
     window.onresize = () => {
         canvas.width = window.innerWidth;
         canvas.height = document.documentElement.scrollHeight;
         gl.uniform2f(uniformResolution, canvas.width, canvas.height);
-    }
+    };
 });
 
 // TODO: touch support (events: touchstart, touchmove)
@@ -157,6 +157,11 @@ window.addEventListener("DOMContentLoaded", () => {
 function update() {
     const t = performance.now() / 1000.;
     gl.uniform1f(uniformTime, t);
+
+    setAccent((Date.now() / 150) % 360);
+    const [r,g,b] = getAccentRGB();
+    gl.uniform3f(uniformHSL, r, g, b);
+
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
@@ -203,4 +208,16 @@ function hslToRGB(h, s, l) {
     const b = hueToRGB(m1, m2, h - 1./3.);
 
     return [r,g,b];
+}
+
+function getAccentRGB() {
+    const style = getComputedStyle(root);
+    const hue = style.getPropertyValue("--accent-hue");
+    const sat = parseInt(style.getPropertyValue("--accent-sat"));
+
+    return hslToRGB(hue/360., sat/100., 0.5);
+}
+
+function setAccent(hue) {
+    root.style.setProperty("--accent-hue", hue.toString());
 }

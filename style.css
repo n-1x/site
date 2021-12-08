@@ -1,7 +1,7 @@
 :root {
     --dark: #111;
     --light: #181818;
-    --accent-hue: 70;
+    --accent-hue: 90;
     --accent-sat: 80%;
     --accent: hsl(var(--accent-hue), var(--accent-sat), 50%);
     --accent-light: hsl(var(--accent-hue), var(--accent-sat), 60%);
@@ -51,7 +51,7 @@ p, canvas, h3 {
 }
 
 .bgcanv {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
