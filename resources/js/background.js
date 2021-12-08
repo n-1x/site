@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
     canvas.width = window.innerWidth;
     canvas.height = document.documentElement.scrollHeight;
     document.body.appendChild(canvas);
-    console.log("appended")
 
     gl = canvas.getContext('webgl');
 
