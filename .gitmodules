@@ -15,4 +15,4 @@
 	url = https://github.com/Aenyx/tendryl.git
 [submodule "projects/NiSPer"]
 	path = projects/NiSPer
-	url = git@github.com:Fydrenak/NiSPer.git
+	url = https://github.com/Fydrenak/NiSPer.git
