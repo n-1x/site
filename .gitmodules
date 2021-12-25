@@ -16,3 +16,6 @@
 [submodule "projects/NiSPer"]
 	path = projects/NiSPer
 	url = https://github.com/Fydrenak/NiSPer.git
+[submodule "projects/websarum"]
+	path = projects/websarum
+	url = https://github.com/Fydrenak/websarum.git
