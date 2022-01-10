@@ -19,3 +19,6 @@
 [submodule "projects/websarum"]
 	path = projects/websarum
 	url = https://github.com/Fydrenak/websarum.git
+[submodule "projects/nickle"]
+	path = projects/nickle
+	url = https://github.com/Fydrenak/nickle.git
