@@ -109,15 +109,6 @@ function startWebGL() {
     }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-    canvas = document.createElement("canvas");
-    canvas.classList.add("bgcanv");
-    canvas.width = window.innerWidth;
-    canvas.height = document.documentElement.scrollHeight;
-    document.body.appendChild(canvas);
-    startWebGL();
-});
-
 function renderInit() {
     // Create a new buffer object
     const vertex_buffer = gl.createBuffer();
@@ -241,3 +232,14 @@ function getAccentRGB() {
 function setAccent(hue) {
     root.style.setProperty("--accent-hue", hue.toString());
 }
+
+function begin() {
+    canvas = document.createElement("canvas");
+    canvas.classList.add("bgcanv");
+    canvas.width = window.innerWidth;
+    canvas.height = document.documentElement.scrollHeight;
+    document.body.appendChild(canvas);
+    startWebGL();
+}
+
+begin();
